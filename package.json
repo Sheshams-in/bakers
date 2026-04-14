@@ -1,0 +1,32 @@
+{
+  "name": "sheshamsbakers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sheshams-in/bakers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sheshams-in/bakers/issues"
+  },
+  "homepage": "https://github.com/Sheshams-in/bakers#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-img": "^6.0.4",
+    "fuse.js": "^7.3.0"
+  },
+  "devDependencies": {
+    "markdown-it": "^14.1.1",
+    "markdown-it-anchor": "^9.2.0"
+  }
+}

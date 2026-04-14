@@ -1,0 +1,30 @@
+<div class="gallery">
+  <div class="gallery__filters">
+    <button class="gallery__filter-btn gallery__filter-btn--active" data-filter="all">
+      All
+    </button>
+    {% for category in categories %}
+      <button class="gallery__filter-btn" data-filter="{{ category | lower | replace(' ', '-') }}">
+        {{ category }}
+      </button>
+    {% endfor %}
+  </div>
+
+  <div class="gallery__search">
+    <input 
+      type="text" 
+      id="searchInput" 
+      class="gallery__search-input" 
+      placeholder="Search cakes..." 
+      aria-label="Search gallery"
+    >
+    <span class="gallery__search-count">Showing <span id="resultCount">0</span> cakes</span>
+  </div>
+
+  <div class="gallery__grid" id="galleryGrid">
+    <!-- Posts will be rendered here by JavaScript -->
+    <div class="gallery__loading">Loading cakes...</div>
+  </div>
+</div>
+
+<script src="/assets/js/gallery.js"></script>

@@ -1,0 +1,36 @@
+<div class="post-card" data-categories="{{ categories | join(',') | lower }}">
+  <a href="{{ instagramUrl }}" target="_blank" class="post-card__link">
+    <div class="post-card__image-container">
+      {% if mediaType === 'VIDEO' %}
+        <div class="post-card__video-overlay">
+          <span class="post-card__play-icon">▶</span>
+        </div>
+      {% endif %}
+      <img 
+        src="{{ imageUrl or '/assets/images/placeholder.jpg' }}" 
+        alt="Sheshams Bakers cake" 
+        class="post-card__image"
+        loading="lazy"
+      >
+    </div>
+  </a>
+
+  <div class="post-card__content">
+    {% if categories %}
+      <div class="post-card__categories">
+        {% for category in categories %}
+          <span class="post-card__category-badge">{{ category }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <p class="post-card__caption">{{ caption[:80] }}...</p>
+
+    <div class="post-card__meta">
+      <span class="post-card__likes">❤️ {{ likes }}</span>
+      <span class="post-card__comments">💬 {{ comments }}</span>
+    </div>
+
+    <time class="post-card__date">{{ timestamp | dateFilter }}</time>
+  </div>
+</div>

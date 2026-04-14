@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or 'Premium artisan cakes, cupcakes, and specialty desserts. Vegetarian & Eggless. Order custom cakes via WhatsApp.' }}">
+  <meta property="og:title" content="{{ title or 'Sheshams Bakers - Premium Artisan Cakes' }}">
+  <meta property="og:description" content="{{ description or 'Handcrafted vegetarian cakes & cupcakes. 100% eggless. Custom designs available.' }}">
+  <meta property="og:image" content="{{ ogImage or '/assets/images/og-image.jpg' }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ url or 'https://sheshams-bakers.com' }}">
+  <meta name="theme-color" content="#9D5FD9">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <title>{{ title or 'Sheshams Bakers' }}</title>
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" href="/assets/images/favicon.ico">
+  
+  <!-- AOS (Animate On Scroll) Library for smooth scroll animations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+  {% include "header.njk" %}
+  
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+  
+  <!-- AOS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
