@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all systems
   initMobileMenu();
+  initStickyNav();
   initAOS();
   initSmoothScrollLinks();
   addDateFilter();
@@ -69,6 +70,47 @@ function initMobileMenu() {
     if (e.key === 'Escape') {
       navToggle.classList.remove('active');
       navMenu.classList.remove('active');
+    }
+  });
+}
+
+// ============================================
+// Sticky Navigation Toggle (Homepage)
+// ============================================
+function initStickyNav() {
+  const stickyNavToggle = document.getElementById('stickyNavToggle');
+  const stickyNavMenu = document.getElementById('stickyNavMenu');
+  
+  if (!stickyNavToggle || !stickyNavMenu) return;
+  
+  stickyNavToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    stickyNavToggle.classList.toggle('active');
+    stickyNavMenu.classList.toggle('active');
+  });
+  
+  // Close menu when a link is clicked
+  const stickyNavLinks = stickyNavMenu.querySelectorAll('.sticky-nav__link');
+  stickyNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      stickyNavToggle.classList.remove('active');
+      stickyNavMenu.classList.remove('active');
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.sticky-nav')) {
+      stickyNavToggle.classList.remove('active');
+      stickyNavMenu.classList.remove('active');
+    }
+  });
+  
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      stickyNavToggle.classList.remove('active');
+      stickyNavMenu.classList.remove('active');
     }
   });
 }

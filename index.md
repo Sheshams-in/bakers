@@ -2,6 +2,7 @@
 title: Sheshams Bakers - Premium Vegetarian Cakes & Desserts
 layout: base.njk
 description: Premium artisan cakes, cupcakes, and specialty desserts. 100% Vegetarian • Entirely Eggless • Handcrafted Daily
+hasHeader: false
 ---
 
 <!-- HERO SECTION: Centered, Premium Welcome -->
@@ -32,6 +33,37 @@ description: Premium artisan cakes, cupcakes, and specialty desserts. 100% Veget
     <div class="hero__decoration hero__decoration--2" data-parallax></div>
   </div>
 </section>
+
+<!-- STICKY NAVIGATION -->
+<nav class="sticky-nav">
+  <div class="sticky-nav__container">
+    <a href="/" class="sticky-nav__logo">
+      <img src="/assets/images/Logo/Header35dpi.png" alt="Sheshams Bakers" class="sticky-nav__logo-image" />
+    </a>
+    
+    <button class="sticky-nav__toggle" id="stickyNavToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <ul class="sticky-nav__menu" id="stickyNavMenu">
+      <li><a href="/" class="sticky-nav__link sticky-nav__link--active">Home</a></li>
+      <li><a href="/gallery/" class="sticky-nav__link">Gallery</a></li>
+      <li><a href="/about/" class="sticky-nav__link">About</a></li>
+      <li><a href="/contact/" class="sticky-nav__link">Contact</a></li>
+      <li>
+        <a href="https://www.instagram.com/sheshams_bakers/" target="_blank" class="sticky-nav__social" aria-label="Instagram">
+          📷
+        </a>
+      </li>
+    </ul>
+
+    <a href="https://wa.me/?text=Hi%20Sheshams%20Bakers!%20I%27d%20like%20to%20order%20a%20custom%20cake" target="_blank" class="btn btn--secondary btn--small">
+      Order
+    </a>
+  </div>
+</nav>
 
 <section class="about-section">
 <div class="about__container">

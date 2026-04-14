@@ -444,6 +444,176 @@ main {
 }
 
 /* ============================================
+   STICKY NAVIGATION (HOMEPAGE ONLY)
+   ============================================ */
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: var(--color-off-white);
+  border-bottom: 1px solid var(--color-light-gray);
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.sticky-nav__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  position: relative;
+}
+
+.sticky-nav__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.sticky-nav__logo-image {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(157, 95, 217, 0.12));
+}
+
+.sticky-nav__menu {
+  list-style: none;
+  gap: var(--spacing-lg);
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+}
+
+.sticky-nav__link {
+  color: var(--color-charcoal);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.sticky-nav__link:hover,
+.sticky-nav__link--active {
+  color: var(--color-purple-main);
+}
+
+.sticky-nav__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-purple-main);
+}
+
+.sticky-nav__social {
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.sticky-nav__social:hover {
+  transform: scale(1.1);
+}
+
+.sticky-nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+.sticky-nav__toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-charcoal);
+  transition: var(--transition);
+}
+
+.sticky-nav__toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.sticky-nav__toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.sticky-nav__toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Desktop: Show sticky nav menu */
+@media (min-width: 768px) {
+  .sticky-nav__menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+  }
+
+  .sticky-nav__logo-image {
+    height: 50px;
+  }
+
+  .sticky-nav__toggle {
+    display: none !important;
+  }
+}
+
+/* Mobile: Simplified sticky nav with hamburger menu */
+@media (max-width: 767px) {
+  .sticky-nav__container {
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+
+  .sticky-nav__toggle {
+    display: flex;
+    order: 1;
+  }
+
+  .sticky-nav__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--color-cream);
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--color-light-gray);
+    width: 100%;
+  }
+
+  .sticky-nav__menu.active {
+    display: flex;
+  }
+
+  .sticky-nav__logo {
+    order: 0;
+  }
+
+  .btn--secondary {
+    order: 2;
+  }
+}
+
+/* ============================================
    HERO SECTION - PREMIUM VISUAL EXPERIENCE
    ============================================ */
 
