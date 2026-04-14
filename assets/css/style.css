@@ -448,13 +448,17 @@ main {
    ============================================ */
 
 .sticky-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 99;
-  background: var(--color-off-white);
-  border-bottom: 1px solid var(--color-light-gray);
-  padding: 0.75rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
@@ -477,55 +481,49 @@ main {
 }
 
 .sticky-nav__logo-image {
-  height: 60px;
+  height: 50px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(157, 95, 217, 0.12));
+  filter: drop-shadow(0 2px 6px rgba(157, 95, 217, 0.15));
 }
 
 .sticky-nav__menu {
   list-style: none;
-  gap: var(--spacing-lg);
+  gap: 2rem;
   margin: 0;
   padding: 0;
   flex: 1;
   justify-content: center;
   display: flex;
+  align-items: center;
 }
 
 .sticky-nav__link {
   color: var(--color-charcoal);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.95rem;
-  transition: var(--transition);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
   position: relative;
 }
 
-.sticky-nav__link:hover,
+.sticky-nav__link:hover {
+  color: var(--color-purple-main);
+}
+
 .sticky-nav__link--active {
   color: var(--color-purple-main);
 }
 
-.sticky-nav__link--active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--color-purple-main);
-}
-
 .sticky-nav__social {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-decoration: none;
   display: inline-block;
-  transition: var(--transition);
+  transition: transform 0.2s ease;
 }
 
 .sticky-nav__social:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .sticky-nav__toggle {
@@ -540,14 +538,15 @@ main {
 }
 
 .sticky-nav__toggle span {
-  width: 25px;
-  height: 3px;
+  width: 24px;
+  height: 2.5px;
   background: var(--color-charcoal);
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  border-radius: 1px;
 }
 
 .sticky-nav__toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(10px, 10px);
+  transform: rotate(45deg) translate(8px, 8px);
 }
 
 .sticky-nav__toggle.active span:nth-child(2) {
@@ -555,19 +554,19 @@ main {
 }
 
 .sticky-nav__toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* Desktop: Show sticky nav menu */
 @media (min-width: 768px) {
+  main {
+    margin-top: 70px;
+  }
+
   .sticky-nav__menu {
     display: flex !important;
     position: static;
     flex-direction: row;
-  }
-
-  .sticky-nav__logo-image {
-    height: 50px;
   }
 
   .sticky-nav__toggle {
@@ -577,39 +576,41 @@ main {
 
 /* Mobile: Simplified sticky nav with hamburger menu */
 @media (max-width: 767px) {
+  main {
+    margin-top: 65px;
+  }
+
   .sticky-nav__container {
-    flex-wrap: wrap;
     gap: var(--spacing-md);
   }
 
   .sticky-nav__toggle {
     display: flex;
-    order: 1;
   }
 
   .sticky-nav__menu {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 65px;
     left: 0;
     right: 0;
     flex-direction: column;
-    background: var(--color-cream);
-    padding: var(--spacing-md);
-    border-top: 1px solid var(--color-light-gray);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     width: 100%;
+    gap: 0.5rem;
+    max-height: calc(100vh - 65px);
+    overflow-y: auto;
+  }
+
+  .sticky-nav__menu li {
+    padding: 0 var(--spacing-md);
   }
 
   .sticky-nav__menu.active {
     display: flex;
-  }
-
-  .sticky-nav__logo {
-    order: 0;
-  }
-
-  .btn--secondary {
-    order: 2;
   }
 }
 

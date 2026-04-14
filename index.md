@@ -5,36 +5,7 @@ description: Premium artisan cakes, cupcakes, and specialty desserts. 100% Veget
 hasHeader: false
 ---
 
-<!-- HERO SECTION: Centered, Premium Welcome -->
-<section class="hero hero--royal">
-  <div class="hero__container">
-    <div class="hero__content">
-      <h1 class="hero__title">
-        <span class="hero__title-prefix">Shesh</span>
-        <span class="hero__title-main">Am's Bakers</span>
-      </h1>
-      <p class="hero__subtitle">100% Vegetarian • Entirely Eggless • Handcrafted Daily</p>
-      <p class="hero__description" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-        Experience premium artisan cakes, cupcakes, and specialty desserts crafted with passion and the finest ingredients.
-      </p>
-      
-      <div class="hero__ctas" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-        <a href="https://wa.me/?text=Hi%20Sheshams%20Bakers!%20I%27d%20like%20to%20order%20a%20custom%20cake" class="btn btn--primary btn--large" target="_blank">
-          <span>🎂</span> Order Now on WhatsApp
-        </a>
-        <a href="/gallery/" class="btn btn--primary btn--large">
-          <span>📸</span> View Our Gallery
-        </a>
-      </div>
-    </div>
-
-    <!-- Decorative elements -->
-    <div class="hero__decoration hero__decoration--1" data-parallax></div>
-    <div class="hero__decoration hero__decoration--2" data-parallax></div>
-  </div>
-</section>
-
-<!-- STICKY NAVIGATION -->
+<!-- STICKY NAVIGATION - Overlays hero -->
 <nav class="sticky-nav">
   <div class="sticky-nav__container">
     <a href="/" class="sticky-nav__logo">
@@ -64,6 +35,35 @@ hasHeader: false
     </a>
   </div>
 </nav>
+
+<!-- HERO SECTION: Centered, Premium Welcome -->
+<section class="hero hero--royal">
+  <div class="hero__container">
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="hero__title-prefix">Shesh</span>
+        <span class="hero__title-main">Am's Bakers</span>
+      </h1>
+      <p class="hero__subtitle">100% Vegetarian • Entirely Eggless • Handcrafted Daily</p>
+      <p class="hero__description" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+        Experience premium artisan cakes, cupcakes, and specialty desserts crafted with passion and the finest ingredients.
+      </p>
+      
+      <div class="hero__ctas" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+        <a href="https://wa.me/?text=Hi%20Sheshams%20Bakers!%20I%27d%20like%20to%20order%20a%20custom%20cake" class="btn btn--primary btn--large" target="_blank">
+          <span>🎂</span> Order Now on WhatsApp
+        </a>
+        <a href="/gallery/" class="btn btn--primary btn--large">
+          <span>📸</span> View Our Gallery
+        </a>
+      </div>
+    </div>
+
+    <!-- Decorative elements -->
+    <div class="hero__decoration hero__decoration--1" data-parallax></div>
+    <div class="hero__decoration hero__decoration--2" data-parallax></div>
+  </div>
+</section>
 
 <section class="about-section">
 <div class="about__container">
