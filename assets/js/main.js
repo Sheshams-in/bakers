@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all systems
   initMobileMenu();
+  initHeaderScroll();
   initAOS();
   initSmoothScrollLinks();
   addDateFilter();
@@ -69,6 +70,23 @@ function initMobileMenu() {
     if (e.key === 'Escape') {
       navToggle.classList.remove('active');
       navMenu.classList.remove('active');
+    }
+  });
+}
+
+// ============================================
+// Header Scroll Detection - Transparent to Solid
+// ============================================
+function initHeaderScroll() {
+  const header = document.querySelector('.header');
+  
+  if (!header) return;
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
     }
   });
 }

@@ -166,11 +166,18 @@ main {
    ============================================ */
 
 .header {
-  background: var(--color-off-white);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  box-shadow: none;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.header--scrolled {
+  background: var(--color-off-white);
+  box-shadow: var(--shadow-sm);
   border-bottom: 1px solid var(--color-light-gray);
 }
 
