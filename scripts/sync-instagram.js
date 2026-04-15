@@ -83,67 +83,123 @@ function downloadImage(url, filename) {
 }
 
 /**
- * Fetch Instagram posts
+ * Auto-detect category from caption
+ */
+function detectCategory(caption) {
+  if (!caption) return [];
+  
+  const lowerCaption = caption.toLowerCase();
+  const categories = [];
+  
+  // Category keywords
+  const categoryMap = {
+    'Birthday': ['birthday', 'happy birthday', 'bday', 'cake for'],
+    'Cupcakes': ['cupcake', 'cupcakes', 'cup cake'],
+    'Tresletches': ['tres', 'tres leches', 'tresleches'],
+    'Fondant': ['fondant', 'painted cake'],
+    'Speciality': ['special', 'custom', 'theme', 'robot', 'character'],
+    'Whipped Cream': ['whipped', 'cream', 'whippedcream'],
+    'Butter cream': ['buttercream', 'butter cream', 'frosting', 'frosted']
+  };
+  
+  for (const [category, keywords] of Object.entries(categoryMap)) {
+    if (keywords.some(kw => lowerCaption.includes(kw))) {
+      categories.push(category);
+    }
+  }
+  
+  return categories.length > 0 ? categories : [];
+}
+
+/**
+ * Fetch Instagram posts with pagination support
  */
 async function syncInstagramPosts() {
   try {
     console.log('📸 Starting Instagram sync...\n');
     
-    // Fetch media (posts)
-    const fields = 'id,caption,media_type,media_url,permalink,timestamp,like_count,comments_count';
-    const endpoint = `/${ACCOUNT_ID}/media?fields=${fields}&access_token=${ACCESS_TOKEN}`;
-    
-    const response = await makeRequest(endpoint);
-    
-    if (!response.data || response.data.length === 0) {
-      console.log('ℹ️  No posts found');
-      return [];
-    }
-    
-    console.log(`✅ Found ${response.data.length} posts\n`);
-    
-    // Process posts
     const posts = [];
+    let allFetched = false;
+    let after = null;
+    let pageCount = 0;
     
-    for (const post of response.data) {
-      try {
-        let imageUrl = null;
-        let localImagePath = null;
-        
-        // Download media if available
-        if (post.media_url) {
-          const timestamp = post.timestamp || new Date().toISOString();
-          const filename = `post-${post.id}.jpg`;
-          
-          try {
-            console.log(`⬇️  Downloading image: ${filename}`);
-            await downloadImage(post.media_url, filename);
-            localImagePath = `/assets/images/instagram/${filename}`;
-            imageUrl = post.media_url;
-          } catch (err) {
-            console.warn(`⚠️  Failed to download image for post ${post.id}: ${err.message}`);
-          }
+    // Fetch all pages of posts
+    while (!allFetched) {
+      pageCount++;
+      const fields = 'id,caption,media_type,media_url,thumbnail_url,permalink,timestamp,like_count,comments_count';
+      let endpoint = `/${ACCOUNT_ID}/media?fields=${fields}&access_token=${ACCESS_TOKEN}&limit=100`;
+      
+      if (after) {
+        endpoint += `&after=${after}`;
+      }
+      
+      console.log(`📄 Fetching page ${pageCount}...`);
+      const response = await makeRequest(endpoint);
+      
+      if (!response.data || response.data.length === 0) {
+        if (pageCount === 1) {
+          console.log('ℹ️  No posts found');
         }
-        
-        // Create post object
-        const postData = {
-          id: post.id,
-          caption: post.caption || '',
-          mediaType: post.media_type || 'IMAGE',
-          timestamp: post.timestamp,
-          permalink: post.permalink,
-          imageUrl: imageUrl,
-          localImagePath: localImagePath,
-          likes: post.like_count || 0,
-          comments: post.comments_count || 0,
-          categories: [] // Will be filled by n8n in Phase 3
-        };
-        
-        posts.push(postData);
-        console.log(`✔️  Processed: ${postData.caption?.substring(0, 50) || 'No caption'}...`);
-        
-      } catch (err) {
-        console.error(`❌ Error processing post ${post.id}: ${err.message}`);
+        allFetched = true;
+        break;
+      }
+      
+      console.log(`  ✅ Found ${response.data.length} posts on page ${pageCount}`);
+      
+      // Process posts
+      for (const post of response.data) {
+        try {
+          let imageUrl = null;
+          let localImagePath = null;
+          const isVideo = post.media_type === 'VIDEO' || post.media_type === 'CAROUSEL_ALBUM';
+          
+          // For videos/carousels, use thumbnail_url; for images use media_url
+          const sourceUrl = isVideo && post.thumbnail_url ? post.thumbnail_url : post.media_url;
+          
+          if (sourceUrl) {
+            const filename = `post-${post.id}.jpg`;
+            
+            try {
+              console.log(`  ⬇️  ${post.media_type}: ${filename}`);
+              await downloadImage(sourceUrl, filename);
+              localImagePath = `/assets/images/instagram/${filename}`;
+              imageUrl = sourceUrl;
+            } catch (err) {
+              console.warn(`    ⚠️  Failed to download: ${err.message}`);
+              // Fallback to Instagram URL if local download fails
+              imageUrl = sourceUrl;
+            }
+          }
+          
+          // Auto-detect categories from caption
+          const detectedCategories = detectCategory(post.caption);
+          
+          // Create post object
+          const postData = {
+            id: post.id,
+            caption: post.caption || '',
+            mediaType: post.media_type || 'IMAGE',
+            timestamp: post.timestamp,
+            permalink: post.permalink,
+            imageUrl: imageUrl,
+            localImagePath: localImagePath,
+            likes: post.like_count || 0,
+            comments: post.comments_count || 0,
+            categories: detectedCategories // Auto-filled; can be overridden by n8n in Phase 3
+          };
+          
+          posts.push(postData);
+          
+        } catch (err) {
+          console.error(`  ❌ Error processing post ${post.id}: ${err.message}`);
+        }
+      }
+      
+      // Check for pagination
+      if (response.paging && response.paging.cursors && response.paging.cursors.after) {
+        after = response.paging.cursors.after;
+      } else {
+        allFetched = true;
       }
     }
     
@@ -153,7 +209,8 @@ async function syncInstagramPosts() {
     // Save to JSON
     try {
       fs.writeFileSync(OUTPUT_FILE, JSON.stringify(posts, null, 2));
-      console.log(`\n✅ Saved ${posts.length} posts to ${OUTPUT_FILE}`);
+      console.log(`\n✅ Fetched ${posts.length} posts across ${pageCount} pages`);
+      console.log(`📁 Saved to ${OUTPUT_FILE}`);
     } catch (err) {
       console.error(`❌ Failed to save JSON: ${err.message}`);
       throw err;

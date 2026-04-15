@@ -4,6 +4,7 @@ module.exports = function(eleventyConfig) {
   // Passthrough copy for static assets
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("posts/images");
+  eleventyConfig.addPassthroughCopy("posts/instagram-feed.json");
   eleventyConfig.addPassthroughCopy(".htaccess");
   eleventyConfig.addPassthroughCopy("CNAME");
 

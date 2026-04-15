@@ -3,7 +3,7 @@
     <button class="gallery__filter-btn gallery__filter-btn--active" data-filter="all">
       All
     </button>
-    {% for category in categories %}
+    {% for category in categories.categories %}
       <button class="gallery__filter-btn" data-filter="{{ category | lower | replace(' ', '-') }}">
         {{ category }}
       </button>

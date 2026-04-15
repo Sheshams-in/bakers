@@ -22,7 +22,8 @@ async function initGallery() {
     }
     
     const data = await response.json();
-    const posts = data.posts || [];
+    // Handle both array format and object with posts property
+    const posts = Array.isArray(data) ? data : (data.posts || []);
     
     if (posts.length === 0) {
       galleryGrid.innerHTML = '<p class="gallery__loading">No posts yet. Check back soon!</p>';
@@ -63,9 +64,15 @@ function createPostCard(post) {
     .map(cat => `<span class="post-card__category-badge">${cat}</span>`)
     .join('');
   
-  const imageHtml = post.mediaType === 'VIDEO' && post.videoEmbed
-    ? `<div class="post-card__video-overlay"><span class="post-card__play-icon">▶</span></div>${post.videoEmbed}`
-    : `<img src="${post.imageUrl || '/assets/images/placeholder.jpg'}" alt="Sheshams Bakers cake" class="post-card__image" loading="lazy">`;
+  const isVideo = post.mediaType === 'VIDEO' || post.mediaType === 'CAROUSEL_ALBUM';
+  const videoOverlay = isVideo ? '<div class="post-card__video-overlay"><span class="post-card__play-icon">▶</span></div>' : '';
+  
+  const imageHtml = `
+    <div class="post-card__media-wrapper ${isVideo ? 'post-card__media-wrapper--video' : ''}">
+      ${videoOverlay}
+      <img src="${post.imageUrl || post.localImagePath || '/assets/images/placeholder.jpg'}" alt="Sheshams Bakers cake" class="post-card__image" loading="lazy">
+    </div>
+  `;
   
   const timestamp = new Date(post.timestamp).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -74,7 +81,7 @@ function createPostCard(post) {
   });
   
   card.innerHTML = `
-    <a href="${post.instagramUrl || '#'}" target="_blank" class="post-card__link">
+    <a href="${post.permalink || post.instagramUrl || '#'}" target="_blank" class="post-card__link">
       <div class="post-card__image-container">
         ${imageHtml}
       </div>
