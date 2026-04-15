@@ -175,12 +175,6 @@ main {
   transition: all 0.3s ease;
 }
 
-.header--scrolled {
-  background: var(--color-off-white);
-  box-shadow: var(--shadow-sm);
-  border-bottom: 1px solid var(--color-light-gray);
-}
-
 /* Transparent header - light text */
 .header .navbar__link {
   color: var(--color-white);
@@ -191,6 +185,12 @@ main {
   background: var(--color-white);
 }
 
+.header--scrolled {
+  background: linear-gradient(296deg, #534465 0%, #b69dcf 50%, #ffffff 100%);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
 /* Scrolled header - dark text */
 .header--scrolled .navbar__link {
   color: var(--color-charcoal);
@@ -199,6 +199,24 @@ main {
 
 .header--scrolled .navbar__toggle span {
   background: var(--color-charcoal);
+}
+
+/* Mobile: Hamburger menu is sufficient, no solid background on scroll */
+@media (max-width: 767px) {
+  .header--scrolled {
+    background: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .header--scrolled .navbar__link {
+    color: var(--color-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .header--scrolled .navbar__toggle span {
+    background: var(--color-white);
+  }
 }
 
 .navbar {
