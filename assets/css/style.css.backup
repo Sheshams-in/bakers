@@ -1909,7 +1909,7 @@ main {
   font-size: 1rem;
   transition: var(--transition-smooth);
   font-weight: 500;
-  background: linear-gradient(180deg, #e3f2fd 0%, #e3f2fd 100%);
+  background: linear-gradient(180deg, #F3E8FF 0%, #E0C3FC 100%);
 }
 
 .gallery__search-input:focus {
@@ -2364,7 +2364,7 @@ main {
 }
 
 .values__subtitle {
-  color: #4a90e2;
+  color: #0EA5E9;
   font-size: 1.05rem;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
@@ -2465,7 +2465,7 @@ main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, #e3f2fd 0%, #e3f2fd 100%);
+  background: linear-gradient(180deg, #F3E8FF 0%, #E0C3FC 100%);
 }
 
 .product-card__title {
@@ -2506,7 +2506,7 @@ main {
 
 .product-card__link:hover {
   gap: 1rem;
-  color: #4a90e2;
+  color: #0EA5E9;
   border-bottom-color: #4a90e2;
 }
 
@@ -2572,13 +2572,13 @@ main {
   text-align: center;
   font-size: clamp(2rem, 4vw, 2.8rem);
   margin-bottom: var(--spacing-md);
-  color: #0066cc;
+  color: #9F7AEA;
   font-weight: 800;
 }
 
 .testimonials__subheading {
   text-align: center;
-  color: #4a90e2;
+  color: #0EA5E9;
   font-size: 1.05rem;
   margin-bottom: var(--spacing-2xl);
   text-transform: uppercase;
@@ -2665,7 +2665,7 @@ main {
 .testimonial-details h4 {
   margin: 0;
   font-size: 1rem;
-  color: #0066cc;
+  color: #9F7AEA;
   font-weight: 700;
 }
 
@@ -2837,7 +2837,7 @@ html {
 
 .about__header h2 {
   font-size: clamp(2rem, 5vw, 2.8rem);
-  background: linear-gradient(135deg, #0066cc 0%, #003366 50%, #4a90e2 100%);
+  background: linear-gradient(135deg, #9F7AEA 0%, #7C3AED 50%, #0EA5E9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2847,7 +2847,7 @@ html {
 
 .about__subtitle {
   font-size: 1.1rem;
-  color: #4a90e2;
+  color: #0EA5E9;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -2917,7 +2917,7 @@ html {
 
 .about__card h3 {
   font-size: 1.3rem;
-  color: #0066cc;
+  color: #9F7AEA;
   margin-bottom: 0.8rem;
   font-weight: 700;
 }
@@ -3057,13 +3057,13 @@ html {
 }
 
 .showcase__link:hover {
-  color: #4a90e2;
+  color: #0EA5E9;
 }
 
 /* PROCESS SECTION */
 .process-section {
   padding: 4rem var(--spacing-md) 3.5rem;
-  background: linear-gradient(180deg, #e3f2fd 0%, #003366 100%);
+  background: linear-gradient(180deg, #F3E8FF 0%, #06B6D4 100%);
   position: relative;
 }
 
@@ -3075,7 +3075,7 @@ html {
 .process__container h2 {
   text-align: center;
   font-size: clamp(2rem, 5vw, 2.8rem);
-  background: linear-gradient(135deg, #0066cc 0%, #003366 50%, #4a90e2 100%);
+  background: linear-gradient(135deg, #9F7AEA 0%, #7C3AED 50%, #0EA5E9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -3086,7 +3086,7 @@ html {
 .process__subtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: #4a90e2;
+  color: #0EA5E9;
   margin-bottom: 3rem;
   font-weight: 500;
 }
@@ -3434,7 +3434,7 @@ html {
 
 .image-modal__footer {
   padding: 2rem;
-  background: linear-gradient(180deg, #e3f2fd 0%, #003366 100%);
+  background: linear-gradient(180deg, #F3E8FF 0%, #06B6D4 100%);
   border-top: 1px solid rgba(8, 145, 178, 0.3);
   display: flex;
   justify-content: space-between;
@@ -3995,64 +3995,6 @@ html {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   align-items: flex-start;
-}
-
-/* Grid variants - 3 columns */
-.cards-grid--3 {
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-}
-
-@media (min-width: 1024px) {
-  .cards-grid--3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Grid variants - 1 column (full width) */
-.cards-grid--1 {
-  grid-template-columns: 1fr;
-}
-
-/* Card icon styling */
-.card__icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-}
-
-/* Card with icon on top */
-.card--icon-top {
-  text-align: center;
-  padding: 2.5rem;
-}
-
-/* Specialty card styling */
-.card--specialty {
-  text-align: center;
-}
-
-.card--specialty .card__icon {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.card--specialty .card__title {
-  color: var(--color-primary);
-  font-size: 1.5rem;
-}
-
-.card--specialty .card__link {
-  display: inline-block;
-  margin-top: 1rem;
-  color: var(--color-primary);
-  font-weight: 600;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.card--specialty .card__link:hover {
-  color: var(--color-primary-light);
 }
 
 /* ============================================

@@ -42,16 +42,16 @@ permalink: /contact/
     <section class="contact-section">
       <h2>Or Connect On Social</h2>
       
-      <div class="contact-methods">
-        <div class="contact-method">
-          <h3>💬 WhatsApp</h3>
-          <p>Quick messages and quick replies</p>
+      <div class="cards-grid">
+        <div class="card">
+          <h3 class="card__title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬 WhatsApp</h3>
+          <p class="card__description">Quick messages and quick replies</p>
           <a href="https://wa.me/?text=Hi%20Sheshams%20Bakers!%20I%27m%20interested%20in%20ordering%20a%20custom%20cake" class="btn btn--secondary" target="_blank">Chat on WhatsApp</a>
         </div>
 
-        <div class="contact-method">
-          <h3>📷 Instagram</h3>
-          <p>See our latest creations and DM us</p>
+        <div class="card">
+          <h3 class="card__title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">📷 Instagram</h3>
+          <p class="card__description">See our latest creations and DM us</p>
           <a href="https://www.instagram.com/sheshams_bakers/" class="btn btn--secondary" target="_blank">Follow & Message</a>
         </div>
       </div>
