@@ -1,40 +1,33 @@
-<header class="header">
+<header class="header" id="header">
   <nav class="navbar">
     <div class="navbar__container">
-      <!-- LEFT LOGO -->
-      <div class="navbar__logo-left">
+      <!-- LOGO -->
+      <div class="navbar__logo">
         <a href="/" class="navbar__logo-link">
-          <img src="/assets/images/Logo/Header35dpi.png" alt="Sheshams Bakers Left Logo" class="navbar__logo-image" />
+          <h2 style="font-family: Georgia, serif; color: #9F7AEA; font-weight: 700; letter-spacing: -0.5px; margin: 0; font-size: 1.5rem;">Sheshams Bakers</h2>
         </a>
       </div>
 
-      <!-- BRAND & MENU CENTER -->
-      <div class="navbar__center">
-        <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+      <!-- MENU TOGGLE (Mobile) -->
+      <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <ul class="navbar__menu" id="navMenu">
-          <li><a href="/" class="navbar__link">Home</a></li>
-          <li><a href="/gallery/" class="navbar__link">Gallery</a></li>
-          <li><a href="/about/" class="navbar__link">About</a></li>
-          <li><a href="/contact/" class="navbar__link">Contact</a></li>
-          <li>
-            <a href="https://www.instagram.com/sheshams_bakers/" target="_blank" class="navbar__social" aria-label="Instagram">
-              📷
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- RIGHT LOGO -->
-      <div class="navbar__logo-right">
-        <a href="/" class="navbar__logo-link">
-          <img src="/assets/images/Logo/Logo_600x600.png" alt="Sheshams Bakers Main Logo" class="navbar__logo-image" />
-        </a>
-      </div>
+      <!-- NAVIGATION MENU -->
+      <ul class="navbar__menu" id="navMenu">
+        <li><a href="/" class="navbar__link">Home</a></li>
+        <li><a href="#cakes" class="navbar__link">Cakes</a></li>
+        <li><a href="/gallery/" class="navbar__link">Gallery</a></li>
+        <li><a href="/about/" class="navbar__link">About</a></li>
+        <li><a href="/contact/" class="navbar__link">Contact</a></li>
+        <li>
+          <a href="https://wa.me/1234567890" target="_blank" class="navbar__social" aria-label="WhatsApp" title="Order on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
 </header>

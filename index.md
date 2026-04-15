@@ -4,7 +4,6 @@ layout: base.njk
 description: Premium artisan cakes, cupcakes, and specialty desserts. 100% Vegetarian • Entirely Eggless • Handcrafted Daily
 ---
 
-<!-- HERO SECTION: Centered, Premium Welcome -->
 <section class="hero hero--royal">
   <div class="hero__container">
     <div class="hero__content">
@@ -34,34 +33,34 @@ description: Premium artisan cakes, cupcakes, and specialty desserts. 100% Veget
 </section>
 
 <section class="about-section">
-<div class="about__container">
-<div class="about__header">
-<h2 data-aos="fade-up" data-aos-duration="800">Why Choose Sheshams Bakers?</h2>
-<p class="about__subtitle" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Every creation is a masterpiece of taste and craftsmanship</p>
-</div>
-<div class="about__grid">
-<div class="about__card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
-<div class="about__card-icon">🌱</div>
-<h3>100% Vegetarian</h3>
-<p>All our cakes and desserts are made with pure vegetarian ingredients. No compromises, no exceptions.</p>
-</div>
-<div class="about__card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-<div class="about__card-icon">✨</div>
-<h3>Entirely Eggless</h3>
-<p>Delicious without eggs. We use premium plant-based and dairy alternatives for perfect texture and taste.</p>
-</div>
-<div class="about__card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-<div class="about__card-icon">👨‍🍳</div>
-<h3>Expert Craftsmanship</h3>
-<p>Our bakers are passionate artisans who create custom designs that exceed your expectations.</p>
-</div>
-<div class="about__card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-<div class="about__card-icon">📦</div>
-<h3>Fresh & Online</h3>
-<p>Order via WhatsApp for custom designs. Made fresh daily with timely delivery to your doorstep.</p>
-</div>
-</div>
-</div>
+  <div class="about__container">
+    <div class="about__header">
+      <h2 data-aos="fade-up" data-aos-duration="800">Why Choose Sheshams Bakers?</h2>
+      <p class="about__subtitle" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">Every creation is a masterpiece of taste and craftsmanship</p>
+    </div>
+    <div class="about__grid">
+      <div class="about__card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
+        <div class="about__card-icon">🌱</div>
+        <h3>100% Vegetarian</h3>
+        <p>All our cakes and desserts are made with pure vegetarian ingredients. No compromises, no exceptions.</p>
+      </div>
+      <div class="about__card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+        <div class="about__card-icon">✨</div>
+        <h3>Entirely Eggless</h3>
+        <p>Delicious without eggs. We use premium plant-based and dairy alternatives for perfect texture and taste.</p>
+      </div>
+      <div class="about__card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+        <div class="about__card-icon">👨‍🍳</div>
+        <h3>Expert Craftsmanship</h3>
+        <p>Our bakers are passionate artisans who create custom designs that exceed your expectations.</p>
+      </div>
+      <div class="about__card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+        <div class="about__card-icon">📦</div>
+        <h3>Fresh & Online</h3>
+        <p>Order via WhatsApp for custom designs. Made fresh daily with timely delivery to your doorstep.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="showcase-section">
