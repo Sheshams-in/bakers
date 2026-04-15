@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Initialize filters
   initFilters();
+  
+  // Initialize modal
+  initModal();
 });
 
 // Fetch and display Instagram posts
@@ -64,7 +67,7 @@ function createPostCard(post) {
     .map(cat => `<span class="post-card__category-badge">${cat}</span>`)
     .join('');
   
-  const isVideo = post.mediaType === 'VIDEO' || post.mediaType === 'CAROUSEL_ALBUM';
+  const isVideo = post.mediaType === 'VIDEO';
   const videoOverlay = isVideo ? '<div class="post-card__video-overlay"><span class="post-card__play-icon">▶</span></div>' : '';
   
   const imageHtml = `
@@ -81,11 +84,11 @@ function createPostCard(post) {
   });
   
   card.innerHTML = `
-    <a href="${post.permalink || post.instagramUrl || '#'}" target="_blank" class="post-card__link">
+    <div class="post-card__link post-card__link--modal" data-post-id="${post.id}">
       <div class="post-card__image-container">
         ${imageHtml}
       </div>
-    </a>
+    </div>
     <div class="post-card__content">
       ${categories.length > 0 ? `<div class="post-card__categories">${categoriesBadges}</div>` : ''}
       <p class="post-card__caption">${(post.caption || 'Beautiful cake').substring(0, 80)}...</p>
@@ -191,4 +194,71 @@ function formatDate(dateString) {
     month: 'short',
     day: 'numeric'
   });
+}
+
+// Initialize modal handlers
+function initModal() {
+  const modal = document.getElementById('imageModal');
+  const closeBtn = document.querySelector('.image-modal__close');
+  const overlay = document.querySelector('.image-modal__overlay');
+  
+  if (!modal) return;
+  
+  // Add click handler to all post cards
+  document.addEventListener('click', (e) => {
+    const cardLink = e.target.closest('.post-card__link--modal');
+    if (cardLink) {
+      e.preventDefault();
+      const postId = cardLink.getAttribute('data-post-id');
+      const post = window.allPosts.find(p => p.id === postId);
+      if (post) {
+        openModal(post);
+      }
+    }
+  });
+  
+  // Close modal
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+  
+  if (overlay) {
+    overlay.addEventListener('click', closeModal);
+  }
+  
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('image-modal--active')) {
+      closeModal();
+    }
+  });
+}
+
+// Open modal with post data
+function openModal(post) {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalCaption = document.getElementById('modalCaption');
+  const modalLikes = document.getElementById('modalLikes');
+  const modalComments = document.getElementById('modalComments');
+  const modalInstagramLink = document.getElementById('modalInstagramLink');
+  
+  // Set content
+  modalImage.src = post.imageUrl || post.localImagePath;
+  modalImage.alt = post.caption;
+  modalCaption.textContent = (post.caption || 'Beautiful cake').substring(0, 100);
+  modalLikes.textContent = `❤️ ${post.likes || 0}`;
+  modalComments.textContent = `💬 ${post.comments || 0}`;
+  modalInstagramLink.href = post.permalink;
+  
+  // Show modal
+  modal.classList.add('image-modal--active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Close modal
+function closeModal() {
+  const modal = document.getElementById('imageModal');
+  modal.classList.remove('image-modal--active');
+  document.body.style.overflow = '';
 }

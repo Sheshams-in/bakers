@@ -83,7 +83,7 @@ function downloadImage(url, filename) {
 }
 
 /**
- * Auto-detect category from caption
+ * Auto-detect categories from caption
  */
 function detectCategory(caption) {
   if (!caption) return [];
@@ -91,15 +91,50 @@ function detectCategory(caption) {
   const lowerCaption = caption.toLowerCase();
   const categories = [];
   
-  // Category keywords
+  // Expanded category keywords
   const categoryMap = {
-    'Birthday': ['birthday', 'happy birthday', 'bday', 'cake for'],
+    // Occasion
+    'Birthday': ['birthday', 'happy birthday', 'bday', 'cake for', 'birth day'],
+    'Wedding': ['wedding', 'bridal', 'bride', 'groom', 'engagement'],
+    'Anniversary': ['anniversary', 'celebrate'],
+    'Kids': ['kids', 'children', 'toddler', 'baby', 'little one'],
+    
+    // Cake Type
     'Cupcakes': ['cupcake', 'cupcakes', 'cup cake'],
     'Tresletches': ['tres', 'tres leches', 'tresleches'],
-    'Fondant': ['fondant', 'painted cake'],
-    'Speciality': ['special', 'custom', 'theme', 'robot', 'character'],
-    'Whipped Cream': ['whipped', 'cream', 'whippedcream'],
-    'Butter cream': ['buttercream', 'butter cream', 'frosting', 'frosted']
+    'Cheesecake': ['cheesecake', 'cheese cake'],
+    'Brownie': ['brownie', 'brownie cake'],
+    'Mini Cakes': ['mini cake', 'mini cakes', 'small cake'],
+    
+    // Decoration Style
+    'Fondant': ['fondant', 'painted cake', 'painted'],
+    'Matte': ['matte', 'matte finish'],
+    'Gloss': ['gloss', 'shiny'],
+    'Ombre': ['ombre'],
+    'Naked Cake': ['naked', 'unfrosted'],
+    
+    // Decoration Type
+    'Speciality': ['special', 'custom', 'theme', 'robot', 'character', 'superhero', 'princess', 'mickey'],
+    'Floral': ['floral', 'flower', 'roses', 'petals', 'blooms'],
+    'Glitter': ['glitter', 'sparkle', 'shine'],
+    
+    // Frosting Type
+    'Whipped Cream': ['whipped', 'whipped cream', 'whippedcream'],
+    'Butter cream': ['buttercream', 'butter cream', 'frosting', 'frosted', 'icing'],
+    'Cream Cheese': ['cream cheese', 'cream cheese frosting', 'cream cheese icing'],
+    
+    // Flavor
+    'Chocolate': ['chocolate', 'cocoa', 'dark chocolate'],
+    'Strawberry': ['strawberry', 'strawberries'],
+    'Vanilla': ['vanilla'],
+    'Red Velvet': ['red velvet'],
+    'Eggless': ['eggless', 'egg-less', 'egg less', 'vegan'],
+    'Vegan': ['vegan', 'plant-based'],
+    'Gluten-free': ['gluten-free', 'gluten free', 'gf cake'],
+    
+    // Other
+    'Premium': ['premium', 'luxe', 'exclusive'],
+    'Seasonal': ['seasonal', 'summer', 'winter', 'christmas', 'easter', 'holiday']
   };
   
   for (const [category, keywords] of Object.entries(categoryMap)) {

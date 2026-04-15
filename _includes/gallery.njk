@@ -25,6 +25,29 @@
     <!-- Posts will be rendered here by JavaScript -->
     <div class="gallery__loading">Loading cakes...</div>
   </div>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal">
+    <div class="image-modal__overlay"></div>
+    <div class="image-modal__content">
+      <button class="image-modal__close" aria-label="Close modal">&times;</button>
+      <div class="image-modal__body">
+        <img id="modalImage" src="" alt="Cake image" class="image-modal__image">
+      </div>
+      <div class="image-modal__footer">
+        <div class="image-modal__info">
+          <h3 id="modalCaption" class="image-modal__caption"></h3>
+          <div class="image-modal__meta">
+            <span id="modalLikes" class="image-modal__meta-item">❤️ 0</span>
+            <span id="modalComments" class="image-modal__meta-item">💬 0</span>
+          </div>
+        </div>
+        <a id="modalInstagramLink" href="#" target="_blank" class="image-modal__button">
+          View on Instagram →
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="/assets/js/gallery.js"></script>
