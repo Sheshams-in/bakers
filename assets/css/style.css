@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+/* Sail Regular Font */
+@font-face {
+  font-family: 'Sail';
+  src: url('/assets/fonts/Sail-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #0c0c0c;
@@ -151,13 +160,38 @@ a:focus {
 }
 
 .navbar-brand {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Sail', cursive;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
 }
 
-.navbar-brand span {
-  font-weight: bold;
-  font-size: 32px;
+.navbar-brand .brand-shesh {
+  font-size: 14px;
+  font-weight: normal;
   color: #ffffff;
+  line-height: 1;
+}
+
+.navbar-brand .brand-ams {
+  font-size: 52px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #9D5FD9 0%, #FF1493 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+  line-height: 0.9;
+  filter: drop-shadow(2px 2px 4px rgba(157, 95, 217, 0.3));
+  vertical-align: top;
+  transform: translateY(-4px);
+}
+
+.navbar-brand .brand-bakers {
+  font-size: 22px;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 1;
 }
 
 .custom_nav-container {
@@ -348,6 +382,81 @@ a:focus {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 15px;
+  font-family: 'Sail', cursive;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.slider_section .detail-box .hero-brand-shesh {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.slider_section .detail-box .hero-brand-ams {
+  font-size: 6rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #9D5FD9 0%, #FF1493 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+  line-height: 0.9;
+  filter: drop-shadow(2px 2px 4px rgba(157, 95, 217, 0.3));
+  vertical-align: top;
+  transform: translateY(-4px);
+}
+
+.slider_section .detail-box .hero-brand-bakers {
+  font-size: 3.5rem;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Mobile hero branding - reduce font sizes */
+@media (max-width: 576px) {
+  .slider_section .detail-box h1 {
+    font-size: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .slider_section .detail-box .hero-brand-shesh {
+    font-size: 0.8rem;
+  }
+
+  .slider_section .detail-box .hero-brand-ams {
+    font-size: 2rem;
+    transform: translateY(0);
+    letter-spacing: 0;
+  }
+
+  .slider_section .detail-box .hero-brand-bakers {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider_section .detail-box h1 {
+    font-size: 2.5rem;
+  }
+
+  .slider_section .detail-box .hero-brand-shesh {
+    font-size: 1rem;
+  }
+
+  .slider_section .detail-box .hero-brand-ams {
+    font-size: 3rem;
+  }
+
+  .slider_section .detail-box .hero-brand-bakers {
+    font-size: 1.5rem;
+  }
 }
 
 .slider_section .detail-box p {
@@ -522,7 +631,10 @@ a:focus {
 }
 
 .food_section .filters-content {
-  min-height: 600px;
+  min-height: auto;
+  width: 100%;
+  display: block;
+  clear: both;
 }
 
 .food_section .grid {
@@ -547,7 +659,7 @@ a:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  min-height: 480px;
+  /* min-height: 480px; */
 }
 
 .food_section .box .img-box {
@@ -1072,11 +1184,40 @@ a:focus {
 }
 
 .footer_section .footer-logo {
-  display: block;
+  display: inline-flex;
   font-weight: bold;
   font-size: 38px;
   line-height: 1;
+  font-family: 'Sail', cursive;
+  gap: 0;
+}
+
+.footer_section .footer-logo .brand-shesh {
+  font-size: 14px;
+  font-weight: normal;
   color: #ffffff;
+  line-height: 1;
+}
+
+.footer_section .footer-logo .brand-ams {
+  font-size: 52px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #9D5FD9 0%, #FF1493 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+  line-height: 0.9;
+  filter: drop-shadow(2px 2px 4px rgba(157, 95, 217, 0.3));
+  vertical-align: top;
+  transform: translateY(-4px);
+}
+
+.footer_section .footer-logo .brand-bakers {
+  font-size: 22px;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 1;
 }
 
 .footer_section .footer_social {
@@ -1129,7 +1270,7 @@ a:focus {
 }
 
 /* ============================================
-   MODERN DESIGN ENHANCEMENTS - FEANE STYLE
+   MODERN DESIGN ENHANCEMENTS - SHESHAMS BAKERS STYLE
 ============================================ */
 
 /* Enhanced Button Styles */
@@ -1190,7 +1331,7 @@ a:focus {
   transform: translateY(-4px);
 }
 
-/* Feane Food Section Card Design - EXACT */
+/* Sheshams Bakers Food Section Card Design */
 /* Removed conflicting gradients to restore proper half-white/half-black design */
 
 /* ============================================
@@ -1406,7 +1547,7 @@ a:focus {
    ENHANCED HERO SECTION
 ============================================ */
 .hero_area .slider_section {
-  background: linear-gradient(135deg, #222831 0%, #1a1f28 100%);
+  background: linear-gradient(135deg, #2228314a 0%, #1a1f28 100%)
 }
 
 .hero_area .detail-box {
@@ -1452,6 +1593,73 @@ a:focus {
 
 .food_section .row > [class*='col-'] {
   display: flex;
+}
+
+/* Responsive column widths across all sections */
+.col-sm-6,
+.col-lg-4 {
+  box-sizing: border-box;
+}
+
+/* Desktop - force 3 columns at any size */
+.col-lg-4 {
+  width: 33.333333% !important;
+}
+
+/* Mobile first - full width by default */
+@media (max-width: 575px) {
+  .col-lg-4 {
+    width: 100% !important;
+  }
+}
+
+/* Tablet - 2 columns (col-lg-4) */
+@media (min-width: 576px) and (max-width: 991px) {
+  .col-lg-4 {
+    width: 50% !important;
+  }
+}
+
+/* Desktop - 3 columns (col-lg-4) */
+@media (min-width: 992px) {
+  .col-lg-4 {
+    width: 33.333333% !important;
+  }
+}
+
+/* Food section grid layout - force 3 columns by default */
+.food_section .row {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2rem !important;
+}
+
+@media (max-width: 991px) {
+  .food_section .row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .food_section .row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.food_section .row > [class*='col-'] {
+  display: flex !important;
+  margin: 0 !important;
+  width: auto !important;
+}
+
+.food_section .col-lg-4 {
+  padding: 0 !important;
+  width: auto !important;
+}
+
+/* Ensure box fills the column */
+.food_section .box {
+  width: 100%;
 }
 
 .food_section .box .detail-box h5 {

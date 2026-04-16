@@ -14,7 +14,7 @@ permalink: /
   </div>
 
   <section class="slider_section">
-    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel" data-interval="5000">
       <ol class="carousel-indicators">
         <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
         <li data-target="#customCarousel1" data-slide-to="1"></li>
@@ -28,9 +28,9 @@ permalink: /
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-8 text-center">
                 <div class="detail-box">
-                  <h1>Shesh Am's Bakers</h1>
+                  <h1><span class="hero-brand-shesh">Shesh</span><span class="hero-brand-ams">Am's</span><span class="hero-brand-bakers">Bakers</span></h1>
                   <p>🌱 100% Vegetarian &nbsp;•&nbsp; ✨ Entirely Eggless &nbsp;•&nbsp; 🎂 Handcrafted Daily</p>
-                  <p>Exquisite custom cakes and specialty desserts crafted with premium ingredients and artistic passion. Every creation is a masterpiece designed just for you.</p>
+                  <p>We specialize in creating beautiful, delicious, and entirely custom cakes for every celebration — from intimate gatherings to grand celebrations.</p>
                   <div class="btn-box">
                     <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary" style="margin: 0 8px;">🎂 Order Now on WhatsApp</a>
                     <a href="/menu/" class="btn btn-secondary" style="margin: 0 8px;">📸 View Our Menu</a>
@@ -84,282 +84,181 @@ permalink: /
   </section>
 </section>
 
+<!-- Carousel Auto-Slide Script with Touch/Swipe Support -->
+<script>
+  $(document).ready(function() {
+    const carousel = $('#customCarousel1');
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Initialize carousel with auto-slide
+    carousel.carousel({
+      interval: 5000
+    });
+
+    // Touch event handlers for swipe detection
+    carousel.on('touchstart', function(event) {
+      touchStartX = event.touches[0].clientX;
+    });
+
+    carousel.on('touchend', function(event) {
+      touchEndX = event.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    // Detect swipe direction and move carousel
+    function handleSwipe() {
+      const swipeThreshold = 50; // Minimum distance to trigger swipe
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swiped left - go to next slide
+          carousel.carousel('next');
+        } else {
+          // Swiped right - go to previous slide
+          carousel.carousel('prev');
+        }
+      }
+    }
+  });
+</script>
+
 <!-- ============================================
      WHY CHOOSE SHESHAMS BAKERS
      ============================================ -->
-<section class="food_section layout_padding">
-  <div class="container">
-    <div class="heading_container heading_center">
-      <h2>Why Choose Sheshams Bakers?</h2>
-      <p style="font-size: 1.1rem; color: #999; margin-top: 0.5rem;">Three promises we deliver on every cake</p>
-    </div>
-
-    <div class="row">
-      <!-- Card 1: 100% Vegetarian -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box">
-          <div class="img-box circular">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%); color: white; font-size: 4rem;">🌱</div>
-          </div>
-          <div class="detail-box" style="text-align: center;">
-            <h5>100% Vegetarian</h5>
-            <p>Pure vegetarian ingredients. No compromises. Perfect for families who value vegetarian choices without sacrificing taste or quality.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2: Entirely Eggless -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box">
-          <div class="img-box circular">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%); color: white; font-size: 4rem;">✨</div>
-          </div>
-          <div class="detail-box" style="text-align: center;">
-            <h5>Entirely Eggless</h5>
-            <p>Delicious without eggs. Premium plant-based and dairy alternatives deliver perfect texture, incredible taste, and zero compromise.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Expert Craftsmanship -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box">
-          <div class="img-box circular">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%); color: white; font-size: 4rem;">👨‍🍳</div>
-          </div>
-          <div class="detail-box" style="text-align: center;">
-            <h5>Expert Craftsmanship</h5>
-            <p>Passionate artisans create bespoke designs. Each cake is a unique masterpiece tailored to make your celebration truly memorable.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- <section class="why_choose_section" style="display: flex; align-items: stretch;">
+  
+  <div style="flex: 1; background: linear-gradient(135deg, #6bc34a 0%, #558b2f 100%); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: white;">
+    <div style="font-size: 2.5rem; margin-bottom: 15px;">🌱</div>
+    <h3 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 700;">100% Vegetarian</h3>
+    <p style="font-family: 'Open Sans', sans-serif; font-size: 0.95rem; line-height: 1.6; margin: 0;">Pure vegetarian ingredients. No compromises. Perfect for families who value vegetarian choices without sacrificing taste or quality.</p>
   </div>
-</section>
+
+  
+  <div style="flex: 1; background: linear-gradient(135deg, #333333 0%, #1a1a1a 100%); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: white;">
+    <div style="font-size: 2.5rem; margin-bottom: 15px;">✨</div>
+    <h3 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 700;">Entirely Eggless</h3>
+    <p style="font-family: 'Open Sans', sans-serif; font-size: 0.95rem; line-height: 1.6; margin: 0;">Delicious without eggs. Premium plant-based and dairy alternatives deliver perfect texture, incredible taste, and zero compromise.</p>
+  </div>
+
+  
+  <div style="flex: 1; background: linear-gradient(135deg, #ff6f00 0%, #e65100 100%); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: white;">
+    <div style="font-size: 2.5rem; margin-bottom: 15px;">👨‍🍳</div>
+    <h3 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 700;">Expert Craftsmanship</h3>
+    <p style="font-family: 'Open Sans', sans-serif; font-size: 0.95rem; line-height: 1.6; margin: 0;">Passionate artisans create bespoke designs. Each cake is a unique masterpiece tailored to make your celebration truly memorable.</p>
+  </div>
+</section> -->
+
+
+
+
 
 <!-- ============================================
-     SPECIAL OFFERS/PROMOTIONS
+     OUR SPECIALITIES
      ============================================ -->
-<section class="offers_section">
+<section style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-light) 100%); padding: 60px 0;">
   <div class="container">
     <div class="heading_container heading_center">
-      <h2>Special Offers This Month</h2>
-      <p style="font-size: 1.1rem; color: rgba(34, 40, 49, 0.8); margin-top: 0.5rem;">Limited time treats and exclusive deals</p>
+      <h2 style="font-family: 'Dancing Script', cursive; color: #222831; font-size: 2.5rem; margin-bottom: 10px;">Our Specialities</h2>
+      <p style="font-size: 1.1rem; color: #222831; margin-top: 0.5rem;">Premium Creations for Every Occasion & Celebration</p>
     </div>
 
     <div class="row">
-      <!-- Offer 1 -->
+      <!-- Speciality 1: Custom Cakes -->
       <div class="col-sm-6 col-lg-4">
         <div class="offer_card">
-          <div class="offer_badge">20%</div>
-          <div class="offer_tag">Fresh Celebration Cakes</div>
-          <h4>Celebration Week</h4>
-          <p>Get 20% off on custom cakes over ₹1500. Perfect for birthdays, anniversaries, and celebrations. Order this week!</p>
-          <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary">Claim Offer</a>
+          <div class="offer_badge" style="background: var(--accent-pink);">🎂</div>
+          <div class="offer_tag">Celebrations</div>
+          <h4>Custom Cakes</h4>
+          <p>Personalized cake designs for birthdays, anniversaries, weddings, corporate events. We realize your vision.</p>
+          <a href="/menu/?filter=Birthday" class="btn btn-primary">View Examples</a>
         </div>
       </div>
 
-      <!-- Offer 2 -->
+      <!-- Speciality 2: Premium Cupcakes -->
       <div class="col-sm-6 col-lg-4">
         <div class="offer_card">
-          <div class="offer_badge">15%</div>
-          <div class="offer_tag">Cupcake Specials</div>
-          <h4>Cupcake Days</h4>
-          <p>15% off on premium cupcake boxes. Bulk orders get free packaging and decorative elements. Great for gifts!</p>
-          <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary">Order Now</a>
+          <div class="offer_badge" style="background: var(--accent-pink);">🧁</div>
+          <div class="offer_tag">Gifting</div>
+          <h4>Premium Cupcakes</h4>
+          <p>Gourmet cupcakes in seasonal flavors. Perfect for events, parties, gifts, and corporate gifting.</p>
+          <a href="/menu/?filter=Cupcakes" class="btn btn-primary">View Examples</a>
         </div>
       </div>
 
-      <!-- Offer 3 -->
+      <!-- Speciality 3: Artistic Designs -->
       <div class="col-sm-6 col-lg-4">
         <div class="offer_card">
-          <div class="offer_badge">Buy 3</div>
-          <div class="offer_tag">Get 1 Free</div>
-          <h4>Dessert Deals</h4>
-          <p>Buy any 3 specialty desserts and get 1 free! Mix and match mousse cups, tarts, and pastries. While stocks last!</p>
-          <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary">Explore</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     FEATURED MENU ITEMS WITH PRICING
-     ============================================ -->
-<section class="featured_menu_section">
-  <div class="container">
-    <div class="heading_container heading_center">
-      <h2>Our Signature Items</h2>
-      <p style="font-size: 1.1rem; color: #999; margin-top: 0.5rem;">Handcrafted favorites with premium pricing</p>
-    </div>
-
-    <div class="row">
-      <!-- Item 1: Chocolate Cake -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="menu_item_card">
-          <div class="item_image">🍰</div>
-          <div class="item_content">
-            <h5 class="item_name">Rich Chocolate Cake</h5>
-            <p class="item_description">Decadent vegan chocolate cake with silky ganache. 100% vegetarian, entirely eggless.</p>
-            <div>
-              <div class="item_price_label">Starting from</div>
-              <div class="item_price">₹450</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 2: Vanilla Cheesecake -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="menu_item_card">
-          <div class="item_image">🧁</div>
-          <div class="item_content">
-            <h5 class="item_name">Vanilla Cheesecake</h5>
-            <p class="item_description">Creamy cashew-based cheesecake with graham cracker crust. Luxuriously eggless.</p>
-            <div>
-              <div class="item_price_label">Starting from</div>
-              <div class="item_price">₹480</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 3: Red Velvet -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="menu_item_card">
-          <div class="item_image">❤️</div>
-          <div class="item_content">
-            <h5 class="item_name">Red Velvet Elegance</h5>
-            <p class="item_description">Classic red velvet with cream cheese frosting. Perfect for weddings and special events.</p>
-            <div>
-              <div class="item_price_label">Starting from</div>
-              <div class="item_price">₹520</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 4: Carrot Walnut -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="menu_item_card">
-          <div class="item_image">🥕</div>
-          <div class="item_content">
-            <h5 class="item_name">Carrot & Walnut</h5>
-            <p class="item_description">Organic carrot cake with crushed walnuts and cream cheese frosting. Health meets taste.</p>
-            <div>
-              <div class="item_price_label">Starting from</div>
-              <div class="item_price">₹400</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 5: Black Forest -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="menu_item_card">
-          <div class="item_image">🍒</div>
-          <div class="item_content">
-            <h5 class="item_name">Black Forest Dream</h5>
-            <p class="item_description">Chocolate layers with cherry compote and whipped cream. Absolutely stunning.</p>
-            <div>
-              <div class="item_price_label">Starting from</div>
-              <div class="item_price">₹550</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 6: Fruit Tart -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="menu_item_card">
-          <div class="item_image">🍓</div>
-          <div class="item_content">
-            <h5 class="item_name">Seasonal Fruit Tart</h5>
-            <p class="item_description">Fresh seasonal fruits on custard cream with buttery pastry shell. Refreshingly delightful.</p>
-            <div>
-              <div class="item_price_label">Starting from</div>
-              <div class="item_price">₹380</div>
-            </div>
-          </div>
+          <div class="offer_badge" style="background: var(--accent-pink);">✨</div>
+          <div class="offer_tag">Premium Art</div>
+          <h4>Artistic Designs</h4>
+          <p>Hand-painted fondant art, whipped cream masterpieces, and butter cream sculptures. Edible art.</p>
+          <a href="/menu/?filter=Fondant" class="btn btn-primary">View Examples</a>
         </div>
       </div>
     </div>
 
     <div style="text-align: center; margin-top: 3rem;">
-      <p style="font-size: 1rem; color: #666; margin-bottom: 1.5rem;">Custom sizes, flavors, and designs available. Prices vary based on complexity and decoration.</p>
-      <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary">View Full Menu & Order</a>
+      <a href="/menu/" class="btn btn-primary">View Full Menu</a>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     OUR SPECIALITIES
-     ============================================ -->
-<section class="food_section layout_padding" style="background-color: #f1f2f3;">
+<!-- CORE VALUES SECTION -->
+<section class="food_section layout_padding" style="background: white;">
   <div class="container">
-    <div class="heading_container heading_center">
-      <h2>Our Specialities</h2>
-      <p style="font-size: 1.1rem; color: #999; margin-top: 0.5rem;">Premium Creations for Every Occasion & Celebration</p>
+    <div class="heading_container heading_center" style="margin-bottom: 3rem;">
+      <h2>Our Core Values</h2>
+      <p style="font-size: 1.1rem; color: #999; margin-top: 0.5rem;">The principles that guide every cake we create</p>
     </div>
-
-    <!-- 3-Column Grid for Specialities -->
     <div class="row">
-      <!-- Custom Cakes -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box">
-          <div class="img-box">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%); color: white; font-size: 3em;">🎂</div>
-          </div>
-          <div class="detail-box">
-            <h5>Custom Cakes</h5>
-            <p>Personalized cake designs for birthdays, anniversaries, weddings, corporate events, and all your special moments. We realize your vision.</p>
-            <a href="/menu/?filter=Birthday" style="color: #ffbe33; font-weight: 600;">View Examples →</a>
-          </div>
+      <!-- Value 1: Vegetarian -->
+      <div class="" style="margin-bottom: 2rem;">
+        <div class="box" style="background: linear-gradient(135deg, rgba(100, 200, 100, 0.1) 0%, rgba(124, 252, 0, 0.1) 100%); border: 1px solid rgba(100, 200, 100, 0.2); border-radius: 12px; padding: 30px; text-align: center;">
+          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🌱</div>
+          <h5 style="font-size: 1.2rem; margin-bottom: 1rem; color: #222831;">100% Vegetarian</h5>
+          <p style="color: #666; line-height: 1.6;">Every cake we create is made with 100% vegetarian ingredients. Pure, ethical, guilt-free indulgence for everyone.</p>
         </div>
       </div>
-
-      <!-- Premium Cupcakes -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box">
-          <div class="img-box">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%); color: white; font-size: 3em;">🧁</div>
-          </div>
-          <div class="detail-box">
-            <h5>Premium Cupcakes</h5>
-            <p>Gourmet cupcakes in seasonal flavors. Individual masterpieces perfect for events, parties, gifts, and corporate gifting.</p>
-            <a href="/menu/?filter=Cupcakes" style="color: #ffbe33; font-weight: 600;">View Examples →</a>
-          </div>
+      <!-- Value 2: Eggless -->
+      <div class="" style="margin-bottom: 2rem;">
+        <div class="box" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 12px; padding: 30px; text-align: center;">
+          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">✨</div>
+          <h5 style="font-size: 1.2rem; margin-bottom: 1rem; color: #222831;">Entirely Eggless</h5>
+          <p style="color: #666; line-height: 1.6;">We use innovative baking techniques to create moist, delicious cakes without any eggs. Perfect for all dietary needs.</p>
         </div>
       </div>
-
-      <!-- Artistic Designs -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box">
-          <div class="img-box">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%); color: white; font-size: 3em;">✨</div>
-          </div>
-          <div class="detail-box">
-            <h5>Artistic Designs</h5>
-            <p>Hand-painted fondant art, whipped cream masterpieces, and butter cream sculptures. Edible art that delights and impresses.</p>
-            <a href="/menu/?filter=Fondant" style="color: #ffbe33; font-weight: 600;">View Examples →</a>
-          </div>
+      <!-- Value 3: Handcrafted -->
+      <div class="" style="margin-bottom: 2rem;">
+        <div class="box" style="background: linear-gradient(135deg, rgba(255, 182, 193, 0.1) 0%, rgba(255, 105, 180, 0.1) 100%); border: 1px solid rgba(255, 105, 180, 0.2); border-radius: 12px; padding: 30px; text-align: center;">
+          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🎨</div>
+          <h5 style="font-size: 1.2rem; margin-bottom: 1rem; color: #222831;">Handcrafted Daily</h5>
+          <p style="color: #666; line-height: 1.6;">Every cake is handcrafted fresh daily with meticulous attention to detail and artistic flair. No compromises.</p>
         </div>
       </div>
-    </div>
-
-    <!-- Full-Width Specialty Card -->
-    <div class="row" style="margin-top: 2rem;">
-      <div class="col-sm-6 col-lg-12">
-        <div class="box">
-          <div style="display: flex; gap: 30px; align-items: center;">
-            <div style="width: 150px; height: 150px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%); color: white; font-size: 3em; border-radius: 10px;">🍰</div>
-            <div class="detail-box" style="padding: 0;">
-              <h5>Specialty Items & Custom Orders</h5>
-              <p>Trendy desserts: Tresletches, veg & paneer puffs, vegan desserts, health-conscious options. Keto-friendly, sugar-free, and allergen-free specialties available. Whatever you dream, we create.</p>
-              <a href="/menu/" style="color: #ffbe33; font-weight: 600;">Explore All →</a>
-            </div>
-          </div>
+      <!-- Value 4: Quality -->
+      <div class="" style="margin-bottom: 2rem;">
+        <div class="box" style="background: linear-gradient(135deg, rgba(255, 192, 203, 0.1) 0%, rgba(219, 112, 147, 0.1) 100%); border: 1px solid rgba(219, 112, 147, 0.2); border-radius: 12px; padding: 30px; text-align: center;">
+          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">⭐</div>
+          <h5 style="font-size: 1.2rem; margin-bottom: 1rem; color: #222831;">Premium Quality</h5>
+          <p style="color: #666; line-height: 1.6;">Only the finest ingredients sourced carefully. We never compromise on taste, texture, or presentation.</p>
+        </div>
+      </div>
+      <!-- Value 5: Customization -->
+      <div class="" style="margin-bottom: 2rem;">
+        <div class="box" style="background: linear-gradient(135deg, rgba(255, 218, 185, 0.1) 0%, rgba(255, 160, 122, 0.1) 100%); border: 1px solid rgba(255, 160, 122, 0.2); border-radius: 12px; padding: 30px; text-align: center;">
+          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🎯</div>
+          <h5 style="font-size: 1.2rem; margin-bottom: 1rem; color: #222831;">Fully Customizable</h5>
+          <p style="color: #666; line-height: 1.6;">Your cake, your rules. Customize flavors, designs, sizes, and dietary requirements. We make it happen.</p>
+        </div>
+      </div>
+      <!-- Value 6: Customer Care -->
+      <div class="" style="margin-bottom: 2rem;">
+        <div class="box" style="background: linear-gradient(135deg, rgba(200, 220, 255, 0.1) 0%, rgba(173, 216, 230, 0.1) 100%); border: 1px solid rgba(173, 216, 230, 0.2); border-radius: 12px; padding: 30px; text-align: center;">
+          <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">❤️</div>
+          <h5 style="font-size: 1.2rem; margin-bottom: 1rem; color: #222831;">Customer First</h5>
+          <p style="color: #666; line-height: 1.6;">Your satisfaction is our priority. Responsive support, transparent pricing, and zero hidden charges.</p>
         </div>
       </div>
     </div>
@@ -369,126 +268,69 @@ permalink: /
 <!-- ============================================
      HOW TO ORDER YOUR CAKE - 3 STEPS (NO DELIVERY)
      ============================================ -->
+<style>
+  @media (max-width: 768px) {
+    .how_to_order_section {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .how_to_order_section {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: stretch !important;
+    }
+  }
+</style>
+
 <section class="food_section layout_padding">
   <div class="container">
     <div class="heading_container heading_center">
-      <h2>How to Order Your Cake</h2>
+      <h2>How to Order</h2>
       <p style="font-size: 1.1rem; color: #999; margin-top: 0.5rem;">Simple, seamless steps from idea to celebration</p>
     </div>
+  </div>
+</section>
 
-    <div class="row" style="gap: 40px;">
-      <!-- Step 1 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box" style="text-align: center; padding: 30px;">
-          <div style="width: 80px; height: 80px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background-color: #ffbe33; color: white; border-radius: 50%; font-size: 2rem; font-weight: 700;">1</div>
-          <h5>💬 Message Us</h5>
-          <p>Reach out on WhatsApp with your cake ideas, preferences, budget, and occasion date</p>
-        </div>
-      </div>
+<section class="how_to_order_section" style="display: flex; align-items: stretch;">
+  <!-- Step 1: Message Us - Green -->
+  <div style="flex: 1; background: linear-gradient(135deg, var(--section-green) 0%, var(--section-green-dark) 100%); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: white;">
+    <div style="font-size: 2.5rem; margin-bottom: 15px;">💬</div>
+    <h3 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 700;">Message Us</h3>
+    <p style="font-family: 'Open Sans', sans-serif; font-size: 0.95rem; line-height: 1.6; margin: 0;">Reach out on WhatsApp with your cake ideas, preferences, budget, and occasion date.</p>
+  </div>
 
-      <!-- Step 2 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box" style="text-align: center; padding: 30px;">
-          <div style="width: 80px; height: 80px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background-color: #ffbe33; color: white; border-radius: 50%; font-size: 2rem; font-weight: 700;">2</div>
-          <h5>📋 Consultation & Quote</h5>
-          <p>We discuss design, flavors, ingredients, dietary needs, and provide you with pricing</p>
-        </div>
-      </div>
+  <!-- Step 2: Consultation & Quote - Dark -->
+  <div style="flex: 1; background: linear-gradient(135deg, var(--section-dark) 0%, var(--section-dark-darker) 100%); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: white;">
+    <div style="font-size: 2.5rem; margin-bottom: 15px;">📋</div>
+    <h3 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 700;">Consultation & Quote</h3>
+    <p style="font-family: 'Open Sans', sans-serif; font-size: 0.95rem; line-height: 1.6; margin: 0;">We discuss design, flavors, ingredients, dietary needs, and provide you with pricing.</p>
+  </div>
 
-      <!-- Step 3 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="box" style="text-align: center; padding: 30px;">
-          <div style="width: 80px; height: 80px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background-color: #ffbe33; color: white; border-radius: 50%; font-size: 2rem; font-weight: 700;">3</div>
-          <h5>🎨 Creation</h5>
-          <p>Our expert bakers craft your cake with premium ingredients and artistic precision</p>
-        </div>
-      </div>
-    </div>
+  <!-- Step 3: Creation - Orange -->
+  <div style="flex: 1; background: linear-gradient(135deg, var(--section-orange) 0%, var(--section-orange-dark) 100%); padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; color: white;">
+    <div style="font-size: 2.5rem; margin-bottom: 15px;">🎨</div>
+    <h3 style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 700;">Creation</h3>
+    <p style="font-family: 'Open Sans', sans-serif; font-size: 0.95rem; line-height: 1.6; margin: 0;">Our expert bakers craft your cake with premium ingredients and artistic precision.</p>
+  </div>
+</section>
 
-    <div style="text-align: center; margin-top: 3rem;">
+<section class="food_section layout_padding">
+  <div class="container">
+    <div style="text-align: center;">
       <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary">💬 Start Your Order</a>
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     CUSTOMER TESTIMONIALS
-     ============================================ -->
-<section class="testimonials_section layout_padding">
-  <div class="container">
-    <div class="heading_container heading_center">
-      <h2>What Our Customers Say</h2>
-      <p style="font-size: 1.1rem; color: #999; margin-top: 0.5rem;">Real stories from happy celebrations</p>
-    </div>
-
-    <div class="row">
-      <!-- Testimonial 1 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="testimonial_card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"The chocolate cake was absolutely divine! The fact that it's completely eggless and vegetarian but tastes so incredible is impressive. Everyone at the party couldn't stop raving about it!"</p>
-          <div class="author">Priya Sharma</div>
-          <div class="author_role">Birthday Celebration</div>
-        </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="testimonial_card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"We ordered 3 custom cakes for our daughter's wedding. The level of detail, creativity, and professionalism was outstanding. Sheshams Bakers made our special day even more memorable!"</p>
-          <div class="author">Rajesh Patel</div>
-          <div class="author_role">Wedding Event</div>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="testimonial_card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"As someone with strict dietary preferences, finding a bakery that takes all my requirements seriously is rare. These folks are truly dedicated to their craft and customer satisfaction."</p>
-          <div class="author">Neha Gupta</div>
-          <div class="author_role">Regular Customer</div>
-        </div>
-      </div>
-
-      <!-- Testimonial 4 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="testimonial_card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"The cupcake boxes make the perfect gift! Beautiful packaging, amazing flavors, and the team's responsiveness on WhatsApp is excellent. Highly recommend for corporate gifting."</p>
-          <div class="author">Amit Desai</div>
-          <div class="author_role">Corporate Gifting</div>
-        </div>
-      </div>
-
-      <!-- Testimonial 5 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="testimonial_card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"I've ordered 5 times now for different occasions. Every single time, the quality, taste, and presentation exceed expectations. This is my go-to bakery for anything special!"</p>
-          <div class="author">Anjali Verma</div>
-          <div class="author_role">Repeat Customer</div>
-        </div>
-      </div>
-
-      <!-- Testimonial 6 -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="testimonial_card">
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p>"The artistic designs are unbelievable! The red velvet cake for my anniversary looked like a masterpiece. It tasted as good as it looked. Absolutely worth every rupee!"</p>
-          <div class="author">Vikram Singh</div>
-          <div class="author_role">Anniversary Celebration</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================
      FINAL CTA
      ============================================ -->
-<section class="food_section layout_padding" style="background-color: #222831; color: white; text-align: center;">
+<section class="food_section layout_padding" style="background-color: var(--secondary-dark); color: white; text-align: center;">
   <div class="container">
     <h2 style="color: white; margin-bottom: 1rem;">Ready to Order Your Masterpiece?</h2>
     <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #ccc;">

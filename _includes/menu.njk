@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async function() {
           </div>
           <div class="box-footer">
             <a href="${post.permalink}" target="_blank" class="instagram-btn">
-              <i class="bi bi-instagram"></i>
+              <i class="fa-brands fa-instagram"></i>
               <span>View more</span>
             </a>
           </div>
@@ -95,14 +95,9 @@ document.addEventListener('DOMContentLoaded', async function() {
       layoutMode: 'fitRows'
     });
     
-    // Trigger layout after items load to ensure proper spacing
+    // Trigger layout after items load
     setTimeout(() => {
       $grid.isotope('layout');
-      // Force page reflow for footer positioning
-      document.body.style.height = document.body.offsetHeight + 'px';
-      setTimeout(() => {
-        document.body.style.height = 'auto';
-      }, 100);
     }, 100);
     
     // Filter functionality
@@ -112,7 +107,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       jQuery(this).addClass('active');
       $grid.isotope({ filter: filterValue });
       
-      // Re-layout footer after filtering
+      // Re-layout after filtering
       setTimeout(() => {
         $grid.isotope('layout');
       }, 300);
