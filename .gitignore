@@ -6,3 +6,8 @@ _site/
 .env.local
 .cache/
 sample
+# Playwright
+test-results/
+playwright-report/
+.auth/
+.mcprc

@@ -1,6 +1,9 @@
 const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
+  // Ignore directories
+  eleventyConfig.ignores.add(".github/**");
+  
   // Passthrough copy for static assets
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("posts/images");

@@ -1,33 +1,43 @@
-<header class="header" id="header">
-  <nav class="navbar">
-    <div class="navbar__container">
-      <!-- LOGO -->
-      <div class="navbar__logo">
-        <a href="/" class="navbar__logo-link">
-          <h2 style="font-family: Georgia, serif; color: #0066cc; font-weight: 700; letter-spacing: -0.5px; margin: 0; font-size: 1.5rem;">Sheshams Bakers</h2>
-        </a>
-      </div>
+<header class="header_section">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <a class="navbar-brand" href="/">
+        <span>Sheshams Bakers</span>
+      </a>
 
-      <!-- MENU TOGGLE (Mobile) -->
-      <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class=""></span>
       </button>
 
-      <!-- NAVIGATION MENU -->
-      <ul class="navbar__menu" id="navMenu">
-        <li><a href="/" class="navbar__link">Home</a></li>
-        <li><a href="#cakes" class="navbar__link">Cakes</a></li>
-        <li><a href="/gallery/" class="navbar__link">Gallery</a></li>
-        <li><a href="/about/" class="navbar__link">About</a></li>
-        <li><a href="/contact/" class="navbar__link">Contact</a></li>
-        <li>
-          <a href="https://wa.me/1234567890" target="_blank" class="navbar__social" aria-label="WhatsApp" title="Order on WhatsApp">
-            <i class="fab fa-whatsapp"></i>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item {% if page.url == '/' %}active{% endif %}">
+            <a class="nav-link" href="/">Home {% if page.url == '/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if page.url == '/menu/' %}active{% endif %}">
+            <a class="nav-link" href="/menu/">Menu {% if page.url == '/menu/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if page.url == '/about/' %}active{% endif %}">
+            <a class="nav-link" href="/about/">About {% if page.url == '/about/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if page.url == '/contact/' %}active{% endif %}">
+            <a class="nav-link" href="/contact/">Contact {% if page.url == '/contact/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+          <li class="nav-item {% if page.url == '/gallery/' %}active{% endif %}">
+            <a class="nav-link" href="/gallery/">Gallery {% if page.url == '/gallery/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+          </li>
+        </ul>
+        <div class="user_option">
+          <a href="https://wa.me/14438582646" class="user_link" title="WhatsApp">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i>
           </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+          <form class="form-inline">
+            <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>

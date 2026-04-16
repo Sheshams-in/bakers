@@ -38,11 +38,19 @@ async function initGallery() {
     
     // Render posts
     renderPosts(posts, galleryGrid);
-    updateResultCount(posts.length);
+    updateGalleryResultCount(posts.length);
     
   } catch (error) {
     console.error('Error loading posts:', error);
     galleryGrid.innerHTML = '<p class="gallery__loading">Unable to load gallery. Please try again later.</p>';
+  }
+}
+
+// Update gallery result count
+function updateGalleryResultCount(count) {
+  const resultSpan = document.getElementById('resultCount');
+  if (resultSpan) {
+    resultSpan.textContent = count || 0;
   }
 }
 
