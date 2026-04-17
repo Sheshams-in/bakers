@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /_site/
+Disallow: /node_modules/
+Disallow: /tests/
+Disallow: /playwright-report/
+Disallow: /test-results/
+Disallow: /.env
+
+Sitemap: https://bakers.sheshams.in/sitemap.xml

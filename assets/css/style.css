@@ -1655,7 +1655,7 @@ a:focus {
 .food_section .row > [class*='col-'] {
   display: flex !important;
   margin: 0 !important;
-  width: auto !important;
+  min-width: 0;
 }
 
 /* Filter Menu Enhancements */
