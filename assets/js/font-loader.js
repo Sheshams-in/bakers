@@ -7,7 +7,7 @@
   const checkAndLoadFont = () => {
     if (typeof window.basePath !== 'undefined') {
       const basePath = window.basePath || '';
-      const fontPath = (basePath ? basePath : '') + '/assets/fonts/Sail-Regular.ttf';
+      const fontPath = basePath ? basePath + '/assets/fonts/Sail-Regular.ttf' : '/assets/fonts/Sail-Regular.ttf';
       
       // Create @font-face rule with correct path
       const style = document.createElement('style');

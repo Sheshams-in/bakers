@@ -20,8 +20,8 @@ async function initGallery() {
   
   try {
     const basePath = window.basePath || '';
-  const feedUrl = basePath + '/posts/instagram-feed.json';
-  const response = await fetch(feedUrl);
+    const feedUrl = basePath ? basePath + '/posts/instagram-feed.json' : '/posts/instagram-feed.json';
+    const response = await fetch(feedUrl);
     if (!response.ok) {
       throw new Error('Failed to load posts');
     }

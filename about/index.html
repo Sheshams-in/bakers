@@ -53,12 +53,16 @@
     /**
      * Read basePath from meta tag (set during build from ELEVENTY_PATH_PREFIX)
      * Falls back to intelligent detection for custom domains vs GitHub Pages
+     * Always removes trailing slashes to prevent double slashes in URLs
      */
     (function() {
       // Try to read from meta tag first
       const metaTag = document.querySelector('meta[name="baseline-path"]');
       if (metaTag) {
-        window.basePath = metaTag.getAttribute('content');
+        let basePath = metaTag.getAttribute('content');
+        // Remove trailing slash to avoid double slashes
+        basePath = basePath.replace(/\/$/, '');
+        window.basePath = basePath;
         console.log('✓ Base path from meta tag:', window.basePath || '(root)');
         return;
       }
