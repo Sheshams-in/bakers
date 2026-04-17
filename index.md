@@ -33,7 +33,7 @@ permalink: /
                   <p>We specialize in creating beautiful, delicious, and entirely custom cakes for every celebration — from intimate gatherings to grand celebrations.</p>
                   <div class="btn-box">
                     <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary" style="margin: 0 8px;">🎂 Order Now on WhatsApp</a>
-                    <a href="/menu/" class="btn btn-secondary" style="margin: 0 8px;">📸 View Our Menu</a>
+                    <a href="{{ '/menu/' | url }}" class="btn btn-secondary" style="margin: 0 8px;">📸 View Our Menu</a>
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@ permalink: /
                   <p>Every cake is a one-of-a-kind creation tailored to your vision. From elegant tiers to playful designs — we bring your dream cake to life.</p>
                   <div class="btn-box">
                     <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary" style="margin: 0 8px;">💬 Chat with Us</a>
-                    <a href="/gallery/" class="btn btn-secondary" style="margin: 0 8px;">🖼️ See Gallery</a>
+                    <a href="{{ '/gallery/' | url }}" class="btn btn-secondary" style="margin: 0 8px;">🖼️ See Gallery</a>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@ permalink: /
                   <p>Surprise someone special with a box of handcrafted cupcakes, mousse cups, or a custom gift cake — delivered with love.</p>
                   <div class="btn-box">
                     <a href="https://wa.me/14438582646" target="_blank" class="btn btn-primary" style="margin: 0 8px;">🎁 Order a Gift</a>
-                    <a href="/menu/" class="btn btn-secondary" style="margin: 0 8px;">📋 Browse Menu</a>
+                    <a href="{{ '/menu/' | url }}" class="btn btn-secondary" style="margin: 0 8px;">📋 Browse Menu</a>
                   </div>
                 </div>
               </div>
@@ -172,7 +172,7 @@ permalink: /
           <div class="offer_tag">Celebrations</div>
           <h4>Custom Cakes</h4>
           <p>Personalized cake designs for birthdays, anniversaries, weddings, corporate events. We realize your vision.</p>
-          <a href="/menu/?filter=Birthday" class="btn btn-primary">View Examples</a>
+          <a href="{{ '/menu/?filter=Birthday' | url }}" class="btn btn-primary">View Examples</a>
         </div>
       </div>
 
@@ -183,7 +183,7 @@ permalink: /
           <div class="offer_tag">Gifting</div>
           <h4>Premium Cupcakes</h4>
           <p>Gourmet cupcakes in seasonal flavors. Perfect for events, parties, gifts, and corporate gifting.</p>
-          <a href="/menu/?filter=Cupcakes" class="btn btn-primary">View Examples</a>
+          <a href="{{ '/menu/?filter=Cupcakes' | url }}" class="btn btn-primary">View Examples</a>
         </div>
       </div>
 
@@ -194,13 +194,13 @@ permalink: /
           <div class="offer_tag">Premium Art</div>
           <h4>Artistic Designs</h4>
           <p>Hand-painted fondant art, whipped cream masterpieces, and butter cream sculptures. Edible art.</p>
-          <a href="/menu/?filter=Fondant" class="btn btn-primary">View Examples</a>
+          <a href="{{ '/menu/?filter=Fondant' | url }}" class="btn btn-primary">View Examples</a>
         </div>
       </div>
     </div>
 
     <div style="text-align: center; margin-top: 3rem;">
-      <a href="/menu/" class="btn btn-primary">View Full Menu</a>
+      <a href="{{ '/menu/' | url }}" class="btn btn-primary">View Full Menu</a>
     </div>
   </div>
 </section>

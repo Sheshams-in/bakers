@@ -1,7 +1,7 @@
 <header class="header_section">
   <div class="container">
     <nav class="navbar navbar-expand-lg custom_nav-container">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="{{ '/' | url }}">
         <span class="brand-shesh">Shesh</span><span class="brand-ams">Am's</span><span class="brand-bakers">Bakers</span>
       </a>
 
@@ -12,19 +12,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item {% if page.url == '/' %}active{% endif %}">
-            <a class="nav-link" href="/">Home {% if page.url == '/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+            <a class="nav-link" href="{{ '/' | url }}">Home {% if page.url == '/' %}<span class="sr-only">(current)</span>{% endif %}</a>
           </li>
           <li class="nav-item {% if page.url == '/menu/' %}active{% endif %}">
-            <a class="nav-link" href="/menu/">Menu {% if page.url == '/menu/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+            <a class="nav-link" href="{{ '/menu/' | url }}">Menu {% if page.url == '/menu/' %}<span class="sr-only">(current)</span>{% endif %}</a>
           </li>
           <li class="nav-item {% if page.url == '/about/' %}active{% endif %}">
-            <a class="nav-link" href="/about/">About {% if page.url == '/about/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+            <a class="nav-link" href="{{ '/about/' | url }}">About {% if page.url == '/about/' %}<span class="sr-only">(current)</span>{% endif %}</a>
           </li>
           <li class="nav-item {% if page.url == '/contact/' %}active{% endif %}">
-            <a class="nav-link" href="/contact/">Contact {% if page.url == '/contact/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+            <a class="nav-link" href="{{ '/contact/' | url }}">Contact {% if page.url == '/contact/' %}<span class="sr-only">(current)</span>{% endif %}</a>
           </li>
           <li class="nav-item {% if page.url == '/gallery/' %}active{% endif %}">
-            <a class="nav-link" href="/gallery/">Gallery {% if page.url == '/gallery/' %}<span class="sr-only">(current)</span>{% endif %}</a>
+            <a class="nav-link" href="{{ '/gallery/' | url }}">Gallery {% if page.url == '/gallery/' %}<span class="sr-only">(current)</span>{% endif %}</a>
           </li>
         </ul>
         <div class="user_option">
