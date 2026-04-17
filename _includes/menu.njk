@@ -52,10 +52,16 @@ document.addEventListener('DOMContentLoaded', async function() {
   const menuGrid = document.getElementById('menuGrid');
   
   try {
+    // Wait for basePath to be available (set in base.njk)
+    let basePath = window.basePath || '';
+    
+    // Build the Instagram feed URL with proper basePath handling
+    const feedUrl = (basePath ? basePath : '') + '/posts/instagram-feed.json';
+    
     // Load Instagram feed data
-    const response = await fetch('/posts/instagram-feed.json');
+    const response = await fetch(feedUrl);
     if (!response.ok) {
-      throw new Error('Failed to load posts');
+      throw new Error('Failed to load posts from: ' + feedUrl);
     }
     
     const posts = await response.json();
@@ -70,7 +76,15 @@ document.addEventListener('DOMContentLoaded', async function() {
       col.innerHTML = `
         <div class="box">
           <div class="img-box">
-            <img src="${post.localImagePath || post.imageUrl || '/assets/images/placeholder.jpg'}" alt="${post.caption || 'Sheshams Bakers cake'}" loading="lazy">
+            <img src="${(() => {
+              const basePath = window.basePath || '';
+              const imagePath = post.localImagePath || post.imageUrl;
+              if (imagePath && imagePath.startsWith('/')) {
+                return (basePath ? basePath : '') + imagePath;
+              }
+              return imagePath || (basePath ? basePath : '') + '/assets/images/placeholder.jpg';
+            })(
+            )}" alt="${post.caption || 'Sheshams Bakers cake'}" loading="lazy">
           </div>
           <div class="detail-box">
             <h5>${(post.categories && post.categories[0]) || 'Our Creation'}</h5>
