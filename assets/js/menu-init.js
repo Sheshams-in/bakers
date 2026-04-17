@@ -93,7 +93,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize Isotope
     $grid.isotope({
       itemSelector: '.all',
-      layoutMode: 'fitRows',
+      layoutMode: 'masonry',
+      masonry: {
+        columnWidth: '.all'
+      },
       transitionDuration: '0.6s'
     });
     
