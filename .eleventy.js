@@ -17,6 +17,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("posts/instagram-feed.json");
   eleventyConfig.addPassthroughCopy(".htaccess");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   // Image optimization
   eleventyConfig.addNunjucksAsyncShortcode("image", async function(src, alt) {
