@@ -639,12 +639,10 @@ a:focus {
 .food_section .box {
   position: relative;
   margin-top: 25px;
-  background-color: #ffffff;
-  border-radius: 10px;
   color: #ffffff;
   border-radius: 15px;
   overflow: hidden;
-  background: linear-gradient(to bottom, #222731 250px, #222831 250px);
+  background: linear-gradient(to bottom, #f1f2f3 250px, #222831 250px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -653,11 +651,10 @@ a:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  /* min-height: 480px; */
 }
 
 .food_section .box .img-box {
-  background: #222831;
+  background: #f1f2f3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
