@@ -3,6 +3,7 @@ title: Sheshams Bakers - Vegetarian & Eggless Cakes in Baltimore, Maryland
 layout: base.njk
 description: Premium artisan cakes, cupcakes & desserts in Baltimore, MD. 100% Vegetarian • Entirely Eggless • Custom cakes & cupcakes
 permalink: /
+googleVerification: OKFI36CZ1bCnLi6tUC_Q6_EHUAX25xoOuR2xZMf3ois
 ---
 
 <!-- ============================================
