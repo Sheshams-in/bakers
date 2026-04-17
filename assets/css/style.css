@@ -840,13 +840,6 @@ a:focus {
   padding: 0 15px 40px 15px;
 }
 
-/* Isotope hidden items - ensure they don't display or take space */
-.food_section .grid .isotope-hidden {
-  display: none !important;
-  pointer-events: none;
-  opacity: 0;
-}
-
 .about_section {
   background: #222831;
   color: #ffffff;

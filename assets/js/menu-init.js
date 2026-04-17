@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize Isotope filtering AFTER items are rendered
     const $grid = jQuery('.grid');
     $grid.isotope({
-      itemSelector: '.col-sm-6',
+      itemSelector: '.all',
       layoutMode: 'fitRows'
     });
     
@@ -74,17 +74,10 @@ document.addEventListener('DOMContentLoaded', async function() {
       
       console.log('Filtering by:', filterValue);
       
-      // Set the filter and recalculate layout
+      // Apply filter with proper Isotope syntax
       $grid.isotope({ 
         filter: filterValue 
       });
-      
-      // Reload items to ensure all hidden state is updated
-      setTimeout(() => {
-        $grid.isotope('reloadItems');
-        $grid.isotope('layout');
-        console.log('Layout updated');
-      }, 100);
     });
     
   } catch (error) {
