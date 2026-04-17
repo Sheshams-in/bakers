@@ -49,31 +49,19 @@
   <script>
     /**
      * Intelligent basePath detection
-     * Works across different deployment scenarios:
-     * - GitHub Pages project (/bakers/): detects /bakers
-     * - Custom domain root: detects empty string
-     * - Subdirectory deployment: detects /subdirectory
-     * 
-     * Detects which part of the URL is the app base vs. the page route.
-     * If index.html is at /bakers/index.html, basePath is /bakers
-     * If index.html is at /index.html, basePath is empty
+     * GitHub Pages project repos: /reponame/ → basePath = /reponame
+     * Custom domains (root): / → basePath = (empty)
      */
     (function() {
-      const currentPath = window.location.pathname;
-      const indexMatch = currentPath.match(/^(.*?\/)index\.html$/) || 
-                         currentPath.match(/^(.*?\/)[^/]*$/) ||
-                         ['', ''];
+      const pathname = window.location.pathname;
+      // Split path and get first segment (e.g., 'bakers' from /bakers/menu/)
+      const segments = pathname.split('/').filter(Boolean);
       
-      // Extract base path (everything up to and including the trailing /)
-      let detectedBase = indexMatch[1] || '/';
+      // For GitHub Pages, first segment is the repo name (base path)
+      // For root domain, there are no segments, so basePath is empty
+      window.basePath = segments.length > 0 ? '/' + segments[0] : '';
       
-      // Remove trailing slash for consistency (will add back when needed)
-      if (detectedBase !== '/') {
-        detectedBase = detectedBase.replace(/\/$/, '');
-      }
-      
-      window.basePath = detectedBase && detectedBase !== '/' ? detectedBase : '';
-      console.log('✓ Base path detected:', window.basePath || '(root)', 'from:', currentPath);
+      console.log('✓ Base path detected:', window.basePath || '(root)', 'from:', pathname);
     })();
   </script>
 
