@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       col.innerHTML = `
         <div class="box">
           <div class="img-box">
-            <img src="${imgSrc}" alt="${post.caption || 'Sheshams Bakers cake'}" loading="lazy">
+            <img src="${imgSrc}" alt="${post.caption || 'Sheshams Bakers cake'}">
           </div>
           <div class="detail-box">
             <h5>${(post.categories && post.categories[0]) || 'Our Creation'}</h5>

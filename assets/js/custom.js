@@ -7,26 +7,30 @@ function getYear() {
 
 getYear();
 
+// isotope js - Initialize immediately on DOM ready, not waiting for images
+var $grid = null;
 
-// isotope js
-$(window).on('load', function () {
-    $('.filters_menu li').click(function () {
-        $('.filters_menu li').removeClass('active');
-        $(this).addClass('active');
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Isotope grid if it exists
+    if (document.querySelector('.grid')) {
+        $grid = jQuery(".grid").isotope({
+            itemSelector: '.col-sm-6',
+            layoutMode: 'fitRows'
+        });
+    }
+    
+    // Set up filter click handlers
+    jQuery('.filters_menu li').on('click', function () {
+        jQuery('.filters_menu li').removeClass('active');
+        jQuery(this).addClass('active');
 
-        var data = $(this).attr('data-filter');
-        $grid.isotope({
-            filter: data
-        })
-    });
-
-    var $grid = $(".grid").isotope({
-        itemSelector: ".all",
-        percentPosition: false,
-        masonry: {
-            columnWidth: ".all"
+        var data = jQuery(this).attr('data-filter');
+        if ($grid) {
+            $grid.isotope({
+                filter: data
+            });
         }
-    })
+    });
 });
 
 // nice select
