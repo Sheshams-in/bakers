@@ -642,7 +642,7 @@ a:focus {
   color: #ffffff;
   border-radius: 15px;
   overflow: hidden;
-  background: linear-gradient(to bottom, #f1f2f3 250px, #222831 250px);
+  background: linear-gradient(to bottom, #232931 250px, #222831 250px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1641,20 +1641,6 @@ a:focus {
   display: flex !important;
   margin: 0 !important;
   width: auto !important;
-}
-
-.food_section .col-lg-4 {
-  padding: 0 !important;
-  width: auto !important;
-}
-
-/* Ensure box fills the column */
-.food_section .box {
-  width: 100%;
-}
-
-.food_section .box .detail-box h5 {
-  font-size: 1.25rem;
 }
 
 /* Filter Menu Enhancements */
