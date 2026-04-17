@@ -10,7 +10,7 @@ permalink: /
      ============================================ -->
 <section class="hero_area">
   <div class="bg-box">
-    <img src="/assets/images/hero-bg.jpg" alt="Hero Background">
+    <img src="{{ '/assets/images/hero-bg.jpg' | url }}" alt="Hero Background">
   </div>
 
   <section class="slider_section">

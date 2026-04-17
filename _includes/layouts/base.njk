@@ -6,7 +6,7 @@
   <meta name="description" content="{{ description or 'Premium artisan cakes, cupcakes, and specialty desserts. Vegetarian & Eggless. Order custom cakes via WhatsApp.' }}">
   <meta property="og:title" content="{{ title or 'Sheshams Bakers - Premium Artisan Cakes' }}">
   <meta property="og:description" content="{{ description or 'Handcrafted vegetarian cakes & cupcakes. 100% eggless. Custom designs available.' }}">
-  <meta property="og:image" content="{{ ogImage or '/assets/images/og-image.jpg' }}">
+  <meta property="og:image" content="{{ ogImage or '/assets/images/og-image.jpg' | url }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ url or 'https://sheshams-bakers.com' }}">
   <meta name="theme-color" content="#0066cc">
@@ -16,7 +16,7 @@
   <title>{{ title or 'Sheshams Bakers' }}</title>
   
   <!-- Bootstrap 4 CSS -->
-  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/bootstrap.css' | url }}">
   
   <!-- Font Awesome 6.x for icons (CDN - jsDelivr) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
@@ -31,14 +31,14 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   
   <!-- Sheshams Bakers Custom CSS -->
-  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet" />
   <!-- Responsive styles -->
-  <link href="/assets/css/responsive.css" rel="stylesheet" />
+  <link href="{{ '/assets/css/responsive.css' | url }}" rel="stylesheet" />
   
   <!-- Theme Stylesheet (Gold or Purple) - change href to switch themes -->
-  <link id="theme-stylesheet" rel="stylesheet" href="/assets/css/theme-gold.css">
+  <link id="theme-stylesheet" rel="stylesheet" href="{{ '/assets/css/theme-gold.css' | url }}">
   
-  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | url }}">
   
   <!-- AOS (Animate On Scroll) Library for smooth scroll animations -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
@@ -53,11 +53,11 @@
   {% include "footer.njk" %}
   
   <!-- jQuery 3.4.1 -->
-  <script src="/assets/js/jquery-3.4.1.min.js"></script>
+  <script src="{{ '/assets/js/jquery-3.4.1.min.js' | url }}"></script>
   <!-- Popper JS -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <!-- Bootstrap JS -->
-  <script src="/assets/js/bootstrap.js"></script>
+  <script src="{{ '/assets/js/bootstrap.js' | url }}"></script>
   <!-- Owl Carousel -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- Isotope JS -->
@@ -65,14 +65,14 @@
   <!-- Nice Select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- Custom JS -->
-  <script src="/assets/js/custom.js"></script>
+  <script src="{{ '/assets/js/custom.js' | url }}"></script>
   <!-- Main JS -->
-  <script src="/assets/js/main.js"></script>
+  <script src="{{ '/assets/js/main.js' | url }}"></script>
   <!-- Menu Search JS -->
-  <script src="/assets/js/menu-search.js"></script>
+  <script src="{{ '/assets/js/menu-search.js' | url }}"></script>
   
   <!-- Theme Switcher JS -->
-  <script src="/assets/js/theme-switcher.js"></script>
+  <script src="{{ '/assets/js/theme-switcher.js' | url }}"></script>
 </body>
 </html>
 
