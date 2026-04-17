@@ -1,21 +1,24 @@
 <h1 id="github-mcp-integration-for-sheshamsbakers" tabindex="-1">GitHub MCP Integration for SheshamsBakers</h1>
-<p>This project is configured with the GitHub Model Context Protocol (MCP) to enable AI agents to interact with the repository directly.</p>
+<p>This project is configured with the official GitHub Model Context Protocol (MCP) to enable AI agents to interact with the repository directly.</p>
 <h2 id="setup-instructions" tabindex="-1">Setup Instructions</h2>
-<h3 id="1.-install-mcp-server" tabindex="-1">1. Install MCP Server</h3>
-<pre><code class="language-bash">npm install --save-dev @modelcontextprotocol/server-github
-</code></pre>
-<h3 id="2.-set-github-token" tabindex="-1">2. Set GitHub Token</h3>
+<h3 id="1.-create-a-github-personal-access-token" tabindex="-1">1. Create a GitHub Personal Access Token</h3>
 <p>Create a personal access token at <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> with these scopes:</p>
 <ul>
 <li><code>repo</code> (full repository access)</li>
 <li><code>workflow</code> (for GitHub Actions)</li>
 <li><code>read:org</code> (organization access)</li>
 </ul>
-<p>Then add to your <code>.env</code> or shell environment:</p>
-<pre><code class="language-bash">export GITHUB_TOKEN=ghp_your_token_here
-</code></pre>
-<h3 id="3.-restart-vs-code" tabindex="-1">3. Restart VS Code</h3>
-<p>Once the token is set and MCP is installed, restart VS Code for the extension to activate.</p>
+<p><strong>Important</strong>: Copy the token immediately after creation (you won't be able to see it again).</p>
+<h3 id="2.-authenticate-with-vs-code" tabindex="-1">2. Authenticate with VS Code</h3>
+<p>When you open this workspace in VS Code:</p>
+<ol>
+<li>The MCP will prompt you for the GitHub Personal Access Token</li>
+<li>Paste your token into the secure input when prompted</li>
+<li>VS Code will store it securely in your keychain</li>
+</ol>
+<p>Alternatively, you can provide it when Copilot requests GitHub access.</p>
+<h3 id="3.-ready-to-use" tabindex="-1">3. Ready to Use</h3>
+<p>No installation needed! The official GitHub MCP API is used via HTTP endpoint.</p>
 <h2 id="available-operations" tabindex="-1">Available Operations</h2>
 <p>With GitHub MCP enabled, agents can:</p>
 <ul>
@@ -27,7 +30,29 @@
 <li>✅ Monitor GitHub Pages builds</li>
 </ul>
 <h2 id="configuration" tabindex="-1">Configuration</h2>
-<p>The configuration is in <code>.vscode/settings.json</code> under the <code>modelContextProtocol.servers.github</code> section.</p>
+<p>The configuration is in <code>.vscode/settings.json</code> under <code>modelContextProtocol.servers.github</code>:</p>
+<pre><code class="language-json">{
+  &quot;modelContextProtocol&quot;: {
+    &quot;servers&quot;: {
+      &quot;github&quot;: {
+        &quot;type&quot;: &quot;http&quot;,
+        &quot;url&quot;: &quot;https://api.githubcopilot.com/mcp/&quot;,
+        &quot;headers&quot;: {
+          &quot;Authorization&quot;: &quot;Bearer ${input:github_mcp_pat}&quot;
+        }
+      }
+    },
+    &quot;inputs&quot;: [
+      {
+        &quot;type&quot;: &quot;promptString&quot;,
+        &quot;id&quot;: &quot;github_mcp_pat&quot;,
+        &quot;description&quot;: &quot;GitHub Personal Access Token&quot;,
+        &quot;password&quot;: true
+      }
+    ]
+  }
+}
+</code></pre>
 <h2 id="repository-info" tabindex="-1">Repository Info</h2>
 <ul>
 <li><strong>Repository</strong>: <a href="https://github.com/Sheshams-in/bakers">https://github.com/Sheshams-in/bakers</a></li>
@@ -36,7 +61,7 @@
 <li><strong>Deployment</strong>: Automatic via GitHub Actions</li>
 </ul>
 <h2 id="usage-examples" tabindex="-1">Usage Examples</h2>
-<p>Once MCP is set up, agents can:</p>
+<p>Once MCP is authenticated, agents can:</p>
 <h3 id="check-deployment-status" tabindex="-1">Check deployment status</h3>
 <ul>
 <li>&quot;What's the status of my GitHub Pages deployment?&quot;</li>
@@ -56,26 +81,31 @@
 <p>If the GitHub MCP isn't working:</p>
 <ol>
 <li>
-<p><strong>Check token</strong>: Verify <code>GITHUB_TOKEN</code> is set in your environment</p>
-<pre><code class="language-bash">echo $GITHUB_TOKEN
-</code></pre>
+<p><strong>Token not set</strong>: When opening the workspace, look for a prompt asking for your GitHub token</p>
+<ul>
+<li>If you miss it, try running a command that needs GitHub access</li>
+</ul>
 </li>
 <li>
-<p><strong>Reinstall</strong>: Remove node_modules and reinstall</p>
-<pre><code class="language-bash">rm -rf node_modules
-npm install
-</code></pre>
+<p><strong>Check token scopes</strong>: Make sure your token has the required permissions</p>
+<ul>
+<li>Go to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and verify scopes</li>
+</ul>
 </li>
 <li>
-<p><strong>Check logs</strong>: Look at VS Code's MCP server logs in the Output panel</p>
+<p><strong>Regenerate token</strong>: If the token isn't working</p>
+<ul>
+<li>Delete the old token at <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></li>
+<li>Create a new one with the required scopes</li>
+</ul>
 </li>
 <li>
-<p><strong>Verify permissions</strong>: Ensure your GitHub token has the required scopes</p>
+<p><strong>Restart VS Code</strong>: If you add a new token, restart VS Code</p>
 </li>
 </ol>
 <h2 id="references" tabindex="-1">References</h2>
 <ul>
-<li><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></li>
-<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/github">GitHub MCP Server</a></li>
+<li><a href="https://docs.github.com/en/copilot/using-github-copilot/using-copilot-in-vs-code">Official GitHub MCP Documentation</a></li>
 <li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Creating GitHub Personal Access Tokens</a></li>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></li>
 </ul>
