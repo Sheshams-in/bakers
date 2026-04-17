@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
 
-/* Sail Regular Font */
-@font-face {
+/* Sail Regular Font - Optional, may not be present in all deployments */
+/* @font-face {
   font-family: 'Sail';
   src: url('/assets/fonts/Sail-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 body {
   font-family: "Open Sans", sans-serif;
