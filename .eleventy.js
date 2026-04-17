@@ -1,10 +1,17 @@
 const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
+  // Set path prefix for deployment
+  // - GitHub Pages project (default): /bakers/
+  // - Custom domain or root: / (set ELEVENTY_PATH_PREFIX="/")
+  // - Subdirectory deployment: /subdirectory/ (set ELEVENTY_PATH_PREFIX="/subdirectory/")
+  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || '/bakers/';
+  
   // Ignore directories
   eleventyConfig.ignores.add(".github/**");
   
   // Passthrough copy for static assets
+  // (These will be copied to _site and served correctly with pathPrefix)
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("posts/images");
   eleventyConfig.addPassthroughCopy("posts/instagram-feed.json");
@@ -54,7 +61,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLib);
 
   return {
-    pathPrefix: "/bakers/",
+    pathPrefix: pathPrefix,
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
