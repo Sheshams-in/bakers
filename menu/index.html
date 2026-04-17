@@ -16,6 +16,9 @@
   
   <title>Our Menu - Sheshams Bakers</title>
   
+  <!-- Base path meta tag (set during build from ELEVENTY_PATH_PREFIX env var) -->
+  <meta name="baseline-path" content="/">
+  
   <!-- Bootstrap 4 CSS -->
   <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
   
@@ -48,20 +51,32 @@
   <!-- Global base path for dynamic asset loading -->
   <script>
     /**
-     * Intelligent basePath detection
-     * GitHub Pages project repos: /reponame/ → basePath = /reponame
-     * Custom domains (root): / → basePath = (empty)
+     * Read basePath from meta tag (set during build from ELEVENTY_PATH_PREFIX)
+     * Falls back to intelligent detection for custom domains vs GitHub Pages
      */
     (function() {
+      // Try to read from meta tag first
+      const metaTag = document.querySelector('meta[name="baseline-path"]');
+      if (metaTag) {
+        window.basePath = metaTag.getAttribute('content');
+        console.log('✓ Base path from meta tag:', window.basePath || '(root)');
+        return;
+      }
+      
+      // Fallback: Intelligent detection based on hostname
+      const hostname = window.location.hostname;
       const pathname = window.location.pathname;
-      // Split path and get first segment (e.g., 'bakers' from /bakers/menu/)
-      const segments = pathname.split('/').filter(Boolean);
       
-      // For GitHub Pages, first segment is the repo name (base path)
-      // For root domain, there are no segments, so basePath is empty
-      window.basePath = segments.length > 0 ? '/' + segments[0] : '';
-      
-      console.log('✓ Base path detected:', window.basePath || '(root)', 'from:', pathname);
+      // Custom domains (sheshams.in, bakers.sheshams.in) → root path
+      if (hostname.includes('sheshams') || hostname.includes('bakers')) {
+        window.basePath = '';
+        console.log('✓ Custom domain detected, base path: (root)');
+      } else {
+        // GitHub Pages → detect repo name from pathname
+        const segments = pathname.split('/').filter(Boolean);
+        window.basePath = segments.length > 0 ? '/' + segments[0] : '';
+        console.log('✓ GitHub Pages detected, base path:', window.basePath || '(root)');
+      }
     })();
   </script>
 
