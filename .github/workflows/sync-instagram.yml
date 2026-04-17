@@ -40,5 +40,6 @@ jobs:
           else
             git add posts/instagram-feed.json assets/images/instagram/
             git commit -m "chore: update instagram feed"
+            git pull --rebase
             git push
           fi
