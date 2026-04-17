@@ -1,0 +1,201 @@
+<h1 id="deployment-guide---sheshamsbakers" tabindex="-1">Deployment Guide - SheshamsBakers</h1>
+<p>This site is built with <strong>Eleventy</strong> and configured to work across multiple deployment scenarios without code changes.</p>
+<h2 id="current-setup-(github-pages-project)" tabindex="-1">Current Setup (GitHub Pages Project)</h2>
+<p><strong>URL:</strong> <a href="https://sheshams-in.github.io/bakers/">https://sheshams-in.github.io/bakers/</a><br>
+<strong>Environment Variable:</strong> <code>ELEVENTY_PATH_PREFIX=/bakers/</code> (default)</p>
+<pre><code class="language-bash">npm run build  # Builds to _site/ with /bakers/ prefix
+</code></pre>
+<hr>
+<h2 id="deploying-to-different-scenarios" tabindex="-1">Deploying to Different Scenarios</h2>
+<h3 id="scenario-1%3A-custom-domain-(root)" tabindex="-1">Scenario 1: Custom Domain (Root)</h3>
+<p><strong>URL:</strong> <a href="https://sheshams-bakers.com/">https://sheshams-bakers.com/</a> or <a href="https://yourdomain.com/">https://yourdomain.com/</a></p>
+<p>Build with:</p>
+<pre><code class="language-bash">export ELEVENTY_PATH_PREFIX=&quot;/&quot;
+npm run build
+</code></pre>
+<p>Or as a one-liner:</p>
+<pre><code class="language-bash">ELEVENTY_PATH_PREFIX=&quot;/&quot; npm run build
+</code></pre>
+<p>No code changes needed—the <code>| url</code> filter and <code>window.basePath</code> will automatically adapt.</p>
+<hr>
+<h3 id="scenario-2%3A-subdirectory-on-custom-domain" tabindex="-1">Scenario 2: Subdirectory on Custom Domain</h3>
+<p><strong>URL:</strong> <a href="https://yourdomain.com/shop/">https://yourdomain.com/shop/</a> or <a href="https://yourdomain.com/cakes/">https://yourdomain.com/cakes/</a></p>
+<p>Build with:</p>
+<pre><code class="language-bash">export ELEVENTY_PATH_PREFIX=&quot;/shop/&quot;
+npm run build
+</code></pre>
+<p>Or:</p>
+<pre><code class="language-bash">ELEVENTY_PATH_PREFIX=&quot;/shop/&quot; npm run build
+</code></pre>
+<hr>
+<h3 id="scenario-3%3A-deploy-to-netlify" tabindex="-1">Scenario 3: Deploy to Netlify</h3>
+<p><strong>URL:</strong> <a href="https://sheshams-bakers.netlify.app/">https://sheshams-bakers.netlify.app/</a> (or custom domain)</p>
+<p><strong>Netlify Site Settings:</strong></p>
+<ul>
+<li>Build command: <code>npm run build</code></li>
+<li>Publish directory: <code>_site</code></li>
+<li>Environment variables: <code>ELEVENTY_PATH_PREFIX=&quot;/&quot;</code> (Netlify deploys at root by default)</li>
+</ul>
+<hr>
+<h3 id="scenario-4%3A-deploy-to-vercel" tabindex="-1">Scenario 4: Deploy to Vercel</h3>
+<p><strong>URL:</strong> <a href="https://sheshams-bakers.vercel.app">https://sheshams-bakers.vercel.app</a></p>
+<p><strong>vercel.json:</strong></p>
+<pre><code class="language-json">{
+  &quot;buildCommand&quot;: &quot;npm run build&quot;,
+  &quot;outputDirectory&quot;: &quot;_site&quot;
+}
+</code></pre>
+<p><strong>Environment:</strong> <code>ELEVENTY_PATH_PREFIX=&quot;/&quot;</code></p>
+<hr>
+<h2 id="how-it-works" tabindex="-1">How It Works</h2>
+<h3 id="1.-eleventy's-pathprefix-configuration-(.eleventy.js)" tabindex="-1">1. <strong>Eleventy's <code>pathPrefix</code> Configuration</strong> (<code>.eleventy.js</code>)</h3>
+<pre><code class="language-javascript">const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || '/bakers/';
+</code></pre>
+<ul>
+<li>Sets the prefix for the <code>| url</code> filter in templates</li>
+<li>Defaults to <code>/bakers/</code> (GitHub Pages project)</li>
+<li>Override with <code>ELEVENTY_PATH_PREFIX</code> environment variable</li>
+</ul>
+<h3 id="2.-template-asset-links-(html)" tabindex="-1">2. <strong>Template Asset Links</strong> (HTML)</h3>
+<pre><code class="language-nunjucks">&lt;link href=&quot;/bakers/assets/css/style.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;script src=&quot;/bakers/assets/js/main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>The <code>| url</code> filter automatically adds the <code>pathPrefix</code></li>
+<li>On GitHub Pages: becomes <code>/bakers/assets/css/style.css</code></li>
+<li>On custom domain root: becomes <code>/assets/css/style.css</code></li>
+</ul>
+<h3 id="3.-javascript-dynamic-paths-(base.njk)" tabindex="-1">3. <strong>JavaScript Dynamic Paths</strong> (<code>base.njk</code>)</h3>
+<pre><code class="language-javascript">window.basePath = /* auto-detected from current URL */
+fetch(window.basePath + '/posts/instagram-feed.json')
+</code></pre>
+<ul>
+<li><code>window.basePath</code> is auto-detected by analyzing <code>window.location.pathname</code></li>
+<li>Works across all deployment scenarios</li>
+<li>Used by <code>theme-switcher.js</code>, <code>menu-search.js</code>, <code>gallery.js</code></li>
+</ul>
+<hr>
+<h2 id="quick-reference%3A-different-hosting-scenarios" tabindex="-1">Quick Reference: Different Hosting Scenarios</h2>
+<table>
+<thead>
+<tr>
+<th>Hosting</th>
+<th>URL</th>
+<th>Build Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Pages (current)</strong></td>
+<td><code>sheshams-in.github.io/bakers/</code></td>
+<td><code>npm run build</code></td>
+<td>Default, no env var needed</td>
+</tr>
+<tr>
+<td><strong>Custom domain at root</strong></td>
+<td><code>sheshams-bakers.com/</code></td>
+<td><code>ELEVENTY_PATH_PREFIX=&quot;/&quot; npm run build</code></td>
+<td>Most common upgrade</td>
+</tr>
+<tr>
+<td><strong>Subdirectory</strong></td>
+<td><code>example.com/cakes/</code></td>
+<td><code>ELEVENTY_PATH_PREFIX=&quot;/cakes/&quot; npm run build</code></td>
+<td>Rare but supported</td>
+</tr>
+<tr>
+<td><strong>Netlify</strong></td>
+<td><code>yourdomain.netlify.app/</code></td>
+<td>Set env var in Netlify UI</td>
+<td>Easy migration path</td>
+</tr>
+<tr>
+<td><strong>Vercel</strong></td>
+<td><code>yourdomain.vercel.app/</code></td>
+<td>Use <code>vercel.json</code></td>
+<td>Similar to Netlify</td>
+</tr>
+<tr>
+<td><strong>Local development</strong></td>
+<td><code>localhost:3000/</code></td>
+<td><code>npm run dev</code></td>
+<td>Automatically <code>pathPrefix=&quot;/&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="migrating-to-a-new-domain" tabindex="-1">Migrating to a New Domain</h2>
+<h3 id="step-1%3A-update-repository-(optional)" tabindex="-1">Step 1: Update Repository (Optional)</h3>
+<p>Change DNS or GitHub Pages settings as needed.</p>
+<h3 id="step-2%3A-rebuild-with-new-path-prefix" tabindex="-1">Step 2: Rebuild with New Path Prefix</h3>
+<pre><code class="language-bash"># For custom domain root:
+ELEVENTY_PATH_PREFIX=&quot;/&quot; npm run build
+
+# Or update .eleventy.js if permanent:
+export ELEVENTY_PATH_PREFIX=&quot;/&quot;
+</code></pre>
+<h3 id="step-3%3A-deploy" tabindex="-1">Step 3: Deploy</h3>
+<p>No code changes needed—just push the rebuilt <code>_site/</code> or follow your hosting platform's deployment process.</p>
+<hr>
+<h2 id="testing-different-deployments-locally" tabindex="-1">Testing Different Deployments Locally</h2>
+<h3 id="test-as-if-deployed-to-root%3A" tabindex="-1">Test as if deployed to root:</h3>
+<pre><code class="language-bash">ELEVENTY_PATH_PREFIX=&quot;/&quot; npm run build
+# Open a local HTTP server pointing to _site/
+</code></pre>
+<h3 id="test-as-if-deployed-to-%2Fbakers%2F%3A" tabindex="-1">Test as if deployed to /bakers/:</h3>
+<pre><code class="language-bash">npm run build  # Default uses /bakers/
+# Serve from _site/ at yourlocalserver:8000/bakers/
+</code></pre>
+<hr>
+<h2 id="troubleshooting" tabindex="-1">Troubleshooting</h2>
+<h3 id="assets-return-404-after-migration" tabindex="-1">Assets Return 404 After Migration</h3>
+<p><strong>Problem:</strong> Files not loading after domain change.<br>
+<strong>Cause:</strong> <code>ELEVENTY_PATH_PREFIX</code> not set correctly for new deployment path.<br>
+<strong>Solution:</strong> Rebuild with correct prefix and redeploy.</p>
+<pre><code class="language-bash">ELEVENTY_PATH_PREFIX=&quot;/new-path/&quot; npm run build
+</code></pre>
+<h3 id="links-broken-after-migration" tabindex="-1">Links Broken After Migration</h3>
+<p><strong>Problem:</strong> Internal links like <code>/about/</code> no longer work.<br>
+<strong>Cause:</strong> Template links not using <code>| url</code> filter.<br>
+<strong>Solution:</strong> Ensure all internal links in templates use:</p>
+<pre><code class="language-nunjucks">&lt;a href=&quot;/bakers/about/&quot;&gt;About&lt;/a&gt;
+</code></pre>
+<h3 id="javascript-resources-missing" tabindex="-1">JavaScript Resources Missing</h3>
+<p><strong>Problem:</strong> Theme CSS or menu data not loading.<br>
+<strong>Cause:</strong> <code>window.basePath</code> not detecting correctly or scripts using hardcoded paths.<br>
+<strong>Solution:</strong> Check browser console for detected basePath and verify scripts use <code>window.basePath</code>.</p>
+<hr>
+<h2 id="environment-variables-summary" tabindex="-1">Environment Variables Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Example</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ELEVENTY_PATH_PREFIX</code></td>
+<td><code>/bakers/</code></td>
+<td><code>/</code>, <code>/shop/</code>, <code>/bakers/</code></td>
+<td>Controls URL prefix for all assets &amp; links</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="future-checklist-when-migrating" tabindex="-1">Future Checklist When Migrating</h2>
+<ul>
+<li>[ ] Update <code>ELEVENTY_PATH_PREFIX</code> environment variable</li>
+<li>[ ] Rebuild: <code>ELEVENTY_PATH_PREFIX=&quot;...&quot; npm run build</code></li>
+<li>[ ] Test asset loading in browser DevTools (should see correct paths)</li>
+<li>[ ] Verify <code>window.basePath</code> is set correctly (check console)</li>
+<li>[ ] Test theme switcher, menu search, gallery</li>
+<li>[ ] Test all internal navigation links</li>
+<li>[ ] Verify favicon and social media images load</li>
+<li>[ ] Check no hardcoded absolute URLs remain (should be none)</li>
+</ul>
+<hr>
+<p>For questions or issues, check the console for the detected <code>basePath</code> and verify your <code>ELEVENTY_PATH_PREFIX</code> matches your deployment location.</p>
