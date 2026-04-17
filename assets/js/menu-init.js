@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', async function() {
   const menuGrid = document.getElementById('menuGrid');
   
   try {
-    // Get basePath set by base.njk
+    // Get basePath set by base.njk (no trailing slash)
     const basePath = window.basePath || '';
-    const feedUrl = (basePath ? basePath : '') + '/posts/instagram-feed.json';
+    const feedUrl = basePath ? basePath + '/posts/instagram-feed.json' : '/posts/instagram-feed.json';
     
     console.log('Loading Instagram feed from:', feedUrl);
     

@@ -86,8 +86,11 @@ function initializeFilters() {
  * Load Menu Data (from JSON or API)
  */
 function loadMenuData() {
-  // Try to load from instagram-feed.json
-  fetch('/posts/instagram-feed.json')
+  // Try to load from instagram-feed.json with basePath support
+  const basePath = window.basePath || '';
+  const feedUrl = basePath ? basePath + '/posts/instagram-feed.json' : '/posts/instagram-feed.json';
+  
+  fetch(feedUrl)
     .then(response => response.json())
     .then(data => {
       allCakes = processInstagramData(data);
