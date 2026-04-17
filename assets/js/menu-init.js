@@ -72,15 +72,19 @@ document.addEventListener('DOMContentLoaded', async function() {
       jQuery('.filters_menu li').removeClass('active');
       jQuery(this).addClass('active');
       
-      // Apply filter
+      console.log('Filtering by:', filterValue);
+      
+      // Set the filter and recalculate layout
       $grid.isotope({ 
         filter: filterValue 
       });
       
-      // Force layout recalculation after items change visibility
+      // Reload items to ensure all hidden state is updated
       setTimeout(() => {
+        $grid.isotope('reloadItems');
         $grid.isotope('layout');
-      }, 50);
+        console.log('Layout updated');
+      }, 100);
     });
     
   } catch (error) {
