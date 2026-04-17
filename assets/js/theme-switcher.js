@@ -15,9 +15,10 @@ function switchTheme(themeName) {
   }
   
   // Map theme names to stylesheet paths
+  const basePath = window.basePath || '';
   const themeMap = {
-    gold: '/assets/css/theme-gold.css',
-    purple: '/assets/css/theme-purple.css',
+    gold: basePath + '/assets/css/theme-gold.css',
+    purple: basePath + '/assets/css/theme-purple.css',
     // Add more themes here as needed
   };
   

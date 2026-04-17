@@ -19,7 +19,9 @@ async function initGallery() {
   const galleryGrid = document.getElementById('galleryGrid');
   
   try {
-    const response = await fetch('/posts/instagram-feed.json');
+    const basePath = window.basePath || '';
+  const feedUrl = basePath + '/posts/instagram-feed.json';
+  const response = await fetch(feedUrl);
     if (!response.ok) {
       throw new Error('Failed to load posts');
     }
@@ -81,7 +83,7 @@ function createPostCard(post) {
   const imageHtml = `
     <div class="post-card__media-wrapper ${isVideo ? 'post-card__media-wrapper--video' : ''}">
       ${videoOverlay}
-      <img src="${post.imageUrl || post.localImagePath || '/assets/images/placeholder.jpg'}" alt="Sheshams Bakers cake" class="post-card__image" loading="lazy">
+      <img src="${post.imageUrl || post.localImagePath || (window.basePath || '') + '/assets/images/placeholder.jpg'}" alt="Sheshams Bakers cake" class="post-card__image" loading="lazy">
     </div>
   `;
   

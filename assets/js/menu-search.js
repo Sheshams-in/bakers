@@ -113,7 +113,7 @@ function processInstagramData(feedData) {
     id: post.id || Math.random().toString(36).substr(2, 9),
     caption: post.caption || '',
     description: post.description || '',
-    image: post.image || post.localImagePath || '/assets/images/placeholder.png',
+    image: post.image || post.localImagePath || (window.basePath || '') + '/assets/images/placeholder.png',
     likes: post.likes || 0,
     categories: post.categories || extractCategoriesFromCaption(post.caption || ''),
     link: post.permalink || '#'
@@ -138,7 +138,7 @@ function getPlaceholderData() {
       id: 1,
       caption: 'Classic Birthday Cake',
       description: 'Vanilla sponge with chocolate ganache and fresh berries',
-      image: '/assets/images/placeholder-1.jpg',
+      image: (window.basePath || '') + '/assets/images/placeholder-1.jpg',
       likes: 156,
       categories: ['birthday', 'fondant'],
       link: '#'
@@ -147,7 +147,7 @@ function getPlaceholderData() {
       id: 2,
       caption: 'Decoration Dream Cupcakes',
       description: 'Assorted flavors with artistic buttercream designs',
-      image: '/assets/images/placeholder-2.jpg',
+      image: (window.basePath || '') + '/assets/images/placeholder-2.jpg',
       likes: 203,
       categories: ['cupcakes', 'buttercream'],
       link: '#'
@@ -156,7 +156,7 @@ function getPlaceholderData() {
       id: 3,
       caption: 'Elegant Tresletches',
       description: 'Three-layer chocolate tresletches with premium toppings',
-      image: '/assets/images/placeholder-3.jpg',
+      image: (window.basePath || '') + '/assets/images/placeholder-3.jpg',
       likes: 189,
       categories: ['tresletches', 'chocolate'],
       link: '#'
@@ -165,7 +165,7 @@ function getPlaceholderData() {
       id: 4,
       caption: 'Whipped Cream Speciality',
       description: 'Fresh whipped cream cake with seasonal fruits',
-      image: '/assets/images/placeholder-4.jpg',
+      image: (window.basePath || '') + '/assets/images/placeholder-4.jpg',
       likes: 142,
       categories: ['speciality', 'whipped-cream'],
       link: '#'
@@ -174,7 +174,7 @@ function getPlaceholderData() {
       id: 5,
       caption: 'Garden Fondant Beauty',
       description: 'Hand-sculpted fondant with delicate sugar flowers',
-      image: '/assets/images/placeholder-5.jpg',
+      image: (window.basePath || '') + '/assets/images/placeholder-5.jpg',
       likes: 267,
       categories: ['fondant', 'wedding'],
       link: '#'
@@ -183,7 +183,7 @@ function getPlaceholderData() {
       id: 6,
       caption: 'Customized Celebration Cake',
       description: 'Personalized design for your special occasion',
-      image: '/assets/images/placeholder-6.jpg',
+      image: (window.basePath || '') + '/assets/images/placeholder-6.jpg',
       likes: 198,
       categories: ['custom', 'speciality'],
       link: '#'
