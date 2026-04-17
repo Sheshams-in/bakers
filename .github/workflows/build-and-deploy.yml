@@ -30,6 +30,8 @@ jobs:
         run: npm ci
       
       - name: Build site
+        env:
+          ELEVENTY_PATH_PREFIX: /
         run: npm run build
       
       - name: Deploy to GitHub Pages
