@@ -1,0 +1,81 @@
+<h1 id="github-mcp-integration-for-sheshamsbakers" tabindex="-1">GitHub MCP Integration for SheshamsBakers</h1>
+<p>This project is configured with the GitHub Model Context Protocol (MCP) to enable AI agents to interact with the repository directly.</p>
+<h2 id="setup-instructions" tabindex="-1">Setup Instructions</h2>
+<h3 id="1.-install-mcp-server" tabindex="-1">1. Install MCP Server</h3>
+<pre><code class="language-bash">npm install --save-dev @modelcontextprotocol/server-github
+</code></pre>
+<h3 id="2.-set-github-token" tabindex="-1">2. Set GitHub Token</h3>
+<p>Create a personal access token at <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> with these scopes:</p>
+<ul>
+<li><code>repo</code> (full repository access)</li>
+<li><code>workflow</code> (for GitHub Actions)</li>
+<li><code>read:org</code> (organization access)</li>
+</ul>
+<p>Then add to your <code>.env</code> or shell environment:</p>
+<pre><code class="language-bash">export GITHUB_TOKEN=ghp_your_token_here
+</code></pre>
+<h3 id="3.-restart-vs-code" tabindex="-1">3. Restart VS Code</h3>
+<p>Once the token is set and MCP is installed, restart VS Code for the extension to activate.</p>
+<h2 id="available-operations" tabindex="-1">Available Operations</h2>
+<p>With GitHub MCP enabled, agents can:</p>
+<ul>
+<li>✅ Read repository files and structure</li>
+<li>✅ Manage pull requests</li>
+<li>✅ Manage issues</li>
+<li>✅ Access GitHub Actions workflows</li>
+<li>✅ Check deployment status</li>
+<li>✅ Monitor GitHub Pages builds</li>
+</ul>
+<h2 id="configuration" tabindex="-1">Configuration</h2>
+<p>The configuration is in <code>.vscode/settings.json</code> under the <code>modelContextProtocol.servers.github</code> section.</p>
+<h2 id="repository-info" tabindex="-1">Repository Info</h2>
+<ul>
+<li><strong>Repository</strong>: <a href="https://github.com/Sheshams-in/bakers">https://github.com/Sheshams-in/bakers</a></li>
+<li><strong>GitHub Pages</strong>: <a href="https://sheshams-in.github.io/">https://sheshams-in.github.io/</a></li>
+<li><strong>Default Branch</strong>: main</li>
+<li><strong>Deployment</strong>: Automatic via GitHub Actions</li>
+</ul>
+<h2 id="usage-examples" tabindex="-1">Usage Examples</h2>
+<p>Once MCP is set up, agents can:</p>
+<h3 id="check-deployment-status" tabindex="-1">Check deployment status</h3>
+<ul>
+<li>&quot;What's the status of my GitHub Pages deployment?&quot;</li>
+<li>&quot;Are there any GitHub Actions failures?&quot;</li>
+</ul>
+<h3 id="manage-issues-and-prs" tabindex="-1">Manage issues and PRs</h3>
+<ul>
+<li>&quot;Create an issue about...&quot;</li>
+<li>&quot;Check if there are any open pull requests&quot;</li>
+</ul>
+<h3 id="monitor-workflows" tabindex="-1">Monitor workflows</h3>
+<ul>
+<li>&quot;Show me the latest workflow run&quot;</li>
+<li>&quot;Did the build and deploy action succeed?&quot;</li>
+</ul>
+<h2 id="troubleshooting" tabindex="-1">Troubleshooting</h2>
+<p>If the GitHub MCP isn't working:</p>
+<ol>
+<li>
+<p><strong>Check token</strong>: Verify <code>GITHUB_TOKEN</code> is set in your environment</p>
+<pre><code class="language-bash">echo $GITHUB_TOKEN
+</code></pre>
+</li>
+<li>
+<p><strong>Reinstall</strong>: Remove node_modules and reinstall</p>
+<pre><code class="language-bash">rm -rf node_modules
+npm install
+</code></pre>
+</li>
+<li>
+<p><strong>Check logs</strong>: Look at VS Code's MCP server logs in the Output panel</p>
+</li>
+<li>
+<p><strong>Verify permissions</strong>: Ensure your GitHub token has the required scopes</p>
+</li>
+</ol>
+<h2 id="references" tabindex="-1">References</h2>
+<ul>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></li>
+<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/github">GitHub MCP Server</a></li>
+<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Creating GitHub Personal Access Tokens</a></li>
+</ul>
