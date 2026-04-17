@@ -62,29 +62,25 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize Isotope filtering AFTER items are rendered
     const $grid = jQuery('.grid');
     $grid.isotope({
-      itemSelector: '.all',
-      percentPosition: false,
-      masonry: {
-        columnWidth: '.all'
-      }
+      itemSelector: '.col-sm-6',
+      layoutMode: 'fitRows'
     });
-    
-    // Trigger layout after items load
-    setTimeout(() => {
-      $grid.isotope('layout');
-    }, 100);
     
     // Filter functionality
     jQuery('.filters_menu li').on('click', function() {
       const filterValue = jQuery(this).attr('data-filter');
       jQuery('.filters_menu li').removeClass('active');
       jQuery(this).addClass('active');
-      $grid.isotope({ filter: filterValue });
       
-      // Re-layout after filtering
+      // Apply filter
+      $grid.isotope({ 
+        filter: filterValue 
+      });
+      
+      // Force layout recalculation after items change visibility
       setTimeout(() => {
         $grid.isotope('layout');
-      }, 300);
+      }, 50);
     });
     
   } catch (error) {
