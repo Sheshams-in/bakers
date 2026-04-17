@@ -840,6 +840,21 @@ a:focus {
   padding: 0 15px 40px 15px;
 }
 
+/* Filter Visibility Classes - Override Isotope inline styles */
+.food_section .grid > [class*='col-'].isotope-hidden {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.food_section .grid > [class*='col-'].isotope-visible {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
 .about_section {
   background: #222831;
   color: #ffffff;
