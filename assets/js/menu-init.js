@@ -59,11 +59,14 @@ document.addEventListener('DOMContentLoaded', async function() {
       menuGrid.appendChild(col);
     });
     
-    // Initialize Isotope filtering (jQuery will definitely be loaded by now)
+    // Initialize Isotope filtering AFTER items are rendered
     const $grid = jQuery('.grid');
     $grid.isotope({
-      itemSelector: '.col-sm-6',
-      layoutMode: 'fitRows'
+      itemSelector: '.all',
+      percentPosition: false,
+      masonry: {
+        columnWidth: '.all'
+      }
     });
     
     // Trigger layout after items load

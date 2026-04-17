@@ -7,31 +7,7 @@ function getYear() {
 
 getYear();
 
-// isotope js - Initialize immediately on DOM ready, not waiting for images
-var $grid = null;
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Isotope grid if it exists
-    if (document.querySelector('.grid')) {
-        $grid = jQuery(".grid").isotope({
-            itemSelector: '.col-sm-6',
-            layoutMode: 'fitRows'
-        });
-    }
-    
-    // Set up filter click handlers
-    jQuery('.filters_menu li').on('click', function () {
-        jQuery('.filters_menu li').removeClass('active');
-        jQuery(this).addClass('active');
-
-        var data = jQuery(this).attr('data-filter');
-        if ($grid) {
-            $grid.isotope({
-                filter: data
-            });
-        }
-    });
-});
+// Note: Isotope initialization is handled by menu-init.js after menu items are loaded
 
 // nice select
 $(document).ready(function() {
