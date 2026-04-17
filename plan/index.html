@@ -1,0 +1,551 @@
+<h1 id="sheshams-bakers-redesign-with-feane-template" tabindex="-1">Sheshams Bakers Redesign with Feane Template</h1>
+<h2 id="overview" tabindex="-1">Overview</h2>
+<p>Redesign Sheshams Bakers website using Feane restaurant template's design system and layout patterns. Keep all Sheshams content (custom cakes, vegetarian/eggless USPs, WhatsApp CTAs) but apply Feane's professional styling. Menu page becomes the Instagram feed gallery (no separate gallery page). Remove all booking functionality.</p>
+<hr>
+<h2 id="phase-1%3A-design-system-setup-%F0%9F%8E%A8" tabindex="-1">Phase 1: Design System Setup 🎨</h2>
+<ul>
+<li>[ ] Create CSS variables for Feane color scheme: <code>#ffbe33</code> (gold), <code>#222831</code> (dark), <code>#f1f2f3</code> (light gray)</li>
+<li>[ ] Import Feane fonts: <code>'Dancing Script'</code> (headings), <code>'Open Sans'</code> (body) from Google Fonts</li>
+<li>[ ] Extract and document all Feane utility classes (<code>.layout_padding</code>, <code>.heading_container</code>, <code>.detail-box</code>, <code>.img-box</code>, <code>.options</code>, <code>.box</code>)</li>
+<li>[ ] Set up standardized spacing system (90px section padding matching Feane)</li>
+<li>[ ] Update <a href="/_includes/layouts/base.njk">_includes/layouts/base.njk</a> to support Feane layout structure</li>
+<li>[ ] Update <a href="/_includes/header.njk">_includes/header.njk</a> with Feane navbar (keep Sheshams nav text: Home, Menu, About, Contact, Gallery)</li>
+<li>[ ] Update <a href="/_includes/footer.njk">_includes/footer.njk</a> to Feane's dark footer style</li>
+</ul>
+<hr>
+<h2 id="phase-2%3A-homepage-redesign-%F0%9F%8F%A0" tabindex="-1">Phase 2: Homepage Redesign 🏠</h2>
+<h3 id="2.1%3A-hero-section" tabindex="-1">2.1: Hero Section</h3>
+<ul>
+<li>[ ] Build Bootstrap carousel hero section (Feane pattern)</li>
+<li>[ ] Set hero area: min-height 100vh, flexbox column layout</li>
+<li>[ ] Create slider carousel with <code>#customCarousel1</code> (Feane's carousel ID)</li>
+<li>[ ] Add hero detail-box with:
+<ul>
+<li>[ ] Pre-title: &quot;Premium Artisan Bakery&quot;</li>
+<li>[ ] Main h1: &quot;Shesh Am's Bakers&quot; (3.5rem font-size, Dancing Script)</li>
+<li>[ ] Subtitle: &quot;100% Vegetarian • Entirely Eggless • Handcrafted Daily&quot;</li>
+<li>[ ] Description text from current site</li>
+<li>[ ] Two CTAs: &quot;🎂 Order Now on WhatsApp&quot; (primary), &quot;📸 View Our Menu&quot; (secondary)</li>
+</ul>
+</li>
+<li>[ ] Add carousel indicators (12px white dots, 20px for active, gold background)</li>
+<li>[ ] Style with Feane's hero background and flexbox layout</li>
+</ul>
+<h3 id="2.2%3A-remove-%22our-menu%22-section" tabindex="-1">2.2: Remove &quot;Our Menu&quot; Section</h3>
+<ul>
+<li>[ ] Delete entire &quot;Our Celebrated Creations&quot; section from <a href="http://index.md">index.md</a></li>
+<li>[ ] Verify no menu showcase on homepage</li>
+</ul>
+<h3 id="2.3%3A-%22why-choose-sheshams-bakers%3F%22-section" tabindex="-1">2.3: &quot;Why Choose Sheshams Bakers?&quot; Section</h3>
+<ul>
+<li>[ ] Create 3-card grid layout using Feane's <code>.box</code> + <code>.img-box</code> + <code>.detail-box</code> pattern</li>
+<li>[ ] Card 1 - 100% Vegetarian (icon: 🌱)</li>
+<li>[ ] Card 2 - Entirely Eggless (icon: ✨)</li>
+<li>[ ] Card 3 - Expert Craftsmanship (icon: 👨‍🍳)</li>
+<li>[ ] Apply Feane styling:
+<ul>
+<li>[ ] Dark background (#222831), white text</li>
+<li>[ ] 175px circular image with 5px gold border</li>
+<li>[ ] Hover effect: image scales to 1.1x</li>
+<li>[ ] Gold accent (#ffbe33) on highlights</li>
+</ul>
+</li>
+<li>[ ] Responsive: 1 col mobile, 2 tablet, 3 desktop</li>
+</ul>
+<h3 id="2.4%3A-%22our-specialities%22-section" tabindex="-1">2.4: &quot;Our Specialities&quot; Section</h3>
+<ul>
+<li>[ ] Create 4-item layout (3 in grid, 1 full-width) with Feane's <code>.food_section</code> styling</li>
+<li>[ ] Card 1: Custom Cakes (icon: 🎂) + &quot;View Examples →&quot; link</li>
+<li>[ ] Card 2: Premium Cupcakes (icon: 🧁) + &quot;View Examples →&quot; link</li>
+<li>[ ] Card 3: Artistic Designs (icon: ✨) + &quot;View Examples →&quot; link</li>
+<li>[ ] Card 4: Specialty Items &amp; Custom Orders (icon: 🍰, full-width) + &quot;Explore All →&quot; link</li>
+<li>[ ] Apply Feane food card design:
+<ul>
+<li>[ ] Use <code>.box</code> structure</li>
+<li>[ ] <code>.img-box</code> with circular emoji/icon (175px)</li>
+<li>[ ] <code>.detail-box</code> with title, description</li>
+<li>[ ] Hover: scale image 1.1x</li>
+<li>[ ] Link styling with arrow icon</li>
+</ul>
+</li>
+</ul>
+<h3 id="2.5%3A-%22how-to-order-your-cake%22-section-(3-step-process)" tabindex="-1">2.5: &quot;How to Order Your Cake&quot; Section (3-Step Process)</h3>
+<ul>
+<li>[ ] Create 3-step timeline/process section (Feane's process card styling)</li>
+<li>[ ] Step 1: Message Us (icon: 💬)
+<ul>
+<li>[ ] Description: &quot;Reach out on WhatsApp with your cake ideas, preferences, budget, and occasion date&quot;</li>
+</ul>
+</li>
+<li>[ ] Step 2: Consultation &amp; Quote (icon: 📋)
+<ul>
+<li>[ ] Description: &quot;We discuss design, flavors, ingredients, dietary needs, and provide you with pricing&quot;</li>
+</ul>
+</li>
+<li>[ ] Step 3: Creation (icon: 🎨)
+<ul>
+<li>[ ] Description: &quot;Our expert bakers craft your cake with premium ingredients and artistic precision&quot;</li>
+</ul>
+</li>
+<li>[ ] No delivery step</li>
+<li>[ ] Style with Feane's card/number styling (dark backgrounds, gold accents)</li>
+<li>[ ] Add CTA button: &quot;💬 Start Your Order&quot; (WhatsApp link)</li>
+</ul>
+<hr>
+<h2 id="phase-3%3A-menu-page-(instagram-feed-gallery)-%F0%9F%8D%B0" tabindex="-1">Phase 3: Menu Page (Instagram Feed Gallery) 🍰</h2>
+<h3 id="3.1%3A-create-menu.html-page" tabindex="-1">3.1: Create menu.html Page</h3>
+<ul>
+<li>[ ] Create new file: <a href="menu.html">menu.html</a></li>
+<li>[ ] Use Feane's menu.html as reference</li>
+<li>[ ] Add <code>body class=&quot;sub_page&quot;</code> (shorter hero area)</li>
+<li>[ ] Navigation: Same header as homepage, &quot;Menu&quot; nav-item is <code>.active</code></li>
+<li>[ ] Page title: &quot;Our Cakes&quot;</li>
+</ul>
+<h3 id="3.2%3A-menu-filtering-system" tabindex="-1">3.2: Menu Filtering System</h3>
+<ul>
+<li>[ ] Create <code>.filters_menu</code> with filter buttons from <a href="_data/categories.json">_data/categories.json</a></li>
+<li>[ ] Generate buttons:
+<ul>
+<li>[ ] &quot;All&quot; button (data-filter=&quot;*&quot;, active by default)</li>
+<li>[ ] One button per category (Birthday, Cupcakes, Tresletches, Fondant, Speciality, Whipped Cream, Butter cream)</li>
+<li>[ ] Button structure: <code>data-filter=&quot;.category-name-lowercase&quot;</code></li>
+</ul>
+</li>
+<li>[ ] Style buttons with Feane's filter menu styling (gold active state, dark background)</li>
+</ul>
+<h3 id="3.3%3A-search-bar" tabindex="-1">3.3: Search Bar</h3>
+<ul>
+<li>[ ] Add search input field above <code>.filters_menu</code></li>
+<li>[ ] Placeholder text: &quot;Search cakes, flavors, tags...&quot;</li>
+<li>[ ] Create <a href="assets/js/menu-search.js">assets/js/menu-search.js</a> for search functionality</li>
+<li>[ ] Search logic:
+<ul>
+<li>[ ] Filter by product title/name</li>
+<li>[ ] Filter by caption/description text</li>
+<li>[ ] Filter by tags from instagram-feed.json (all metadata)</li>
+<li>[ ] Real-time filtering as user types</li>
+<li>[ ] Display result counter: &quot;X cakes found&quot;</li>
+<li>[ ] Case-insensitive matching</li>
+</ul>
+</li>
+</ul>
+<h3 id="3.4%3A-menu-grid-layout" tabindex="-1">3.4: Menu Grid Layout</h3>
+<ul>
+<li>[ ] Create grid container with Isotope.js for filtering animations</li>
+<li>[ ] Grid layout:
+<ul>
+<li>[ ] Desktop: 3 columns (col-lg-4)</li>
+<li>[ ] Tablet: 2 columns (col-md-6)</li>
+<li>[ ] Mobile: 1 column (col-sm-6)</li>
+</ul>
+</li>
+<li>[ ] Each grid item class structure: <code>col-sm-6 col-md-6 col-lg-4 all [category-lowercase]</code></li>
+</ul>
+<h3 id="3.5%3A-menu-item-cards" tabindex="-1">3.5: Menu Item Cards</h3>
+<ul>
+<li>[ ] Populate from <a href="posts/instagram-feed.json">posts/instagram-feed.json</a></li>
+<li>[ ] Each card structure using Feane's <code>.box</code> pattern:
+<ul>
+<li>[ ] <code>.img-box</code>: Image from instagram-feed.json path</li>
+<li>[ ] <code>.detail-box</code>:
+<ul>
+<li>[ ] h5: Product title (from caption or metadata)</li>
+<li>[ ] p: Description (from caption)</li>
+<li>[ ] <code>.options</code> row:
+<ul>
+<li>[ ] Link to Instagram post (if available)</li>
+<li>[ ] WhatsApp order button</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[ ] Add category classes dynamically from metadata (e.g., <code>class=&quot;all birthday cupcakes&quot;</code>)</li>
+<li>[ ] Apply Feane food card hover effect (image scales 1.1x)</li>
+</ul>
+<h3 id="3.6%3A-isotope-integration" tabindex="-1">3.6: Isotope Integration</h3>
+<ul>
+<li>[ ] Include Isotope.js library (Feane's reference)</li>
+<li>[ ] Initialize on page load</li>
+<li>[ ] Filter animations smooth (fade/scale)</li>
+<li>[ ] Update grid layout when items appear/disappear</li>
+</ul>
+<hr>
+<h2 id="phase-4%3A-about-page-%F0%9F%93%96" tabindex="-1">Phase 4: About Page 📖</h2>
+<h3 id="4.1%3A-create-about.html-page" tabindex="-1">4.1: Create about.html Page</h3>
+<ul>
+<li>[ ] Create new file: <a href="about.html">about.html</a></li>
+<li>[ ] Use Feane's about.html as reference</li>
+<li>[ ] Add <code>body class=&quot;sub_page&quot;</code> (shorter hero area)</li>
+<li>[ ] Navigation: &quot;About&quot; nav-item is <code>.active</code></li>
+</ul>
+<h3 id="4.2%3A-about-content-(two-column-layout)" tabindex="-1">4.2: About Content (Two-Column Layout)</h3>
+<ul>
+<li>[ ] Left column: Image (Sheshams Bakers logo or bakery image)</li>
+<li>[ ] Right column (Feane's <code>.detail-box</code> style):
+<ul>
+<li>[ ] h2: &quot;We Are Sheshams Bakers&quot;</li>
+<li>[ ] Paragraph 1: &quot;Welcome to Sheshams Bakers, where passion for baking meets artistic creativity. We specialize in creating beautiful, delicious custom cakes for every celebration.&quot;</li>
+<li>[ ] Paragraph 2: &quot;Each cake is handcrafted with care, using quality ingredients and innovative designs to make your special moment even more memorable.&quot;</li>
+<li>[ ] h3: &quot;What We Offer&quot;</li>
+<li>[ ] Bulleted list with emojis:
+<ul>
+<li>[ ] 🎂 Custom Cake Design</li>
+<li>[ ] 🎉 Birthday Cakes</li>
+<li>[ ] 💍 Wedding Cakes</li>
+<li>[ ] 🧁 Cupcakes</li>
+<li>[ ] ✨ Specialty Desserts</li>
+<li>[ ] 🌱 Dietary Options (Vegan, Eggless)</li>
+</ul>
+</li>
+<li>[ ] CTA button: &quot;📞 Order via WhatsApp&quot; (WhatsApp link)</li>
+</ul>
+</li>
+</ul>
+<h3 id="4.3%3A-apply-feane-styling" tabindex="-1">4.3: Apply Feane Styling</h3>
+<ul>
+<li>[ ] Use two-column layout with flexbox (image left, content right)</li>
+<li>[ ] Dark background (#222831) for content area</li>
+<li>[ ] White text, gold accents for highlights</li>
+<li>[ ] Responsive: Stack on mobile (image above content)</li>
+<li>[ ] CTA button: Gold background (#ffbe33), Dark text</li>
+</ul>
+<hr>
+<h2 id="phase-5%3A-navigation-%26-structure-update-%F0%9F%94%97" tabindex="-1">Phase 5: Navigation &amp; Structure Update 🔗</h2>
+<h3 id="5.1%3A-header-navigation" tabindex="-1">5.1: Header Navigation</h3>
+<ul>
+<li>[ ] Remove &quot;Book a Table&quot; nav link from all pages</li>
+<li>[ ] Update nav links order: Home, Menu, About, Contact, Gallery-link</li>
+<li>[ ] Update nav link for Gallery: Points to separate gallery page (keep existing)</li>
+<li>[ ] Maintain WhatsApp icon in navbar</li>
+<li>[ ] Update all active state highlighting</li>
+</ul>
+<h3 id="5.2%3A-footer-update" tabindex="-1">5.2: Footer Update</h3>
+<ul>
+<li>[ ] Apply Feane footer styling (dark background #222831, white text)</li>
+<li>[ ] Three-column layout:
+<ul>
+<li>[ ] Column 1: Contact info (address, phone, email)</li>
+<li>[ ] Column 2: Logo + About tagline + Social icons</li>
+<li>[ ] Column 3: Opening hours + Links</li>
+</ul>
+</li>
+<li>[ ] Update social icons to FontAwesome (Feane's reference)</li>
+<li>[ ] Footer links: Home, About, Contact, Gallery, etc.</li>
+<li>[ ] Copyright: &quot;© 2026 Sheshams Bakers. All rights reserved.&quot;</li>
+</ul>
+<h3 id="5.3%3A-remove-booking-references" tabindex="-1">5.3: Remove Booking References</h3>
+<ul>
+<li>[ ] Delete <a href="pages/book.md">pages/book.md</a> file (if exists)</li>
+<li>[ ] Remove all book.html references from site</li>
+<li>[ ] Remove &quot;Book a Table&quot; CTA buttons from all pages</li>
+</ul>
+<hr>
+<h2 id="phase-6%3A-css-%26-styling-%F0%9F%92%BB" tabindex="-1">Phase 6: CSS &amp; Styling 💻</h2>
+<h3 id="6.1%3A-create-feane-based-style-system" tabindex="-1">6.1: Create Feane-Based Style System</h3>
+<ul>
+<li>[ ] Replace <a href="assets/css/style.css">assets/css/style.css</a> with Feane's system</li>
+<li>[ ] Include all Feane CSS patterns:
+<ul>
+<li>[ ] <code>.hero_area</code> - Min 100vh, flexbox layout</li>
+<li>[ ] <code>.slider_section</code> - Flex grows to fill space</li>
+<li>[ ] <code>.carousel-indicators</code> - 12px white dots, gold active</li>
+<li>[ ] <code>.layout_padding</code> - 90px vertical padding</li>
+<li>[ ] <code>.layout_padding-bottom</code> - 90px bottom padding</li>
+<li>[ ] <code>.heading_container</code> - Flex column, left-aligned</li>
+<li>[ ] <code>.heading_container.heading_center</code> - Center-aligned</li>
+<li>[ ] <code>.box</code> - Card container</li>
+<li>[ ] <code>.img-box</code> - Image container (circular images: 175px, 5px gold border)</li>
+<li>[ ] <code>.detail-box</code> - Content container (dark bg, white text)</li>
+<li>[ ] <code>.options</code> - Flex row (price + cart)</li>
+</ul>
+</li>
+</ul>
+<h3 id="6.2%3A-typography-setup" tabindex="-1">6.2: Typography Setup</h3>
+<ul>
+<li>[ ] Import Google Fonts: Dancing Script (headings), Open Sans (body)</li>
+<li>[ ] h1: 3.5rem, Dancing Script</li>
+<li>[ ] h2: 2.5rem, Dancing Script</li>
+<li>[ ] h5: Item titles (medium size)</li>
+<li>[ ] h6: Prices, subtitles</li>
+<li>[ ] p: Body text, Open Sans</li>
+</ul>
+<h3 id="6.3%3A-color-variables" tabindex="-1">6.3: Color Variables</h3>
+<ul>
+<li>[ ] Primary gold: <code>#ffbe33</code> (buttons, accents, active states)</li>
+<li>[ ] Dark background: <code>#222831</code> (sections, cards)</li>
+<li>[ ] Light gray: <code>#f1f2f3</code> (food item backgrounds)</li>
+<li>[ ] White: <code>#ffffff</code> (text on dark)</li>
+<li>[ ] Black: <code>#0c0c0c</code> (main text)</li>
+<li>[ ] Dark gray: <code>#999</code> (borders, secondary)</li>
+</ul>
+<h3 id="6.4%3A-responsive-breakpoints" tabindex="-1">6.4: Responsive Breakpoints</h3>
+<ul>
+<li>[ ] Desktop: Full width</li>
+<li>[ ] Tablet (≤992px): Nav changes, offers flex vertically</li>
+<li>[ ] Small tablet (≤767px): About/sections stack</li>
+<li>[ ] Phone (≤576px): Single column layouts</li>
+<li>[ ] Small phone (≤480px): Offer section changes</li>
+<li>[ ] Extra small (≤430px): Additional responsive adjustments</li>
+<li>[ ] Very small (≤376px): Hero h1 reduces</li>
+</ul>
+<h3 id="6.5%3A-hover-effects-%26-animations" tabindex="-1">6.5: Hover Effects &amp; Animations</h3>
+<ul>
+<li>[ ] Image hover: Scale 1.1x smoothly (no excessive movement)</li>
+<li>[ ] Button hover: Color transitions smooth</li>
+<li>[ ] Card hover: Box shadow increases</li>
+<li>[ ] Carousel indicators: Smooth transition</li>
+<li>[ ] All animations disabled on <code>prefers-reduced-motion</code></li>
+</ul>
+<h3 id="6.6%3A-bootstrap-integration" tabindex="-1">6.6: Bootstrap Integration</h3>
+<ul>
+<li>[ ] Ensure Bootstrap 4 grid system is available</li>
+<li>[ ] Column classes: <code>col-sm-6</code>, <code>col-md-6</code>, <code>col-lg-4</code></li>
+<li>[ ] Responsive utilities working</li>
+</ul>
+<hr>
+<h2 id="phase-7%3A-javascript-%26-interactivity-%F0%9F%94%A7" tabindex="-1">Phase 7: JavaScript &amp; Interactivity 🔧</h2>
+<h3 id="7.1%3A-update-main-javascript" tabindex="-1">7.1: Update Main JavaScript</h3>
+<ul>
+<li>[ ] Copy Feane's <a href="assets/js/main.js">assets/js/main.js</a> as base</li>
+<li>[ ] Update mobile menu toggle functionality for Feane patterns</li>
+<li>[ ] Smooth scroll for anchor links</li>
+<li>[ ] Active nav state highlighting based on current page</li>
+<li>[ ] Mobile hamburger menu collapse on link click</li>
+</ul>
+<h3 id="7.2%3A-create-menu-search-javascript" tabindex="-1">7.2: Create Menu Search JavaScript</h3>
+<ul>
+<li>[ ] Create <a href="assets/js/menu-search.js">assets/js/menu-search.js</a></li>
+<li>[ ] Function: Real-time search and filter
+<ul>
+<li>[ ] Listen to search input (keyup event)</li>
+<li>[ ] Filter items by:
+<ul>
+<li>[ ] Product title</li>
+<li>[ ] Caption/description</li>
+<li>[ ] Tags (all metadata fields)</li>
+</ul>
+</li>
+<li>[ ] Hide/show items dynamically</li>
+<li>[ ] Update result counter</li>
+<li>[ ] Maintain active category filter integration</li>
+</ul>
+</li>
+<li>[ ] Combine search + category filters seamlessly</li>
+</ul>
+<h3 id="7.3%3A-isotope-gallery-integration" tabindex="-1">7.3: Isotope Gallery Integration</h3>
+<ul>
+<li>[ ] Include Isotope.js library (Feane's reference: 3.0.4)</li>
+<li>[ ] Initialize on menu.html page load</li>
+<li>[ ] Configure for category filtering</li>
+<li>[ ] Smooth animations on filter change</li>
+<li>[ ] Update layout when items change</li>
+</ul>
+<h3 id="7.4%3A-include-required-libraries" tabindex="-1">7.4: Include Required Libraries</h3>
+<ul>
+<li>[ ] jQuery 3.4.1</li>
+<li>[ ] Bootstrap 4 JS</li>
+<li>[ ] Owl Carousel 2.3.4 (if testimonials added later)</li>
+<li>[ ] Isotope Layout 3.0.4</li>
+<li>[ ] jQuery Nice Select 1.1.0 (for dropdowns)</li>
+</ul>
+<h3 id="7.5%3A-gallery.js-compatibility" tabindex="-1">7.5: Gallery.js Compatibility</h3>
+<ul>
+<li>[ ] Ensure existing <a href="assets/js/gallery.js">assets/js/gallery.js</a> still works for gallery page</li>
+<li>[ ] No conflicts with new menu search functionality</li>
+<li>[ ] Both can coexist on their respective pages</li>
+</ul>
+<hr>
+<h2 id="phase-8%3A-data-integration-%F0%9F%93%8A" tabindex="-1">Phase 8: Data Integration 📊</h2>
+<h3 id="8.1%3A-categories-integration" tabindex="-1">8.1: Categories Integration</h3>
+<ul>
+<li>[ ] Read <a href="_data/categories.json">_data/categories.json</a></li>
+<li>[ ] Map categories to <code>.filters_menu</code> buttons</li>
+<li>[ ] Dynamic button generation from JSON</li>
+<li>[ ] Category classes: Lowercase, no spaces (e.g., &quot;birthday&quot; from &quot;Birthday&quot;)</li>
+</ul>
+<h3 id="8.2%3A-instagram-feed-integration" tabindex="-1">8.2: Instagram Feed Integration</h3>
+<ul>
+<li>[ ] Read <a href="posts/instagram-feed.json">posts/instagram-feed.json</a></li>
+<li>[ ] Populate menu.html items from feed:
+<ul>
+<li>[ ] Image path: <code>/assets/images/instagram/[image-name]</code></li>
+<li>[ ] Title: From caption or metadata field</li>
+<li>[ ] Description: From caption</li>
+<li>[ ] Tags: Parse from caption or metadata</li>
+<li>[ ] Instagram link: From instagram_link field</li>
+<li>[ ] Category classes: From categories metadata</li>
+</ul>
+</li>
+<li>[ ] Ensure all tags map to filter categories</li>
+<li>[ ] Handle missing fields gracefully</li>
+</ul>
+<h3 id="8.3%3A-whatsapp-integration" tabindex="-1">8.3: WhatsApp Integration</h3>
+<ul>
+<li>[ ] Ensure all CTAs use WhatsApp links (format: <code>https://wa.me/[phone-number]</code>)</li>
+<li>[ ] Global phone number variable: Use from config/data file</li>
+<li>[ ] CTA buttons on: Hero, Why Choose cards, Specialities cards, Order Process, About page</li>
+<li>[ ] Link text: &quot;💬 Order via WhatsApp&quot;, &quot;🎂 Order Now on WhatsApp&quot;, etc.</li>
+</ul>
+<hr>
+<h2 id="phase-9%3A-file-cleanup-%26-deletion-%F0%9F%97%91%EF%B8%8F" tabindex="-1">Phase 9: File Cleanup &amp; Deletion 🗑️</h2>
+<ul>
+<li>[ ] Delete or archive <a href="sample/feane-1.0.0/">sample/feane-1.0.0/</a> folder (no longer needed after copying patterns)</li>
+<li>[ ] Remove <a href="pages/book.md">pages/book.md</a> if exists</li>
+<li>[ ] Remove any redundant CSS files (backup copies, old versions)</li>
+<li>[ ] Ensure no broken asset paths remain</li>
+<li>[ ] Clean up any temporary files</li>
+</ul>
+<hr>
+<h2 id="phase-10%3A-testing-%26-verification-%E2%9C%85" tabindex="-1">Phase 10: Testing &amp; Verification ✅</h2>
+<h3 id="10.1%3A-homepage-verification" tabindex="-1">10.1: Homepage Verification</h3>
+<ul>
+<li>[ ] Hero carousel displays and functions</li>
+<li>[ ] CTAs direct to WhatsApp and menu correctly</li>
+<li>[ ] &quot;Why Choose&quot; 3-card section styled with Feane design</li>
+<li>[ ] &quot;Our Specialities&quot; 4-item section styled with Feane design</li>
+<li>[ ] &quot;How to Order&quot; 3-step process displays (no delivery step)</li>
+<li>[ ] No &quot;Our Menu&quot; section visible</li>
+<li>[ ] Responsive on mobile/tablet/desktop</li>
+<li>[ ] All fonts loaded (Dancing Script, Open Sans)</li>
+<li>[ ] Colors applied (gold, dark, light gray)</li>
+</ul>
+<h3 id="10.2%3A-menu-page-verification" tabindex="-1">10.2: Menu Page Verification</h3>
+<ul>
+<li>[ ] Menu page loads at menu.html</li>
+<li>[ ] Page title &quot;Our Cakes&quot; displays</li>
+<li>[ ] Filter buttons functional (click category → shows matching items)</li>
+<li>[ ] &quot;All&quot; button active by default</li>
+<li>[ ] Search bar visible and functional</li>
+<li>[ ] Search filters by name, caption, tags in real-time</li>
+<li>[ ] Result counter updates correctly</li>
+<li>[ ] Grid responsive: 3 cols → 2 → 1</li>
+<li>[ ] Isotope animations smooth</li>
+<li>[ ] Menu items load from instagram-feed.json</li>
+<li>[ ] Images display correctly</li>
+<li>[ ] WhatsApp CTA buttons present</li>
+<li>[ ] Instagram links functional (if available)</li>
+</ul>
+<h3 id="10.3%3A-about-page-verification" tabindex="-1">10.3: About Page Verification</h3>
+<ul>
+<li>[ ] About page loads at about.html</li>
+<li>[ ] Two-column layout: image left, content right</li>
+<li>[ ] Heading &quot;We Are Sheshams Bakers&quot; displays</li>
+<li>[ ] Story content shows correctly</li>
+<li>[ ] &quot;What We Offer&quot; list with emojis displays</li>
+<li>[ ] CTA button functional (WhatsApp link)</li>
+<li>[ ] Feane styling applied (dark bg, white text, gold accents)</li>
+<li>[ ] Responsive: Stacks on mobile (image above content)</li>
+</ul>
+<h3 id="10.4%3A-navigation-%26-structure-verification" tabindex="-1">10.4: Navigation &amp; Structure Verification</h3>
+<ul>
+<li>[ ] &quot;Book a Table&quot; nav link removed from all pages</li>
+<li>[ ] Active nav items highlight correctly on each page</li>
+<li>[ ] All nav links functional (Home, Menu, About, Contact, Gallery)</li>
+<li>[ ] Mobile hamburger menu works</li>
+<li>[ ] Footer displays with Feane dark theme</li>
+<li>[ ] Footer links functional</li>
+<li>[ ] WhatsApp icon present in header</li>
+<li>[ ] Social icons in footer styled with FontAwesome</li>
+</ul>
+<h3 id="10.5%3A-design-system-verification" tabindex="-1">10.5: Design System Verification</h3>
+<ul>
+<li>[ ] Gold (#ffbe33) applied to buttons, accents, active states</li>
+<li>[ ] Dark (#222831) applied to section backgrounds and cards</li>
+<li>[ ] Light gray (#f1f2f3) applied to backgrounds</li>
+<li>[ ] Dancing Script font loaded and applied to headings</li>
+<li>[ ] Open Sans font loaded and applied to body text</li>
+<li>[ ] Spacing: 90px section padding applied consistently</li>
+<li>[ ] Card images: Circular, 175px, 5px gold border</li>
+<li>[ ] Hover effects: Image scale 1.1x, smooth transitions</li>
+<li>[ ] All animations work on desktop</li>
+<li>[ ] Animations disabled on prefers-reduced-motion</li>
+</ul>
+<h3 id="10.6%3A-cross-device-testing" tabindex="-1">10.6: Cross-Device Testing</h3>
+<ul>
+<li>[ ] Desktop (1920px): Full layout, all elements visible</li>
+<li>[ ] Desktop (1440px): All elements visible</li>
+<li>[ ] Tablet (768px): Grid 2 cols, nav responsive</li>
+<li>[ ] Mobile (420px): Grid 1 col, stacked layout, hamburger menu</li>
+<li>[ ] Mobile (375px): All text readable, no horizontal scroll</li>
+<li>[ ] Mobile (320px): Extremely small phone, layout functional</li>
+<li>[ ] All breakpoints: No overlapping text, readable fonts</li>
+</ul>
+<h3 id="10.7%3A-functionality-testing" tabindex="-1">10.7: Functionality Testing</h3>
+<ul>
+<li>[ ] Hero carousel auto-rotates (if enabled in Feane pattern)</li>
+<li>[ ] Carousel indicators work (click dot → slide to position)</li>
+<li>[ ] Filter buttons work (live filtering without page reload)</li>
+<li>[ ] Search bar filters in real-time (no lag)</li>
+<li>[ ] Combined filter + search works (e.g., &quot;Birthday&quot; category + search &quot;chocolate&quot;)</li>
+<li>[ ] WhatsApp links open WhatsApp app/web</li>
+<li>[ ] Instagram links open in new tab</li>
+<li>[ ] All CTAs functional</li>
+<li>[ ] Form submissions work (if any forms present)</li>
+</ul>
+<h3 id="10.8%3A-browser-compatibility" tabindex="-1">10.8: Browser Compatibility</h3>
+<ul>
+<li>[ ] Chrome/Chromium: All features work</li>
+<li>[ ] Firefox: All features work</li>
+<li>[ ] Safari: All features work</li>
+<li>[ ] Edge: All features work</li>
+<li>[ ] Mobile browsers (Chrome, Safari): Responsive and functional</li>
+</ul>
+<h3 id="10.9%3A-performance-check" tabindex="-1">10.9: Performance Check</h3>
+<ul>
+<li>[ ] Page loads quickly (&lt; 3s on 4G)</li>
+<li>[ ] Images optimized (not oversized)</li>
+<li>[ ] CSS/JS minified (if applicable)</li>
+<li>[ ] No console errors</li>
+<li>[ ] No broken asset paths</li>
+<li>[ ] Lighthouse accessibility score acceptable</li>
+</ul>
+<h3 id="10.10%3A-content-accuracy" tabindex="-1">10.10: Content Accuracy</h3>
+<ul>
+<li>[ ] All Sheshams content preserved (text, images, links)</li>
+<li>[ ] Categories match Sheshams' current offerings</li>
+<li>[ ] Instagram feed items display correctly</li>
+<li>[ ] WhatsApp phone number correct</li>
+<li>[ ] Social media links accurate</li>
+<li>[ ] About page content authentic to Sheshams</li>
+</ul>
+<hr>
+<h2 id="phase-11%3A-final-deployment-checks-%F0%9F%9A%80" tabindex="-1">Phase 11: Final Deployment Checks 🚀</h2>
+<ul>
+<li>[ ] All files committed to version control</li>
+<li>[ ] Build process successful (npm run dev, npm run build)</li>
+<li>[ ] No console errors or warnings</li>
+<li>[ ] .env variables correct</li>
+<li>[ ] API keys/secrets not exposed in code</li>
+<li>[ ] Site runs locally without issues</li>
+<li>[ ] Ready for production deployment</li>
+</ul>
+<hr>
+<h2 id="notes" tabindex="-1">Notes</h2>
+<p><strong>Current Implementation Details:</strong></p>
+<ul>
+<li>Site uses Eleventy + Nunjucks templating</li>
+<li>Instagram feed synced via <code>scripts/sync-instagram.js</code></li>
+<li>Categories defined in <code>_data/categories.json</code></li>
+<li>Current nav: Home, Cakes, Gallery, About, Contact, WhatsApp</li>
+</ul>
+<p><strong>Feane Reference:</strong></p>
+<ul>
+<li>Bootstrap 4 grid system</li>
+<li>Dance Script + Open Sans fonts</li>
+<li>Isotope.js for filtering</li>
+<li>jQuery Nice Select for dropdowns</li>
+<li>Color scheme: Gold (#ffbe33), Dark (#222831), Light (#f1f2f3)</li>
+</ul>
+<p><strong>Key Changes:</strong></p>
+<ol>
+<li>Homepage gets hero carousel + &quot;Why Choose&quot; + &quot;Specialities&quot; + 3-step order process (no &quot;Our Menu&quot; showcase)</li>
+<li>Menu page becomes Instagram feed gallery with category filters + search</li>
+<li>About page created with Feane's two-column layout</li>
+<li>&quot;Book a Table&quot; completely removed</li>
+<li>All styling updated to match Feane's design system</li>
+</ol>
+<hr>
+<p><strong>Status</strong>: Ready for implementation<br>
+<strong>Last Updated</strong>: April 15, 2026</p>

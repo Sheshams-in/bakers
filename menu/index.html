@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse our full menu of custom cakes, cupcakes, tresletches, fondant creations and specialty desserts. 100% Vegetarian &amp; Eggless.">
+  <meta property="og:title" content="Our Menu - Sheshams Bakers">
+  <meta property="og:description" content="Browse our full menu of custom cakes, cupcakes, tresletches, fondant creations and specialty desserts. 100% Vegetarian &amp; Eggless.">
+  <meta property="og:image" content="/assets/images/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sheshams-bakers.com">
+  <meta name="theme-color" content="#0066cc">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <title>Our Menu - Sheshams Bakers</title>
+  
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
+  
+  <!-- Font Awesome 6.x for icons (CDN - jsDelivr) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  
+  <!-- Bootstrap Icons (Free & Open Source) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <!-- jQuery Nice Select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous">
+  
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  
+  <!-- Sheshams Bakers Custom CSS -->
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <!-- Responsive styles -->
+  <link href="/assets/css/responsive.css" rel="stylesheet" />
+  
+  <!-- Theme Stylesheet (Gold or Purple) - change href to switch themes -->
+  <link id="theme-stylesheet" rel="stylesheet" href="/assets/css/theme-gold.css">
+  
+  <link rel="icon" href="/assets/images/favicon.ico">
+  
+  <!-- AOS (Animate On Scroll) Library for smooth scroll animations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+  <header class="header_section">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <a class="navbar-brand" href="/">
+        <span class="brand-shesh">Shesh</span><span class="brand-ams">Am's</span><span class="brand-bakers">Bakers</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class=""></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="/">Home </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/menu/">Menu <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/about/">About </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/contact/">Contact </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/gallery/">Gallery </a>
+          </li>
+        </ul>
+        <div class="user_option">
+          <a href="https://wa.me/14438582646" class="user_link" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+          <form class="form-inline">
+            <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+  
+  <main>
+    
+<!-- ============================================
+     MENU HERO (sub-page minimal header)
+     ============================================ -->
+<section class="hero_area sub_page_hero">
+  <div class="bg-box">
+    <img src="/assets/images/hero-bg.jpg" alt="Sheshams Bakers Menu">
+  </div>
+  <div class="slider_section">
+    <div class="detail-box">
+      <h1>Our Menu</h1>
+      <p style="color: rgba(255,255,255,0.85);">Handcrafted creations — 100% Vegetarian &amp; Eggless</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     MENU SECTION (Using Instagram Feed)
+     ============================================ -->
+<section class="food_section layout_padding" style="background: #f9f9f9;">
+  <div class="container">
+
+    <div class="heading_container heading_center" style="margin-bottom: 2rem;">
+      <h2>Browse All Creations</h2>
+      <p style="font-size: 1.1rem; color: #999; margin-top: 0.5rem;">Filter by category to explore our portfolio</p>
+    </div>
+
+    <!-- Category Filters -->
+    <ul class="filters_menu">
+      <li class="active" data-filter="*">All</li>
+      <li data-filter=".birthday">Birthday</li>
+      <li data-filter=".cupcakes">Cupcakes</li>
+      <li data-filter=".tresletches">Tresletches</li>
+      <li data-filter=".fondant">Fondant</li>
+      <li data-filter=".speciality">Speciality</li>
+      <li data-filter=".whipped-cream">Whipped Cream</li>
+      <li data-filter=".butter-cream">Butter Cream</li>
+    </ul>
+
+    <!-- Menu Grid with Instagram Feed -->
+    <div class="filters-content">
+      <div class="row grid" id="menuGrid">
+        <!-- Will be populated with Instagram feed -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Menu JavaScript to load Instagram feed -->
+<script>
+document.addEventListener('DOMContentLoaded', async function() {
+  const menuGrid = document.getElementById('menuGrid');
+  
+  try {
+    // Load Instagram feed data
+    const response = await fetch('/posts/instagram-feed.json');
+    if (!response.ok) {
+      throw new Error('Failed to load posts');
+    }
+    
+    const posts = await response.json();
+    
+    // Render posts
+    posts.forEach(post => {
+      const categories = (post.categories || []).map(cat => cat.toLowerCase().replace(/\s+/g, '-')).join(' ');
+      
+      const col = document.createElement('div');
+      col.className = `col-sm-6 col-lg-4 all ${categories}`;
+      
+      col.innerHTML = `
+        <div class="box">
+          <div class="img-box">
+            <img src="${post.localImagePath || post.imageUrl || '/assets/images/placeholder.jpg'}" alt="${post.caption || 'Sheshams Bakers cake'}" loading="lazy">
+          </div>
+          <div class="detail-box">
+            <h5>${(post.categories && post.categories[0]) || 'Our Creation'}</h5>
+            <p>${(post.caption || 'Beautiful handcrafted cake').substring(0, 80)}...</p>
+          </div>
+          <div class="box-footer">
+            <a href="${post.permalink}" target="_blank" class="instagram-btn">
+              <i class="fa-brands fa-instagram"></i>
+              <span>View more</span>
+            </a>
+          </div>
+        </div>
+      `;
+      
+      menuGrid.appendChild(col);
+    });
+    
+    // Initialize Isotope filtering
+    const $grid = jQuery('.grid');
+    $grid.isotope({
+      itemSelector: '.col-sm-6',
+      layoutMode: 'fitRows'
+    });
+    
+    // Trigger layout after items load
+    setTimeout(() => {
+      $grid.isotope('layout');
+    }, 100);
+    
+    // Filter functionality
+    jQuery('.filters_menu li').on('click', function() {
+      const filterValue = jQuery(this).attr('data-filter');
+      jQuery('.filters_menu li').removeClass('active');
+      jQuery(this).addClass('active');
+      $grid.isotope({ filter: filterValue });
+      
+      // Re-layout after filtering
+      setTimeout(() => {
+        $grid.isotope('layout');
+      }, 300);
+    });
+    
+  } catch (error) {
+    console.error('Error loading menu:', error);
+    menuGrid.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">Unable to load menu. Please try again later.</p>';
+  }
+});
+</script>
+
+
+  </main>
+
+  <footer class="footer_section">
+  <div class="container">
+    <div class="row">
+      <!-- Column 1: Contact Info -->
+      <div class="col-md-4 footer-col">
+        <div class="footer_contact">
+          <h4>Contact Us</h4>
+          <div class="contact_link_box">
+            <a href="">
+              <i class="fa-solid fa-map-marker" aria-hidden="true"></i>
+              <span>Location Here</span>
+            </a>
+            <a href="https://wa.me/14438582646">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span>+91 9999999999</span>
+            </a>
+            <a href="mailto:info@sheshamsbakers.com">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <span>info@sheshamsbakers.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2: Logo + About + Socials -->
+      <div class="col-md-4 footer-col">
+        <div class="footer_detail">
+          <a href="/" class="footer-logo"><span class="brand-shesh">Shesh</span><span class="brand-ams">Am's</span><span class="brand-bakers">Bakers</span></a>
+          <p>Premium artisan cakes & cupcakes. 100% Vegetarian • Entirely Eggless • Handcrafted Daily</p>
+          <div class="footer_social">
+            <a href="https://www.instagram.com/sheshams_bakers/" target="_blank" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/14438582646" target="_blank" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Opening Hours + Links -->
+      <div class="col-md-4 footer-col">
+        <h4>Opening Hours</h4>
+        <p>Monday - Sunday</p>
+        <p>10:00 AM - 8:00 PM</p>
+      </div>
+    </div>
+    <!-- Footer Bottom -->
+    <div class="footer-info">
+      <p>&copy; <span id="displayYear"></span> Sheshams Bakers. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('displayYear').textContent = new Date().getFullYear();
+</script>
+
+
+  
+  <!-- jQuery 3.4.1 -->
+  <script src="/assets/js/jquery-3.4.1.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="/assets/js/bootstrap.js"></script>
+  <!-- Owl Carousel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- Isotope JS -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- Nice Select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- Custom JS -->
+  <script src="/assets/js/custom.js"></script>
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+  <!-- Menu Search JS -->
+  <script src="/assets/js/menu-search.js"></script>
+  
+  <!-- Theme Switcher JS -->
+  <script src="/assets/js/theme-switcher.js"></script>
+</body>
+</html>
+

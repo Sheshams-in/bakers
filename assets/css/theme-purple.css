@@ -1,0 +1,42 @@
+/* ============================================
+   THEME: PURPLE
+   Alternative color scheme with purple (#4a03b6)
+   ============================================ */
+
+:root {
+  /* Primary Brand Colors */
+  --primary-color: #4a03b6;           /* Purple accent */
+  --primary-color-dark: #3a0288;      /* Purple hover state */
+  --primary-color-light: #6b1fe6;     /* Purple lighter shade */
+  
+  /* Secondary Colors */
+  --secondary-dark: #222831;          /* Dark backgrounds */
+  --secondary-light: #f1f2f3;         /* Light backgrounds */
+  --secondary-text: #0c0c0c;          /* Dark text */
+  
+  /* Accent Colors */
+  --accent-pink: #FF1493;             /* Pink/magenta accents */
+  --accent-purple: #4a03b6;           /* Purple accent (same as primary) */
+  
+  /* Section Specific Colors */
+  --section-green: #6b1fe6;           /* Purple for first section */
+  --section-green-dark: #4a03b6;      /* Purple darker */
+  --section-dark: #333333;            /* Dark/black section */
+  --section-dark-darker: #1a1a1a;     /* Darker version */
+  --section-orange: #6b1fe6;          /* Purple for third section */
+  --section-orange-dark: #4a03b6;     /* Purple darker */
+  
+  /* Typography */
+  --font-heading: 'Dancing Script', cursive;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* Optional: Define theme-aware button styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+}

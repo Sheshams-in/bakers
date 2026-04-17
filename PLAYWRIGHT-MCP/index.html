@@ -1,0 +1,127 @@
+<h1 id="playwright-mcp-setup" tabindex="-1">Playwright MCP Setup</h1>
+<h2 id="installation-%E2%9C%85" tabindex="-1">Installation ✅</h2>
+<p><strong>Playwright MCP Server</strong> is installed globally and configured for this workspace.</p>
+<ul>
+<li><strong>Package</strong>: <code>@playwright/mcp</code> v0.0.70</li>
+<li><strong>Location</strong>: <code>/opt/homebrew/lib/node_modules/@playwright/mcp</code></li>
+<li><strong>Executable</strong>: <code>playwright-mcp</code></li>
+<li><strong>Config</strong>: <a href=".mcprc">.mcprc</a></li>
+</ul>
+<h2 id="what-is-mcp%3F" tabindex="-1">What is MCP?</h2>
+<p>MCP (Model Context Protocol) enables AI assistants like Claude/Copilot to:</p>
+<ul>
+<li>✅ Launch and control browsers</li>
+<li>✅ Navigate web pages</li>
+<li>✅ Extract data from web content</li>
+<li>✅ Perform automated interactions</li>
+<li>✅ Take screenshots and perform visual analysis</li>
+</ul>
+<h2 id="prerequisites" tabindex="-1">Prerequisites</h2>
+<p>Before using Playwright MCP with Claude/Copilot:</p>
+<ol>
+<li>
+<p><strong>Configure VS Code Copilot</strong></p>
+<ul>
+<li>Open VS Code Settings (Cmd+,)</li>
+<li>Search for &quot;copilot&quot; and find MCP settings</li>
+<li>Add Playwright MCP server configuration</li>
+</ul>
+</li>
+<li>
+<p><strong>Browser Requirements</strong></p>
+<ul>
+<li>Chromium, Firefox, and WebKit are already installed</li>
+<li>Located in: <code>~/.cache/ms-playwright/</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="usage-examples" tabindex="-1">Usage Examples</h2>
+<h3 id="claude-can-now%3A" tabindex="-1">Claude Can Now:</h3>
+<p><strong>Take a screenshot of your site:</strong></p>
+<pre><code>@Copilot Take a screenshot of the homepage at http://localhost:3000
+</code></pre>
+<p><strong>Extract data from a page:</strong></p>
+<pre><code>@Copilot Navigate to http://localhost:3000/gallery and list all gallery items
+</code></pre>
+<p><strong>Fill forms and interact:</strong></p>
+<pre><code>@Copilot Go to http://localhost:3000/contact, fill the contact form, and submit it
+</code></pre>
+<p><strong>Validate page structure:</strong></p>
+<pre><code>@Copilot Check if all menu items are present on http://localhost:3000/menu
+</code></pre>
+<h2 id="local-testing-setup" tabindex="-1">Local Testing Setup</h2>
+<p>To test Playwright MCP with your local dev server:</p>
+<ol>
+<li>
+<p><strong>Start the dev server:</strong></p>
+<pre><code class="language-bash">npm run dev
+</code></pre>
+<p>Server runs on <code>http://localhost:3000</code></p>
+</li>
+<li>
+<p><strong>Available URLs:</strong></p>
+<ul>
+<li>Homepage: <code>http://localhost:3000/</code></li>
+<li>Menu: <code>http://localhost:3000/menu</code></li>
+<li>Gallery: <code>http://localhost:3000/gallery</code></li>
+<li>About: <code>http://localhost:3000/about</code></li>
+<li>Contact: <code>http://localhost:3000/contact</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="playwright-mcp-commands" tabindex="-1">Playwright MCP Commands</h2>
+<p>When using Claude/Copilot with this MCP server, available tools include:</p>
+<ul>
+<li><strong>navigate(url)</strong> — Navigate to a URL</li>
+<li><strong>goBack()</strong> — Go back to previous page</li>
+<li><strong>goForward()</strong> — Go forward</li>
+<li><strong>screenshot()</strong> — Capture page screenshot</li>
+<li><strong>click(selector)</strong> — Click an element</li>
+<li><strong>fill(selector, text)</strong> — Fill form input</li>
+<li><strong>getText(selector)</strong> — Extract text content</li>
+<li><strong>getHTML()</strong> — Get page HTML</li>
+<li><strong>evaluate(script)</strong> — Execute JavaScript</li>
+<li><strong>waitForSelector(selector)</strong> — Wait for element</li>
+<li>And many more...</li>
+</ul>
+<h2 id="integration-with-tests" tabindex="-1">Integration with Tests</h2>
+<p>Files already set up:</p>
+<ul>
+<li><a href="playwright.config.ts">playwright.config.ts</a> — Configuration</li>
+<li><a href="tests/example.spec.ts">tests/example.spec.ts</a> — Sample tests</li>
+</ul>
+<p>Run tests:</p>
+<pre><code class="language-bash">npm test              # Run all tests
+npm run test:ui       # Interactive UI
+npm run test:debug    # Debugging mode
+</code></pre>
+<h2 id="next-steps" tabindex="-1">Next Steps</h2>
+<ol>
+<li><strong>Test with VS Code Copilot</strong> - Ask Copilot to interact with your site</li>
+<li><strong>Extend MCP Commands</strong> - Create custom Playwright scripts</li>
+<li><strong>Integrate with CI/CD</strong> - Add Playwright tests to deployment pipeline</li>
+<li><strong>Visual Testing</strong> - Use screenshots for regression testing</li>
+</ol>
+<h2 id="troubleshooting" tabindex="-1">Troubleshooting</h2>
+<p><strong>MCP server not connecting?</strong></p>
+<ul>
+<li>Verify installation: <code>playwright-mcp --version</code></li>
+<li>Check configuration: <code>cat .mcprc</code></li>
+<li>Restart VS Code</li>
+</ul>
+<p><strong>Browsers not found?</strong></p>
+<ul>
+<li>Reinstall browsers: <code>npx playwright install</code></li>
+<li>Check cache: <code>ls ~/.cache/ms-playwright/</code></li>
+</ul>
+<p><strong>Tests failing?</strong></p>
+<ul>
+<li>Ensure dev server is running: <code>npm run dev</code></li>
+<li>Check baseURL in <a href="playwright.config.ts">playwright.config.ts</a></li>
+</ul>
+<h2 id="documentation" tabindex="-1">Documentation</h2>
+<ul>
+<li><a href="https://playwright.dev">Playwright Docs</a></li>
+<li><a href="https://modelcontextprotocol.io">MCP Protocol Spec</a></li>
+<li><a href="https://npm.im/@playwright/mcp">Playwright MCP Package</a></li>
+</ul>

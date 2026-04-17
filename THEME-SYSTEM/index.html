@@ -1,0 +1,139 @@
+<h1 id="color-theme-system-guide" tabindex="-1">Color Theme System Guide</h1>
+<h2 id="overview" tabindex="-1">Overview</h2>
+<p>I've created a <strong>CSS Variable-based theming system</strong> that makes it easy to switch between color schemes without modifying HTML or inline styles. This is much cleaner than hardcoding colors.</p>
+<h2 id="how-it-works" tabindex="-1">How It Works</h2>
+<h3 id="1.-theme-files-(choose-one-to-load)" tabindex="-1">1. <strong>Theme Files</strong> (Choose ONE to load)</h3>
+<ul>
+<li><strong><code>assets/css/theme-gold.css</code></strong> - Default gold theme (#ffbe33)</li>
+<li><strong><code>assets/css/theme-purple.css</code></strong> - Purple theme (#4a03b6)</li>
+</ul>
+<p>Each theme file defines CSS custom properties (variables) for all colors used throughout the site.</p>
+<h3 id="2.-css-variables" tabindex="-1">2. <strong>CSS Variables</strong></h3>
+<p>All colors are defined as variables in the <code>:root</code> selector:</p>
+<pre><code class="language-css">--primary-color: #ffbe33;           /* Main accent color */
+--primary-color-dark: #e69c00;      /* Hover state */
+--section-green: #6bc34a;           /* Section colors */
+--section-orange: #ff6f00;
+/* etc. */
+</code></pre>
+<h3 id="3.-how-to-use-variables-in-inline-styles" tabindex="-1">3. <strong>How to Use Variables in Inline Styles</strong></h3>
+<p>Replace hardcoded colors with <code>var()</code> function:</p>
+<p><strong>Before (hardcoded):</strong></p>
+<pre><code class="language-html">&lt;button style=&quot;background-color: #ffbe33; color: white;&quot;&gt;Click Me&lt;/button&gt;
+</code></pre>
+<p><strong>After (using variables):</strong></p>
+<pre><code class="language-html">&lt;button style=&quot;background-color: var(--primary-color); color: white;&quot;&gt;Click Me&lt;/button&gt;
+</code></pre>
+<hr>
+<h2 id="implementation-steps" tabindex="-1">Implementation Steps</h2>
+<h3 id="step-1%3A-add-theme-stylesheet-link-to-_includes%2Flayouts%2Fbase.njk" tabindex="-1">Step 1: Add Theme Stylesheet Link to <code>_includes/layouts/base.njk</code></h3>
+<p>In the <code>&lt;head&gt;</code> section of your base layout, add:</p>
+<pre><code class="language-html">&lt;!-- Default theme - change file path to switch themes --&gt;
+&lt;link id=&quot;theme-stylesheet&quot; rel=&quot;stylesheet&quot; href=&quot;/assets/css/theme-gold.css&quot;&gt;
+</code></pre>
+<p><strong>The <code>id=&quot;theme-stylesheet&quot;</code> is important</strong> — it allows JavaScript to swap themes dynamically.</p>
+<h3 id="step-2%3A-add-theme-switcher-javascript-(optional)" tabindex="-1">Step 2: Add Theme Switcher JavaScript (Optional)</h3>
+<p>In the same <code>&lt;head&gt;</code>, add:</p>
+<pre><code class="language-html">&lt;script src=&quot;/assets/js/theme-switcher.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>This enables runtime theme switching via:</p>
+<ul>
+<li><code>switchTheme('purple')</code> - Switch to purple</li>
+<li><code>switchTheme('gold')</code> - Switch back to gold</li>
+</ul>
+<h3 id="step-3%3A-update-inline-styles-to-use-variables" tabindex="-1">Step 3: Update Inline Styles to Use Variables</h3>
+<p>Find all hardcoded color values and replace them with CSS variables:</p>
+<p><strong>Example - &quot;Why Choose&quot; section:</strong></p>
+<pre><code class="language-html">&lt;!-- Before --&gt;
+&lt;div style=&quot;background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%);&quot;&gt;&lt;/div&gt;
+
+&lt;!-- After --&gt;
+&lt;div style=&quot;background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-light) 100%);&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p><strong>Example - &quot;How to Order&quot; section:</strong></p>
+<pre><code class="language-html">&lt;!-- Before - Green --&gt;
+&lt;div style=&quot;background: linear-gradient(135deg, #6bc34a 0%, #558b2f 100%);&quot;&gt;&lt;/div&gt;
+
+&lt;!-- After --&gt;
+&lt;div style=&quot;background: linear-gradient(135deg, var(--section-green) 0%, var(--section-green-dark) 100%);&quot;&gt;&lt;/div&gt;
+</code></pre>
+<hr>
+<h2 id="quick-switching-methods" tabindex="-1">Quick Switching Methods</h2>
+<h3 id="method-1%3A-static-switching-(simple)" tabindex="-1">Method 1: <strong>Static Switching</strong> (Simple)</h3>
+<p>Change the stylesheet link in <code>base.njk</code>:</p>
+<pre><code class="language-html">&lt;!-- Switch to purple --&gt;
+&lt;link id=&quot;theme-stylesheet&quot; rel=&quot;stylesheet&quot; href=&quot;/assets/css/theme-purple.css&quot;&gt;
+</code></pre>
+<h3 id="method-2%3A-javascript-switching-(dynamic)" tabindex="-1">Method 2: <strong>JavaScript Switching</strong> (Dynamic)</h3>
+<p>Add a theme switcher UI and use:</p>
+<pre><code class="language-js">// In browser console or attached to buttons
+switchTheme('purple');
+switchTheme('gold');
+</code></pre>
+<h3 id="method-3%3A-theme-toggle-button-(user-choice)" tabindex="-1">Method 3: <strong>Theme Toggle Button</strong> (User Choice)</h3>
+<pre><code class="language-html">&lt;button onclick=&quot;switchTheme('purple')&quot;&gt;Purple Theme&lt;/button&gt;
+&lt;button onclick=&quot;switchTheme('gold')&quot;&gt;Gold Theme&lt;/button&gt;
+</code></pre>
+<hr>
+<h2 id="available-css-variables" tabindex="-1">Available CSS Variables</h2>
+<h3 id="primary-colors" tabindex="-1">Primary Colors</h3>
+<ul>
+<li><code>--primary-color</code> — Main accent (gold/purple)</li>
+<li><code>--primary-color-dark</code> — Darker version (hover state)</li>
+<li><code>--primary-color-light</code> — Lighter version</li>
+</ul>
+<h3 id="section-colors-(for-3-column-sections)" tabindex="-1">Section Colors (for 3-column sections)</h3>
+<ul>
+<li><code>--section-green</code> — Left/first section</li>
+<li><code>--section-green-dark</code> — Darker green</li>
+<li><code>--section-dark</code> — Middle/dark section</li>
+<li><code>--section-dark-darker</code> — Darker version</li>
+<li><code>--section-orange</code> — Right/third section</li>
+<li><code>--section-orange-dark</code> — Darker orange</li>
+</ul>
+<h3 id="supporting-colors" tabindex="-1">Supporting Colors</h3>
+<ul>
+<li><code>--secondary-dark</code> — Dark UI elements (#222831)</li>
+<li><code>--secondary-light</code> — Light backgrounds (#f1f2f3)</li>
+<li><code>--accent-pink</code> — Pink accents (#FF1493)</li>
+</ul>
+<hr>
+<h2 id="creating-a-new-theme" tabindex="-1">Creating a New Theme</h2>
+<ol>
+<li>Duplicate <code>theme-gold.css</code> and name it <code>theme-yourname.css</code></li>
+<li>Update all color values in <code>:root { }</code></li>
+<li>Add a link in <code>base.njk</code> or register it in <code>theme-switcher.js</code>:</li>
+</ol>
+<pre><code class="language-js">const themeMap = {
+  gold: '/assets/css/theme-gold.css',
+  purple: '/assets/css/theme-purple.css',
+  'your-new-theme': '/assets/css/theme-yourname.css',  // Add here
+};
+</code></pre>
+<hr>
+<h2 id="example%3A-complete-update-for-one-section" tabindex="-1">Example: Complete Update for One Section</h2>
+<h3 id="%22why-choose-us%22-section---before%3A" tabindex="-1">&quot;Why Choose Us&quot; section - Before:</h3>
+<pre><code class="language-html">&lt;div style=&quot;background: linear-gradient(135deg, #ffbe33 0%, #f5b530 100%);&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="after%3A" tabindex="-1">After:</h3>
+<pre><code class="language-html">&lt;div style=&quot;background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-light) 100%);&quot;&gt;&lt;/div&gt;
+</code></pre>
+<hr>
+<h2 id="pros-of-this-approach" tabindex="-1">Pros of This Approach</h2>
+<p>✅ <strong>Single point of change</strong> — Update one CSS file, all colors change<br>
+✅ <strong>Easy to add themes</strong> — Create new theme files in seconds<br>
+✅ <strong>No hardcoding</strong> — Colors are defined once, used everywhere<br>
+✅ <strong>User preference</strong> — Can save theme choice to localStorage<br>
+✅ <strong>Runtime switching</strong> — Change themes without page reload<br>
+✅ <strong>Maintainable</strong> — Future developers understand the system</p>
+<hr>
+<h2 id="next-steps" tabindex="-1">Next Steps</h2>
+<ol>
+<li>Add <code>&lt;link id=&quot;theme-stylesheet&quot; href=&quot;/assets/css/theme-gold.css&quot;&gt;</code> to <code>base.njk</code></li>
+<li>Add <code>&lt;script src=&quot;/assets/js/theme-switcher.js&quot;&gt;&lt;/script&gt;</code> to <code>base.njk</code></li>
+<li>Gradually update inline styles to use CSS variables</li>
+<li>Test theme switching with <code>switchTheme('purple')</code> in browser console</li>
+</ol>
+<hr>
+<h2 id="questions%3F" tabindex="-1">Questions?</h2>
+<p>The system is designed to be simple and extensible. Start with the static approach (just change the theme link), then add JavaScript switching if you want runtime flexibility.</p>
