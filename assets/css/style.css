@@ -1816,4 +1816,101 @@ a:focus {
     padding: 30px 20px;
   }
 }
+
+/**
+ * Menu Grid - Consistent Card Width
+ * Ensures all menu items have the same width regardless of image size
+ */
+#menuGrid .all {
+  width: 100%;
+  flex-basis: 100%;
+}
+
+/* 3 columns on desktop */
+@media (min-width: 992px) {
+  #menuGrid .all {
+    flex-basis: calc(33.333% - 20px);
+    width: calc(33.333% - 20px);
+    margin: 10px;
+  }
+}
+
+/* 2 columns on tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  #menuGrid .all {
+    flex-basis: calc(50% - 20px);
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}
+
+/* 1 column on mobile */
+@media (max-width: 767px) {
+  #menuGrid .all {
+    flex-basis: 100%;
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Ensure box fills container */
+#menuGrid .box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fixed image height for consistency */
+#menuGrid .img-box {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+  background: #f1f2f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px 15px 0 0;
+}
+
+#menuGrid .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Detail box styling */
+#menuGrid .detail-box {
+  padding: 20px;
+  background: #222831;
+  color: #ffffff;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#menuGrid .box-footer {
+  padding: 15px 20px;
+  background: #222831;
+  border-radius: 0 0 15px 15px;
+}
+
+#menuGrid .instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffbe33;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+#menuGrid .instagram-btn:hover {
+  background: #e69c00;
+  transform: translateY(-2px);
+}
 /*# sourceMappingURL=style.css.map */
