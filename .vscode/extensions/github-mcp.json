@@ -1,0 +1,12 @@
+{
+  "name": "GitHub MCP",
+  "type": "github",
+  "description": "Model Context Protocol for GitHub integration with SheshamsBakers repository",
+  "repository": "https://github.com/Sheshams-in/bakers.git",
+  "capabilities": {
+    "canReadRepository": true,
+    "canManagePullRequests": true,
+    "canManageIssues": true,
+    "canAccessWorkflows": true
+  }
+}
