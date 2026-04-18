@@ -2,10 +2,10 @@ const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
   // Set path prefix for deployment
-  // - GitHub Pages project (default): /bakers/
-  // - Custom domain or root: / (set ELEVENTY_PATH_PREFIX="/")
-  // - Subdirectory deployment: /subdirectory/ (set ELEVENTY_PATH_PREFIX="/subdirectory/")
-  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || '/bakers/';
+  // - Custom domain (production): / (default for bakers.sheshams.in)
+  // - GitHub Pages project: /bakers/
+  // - Subdirectory deployment: /subdirectory/
+  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || '/';
   
   // Ignore directories
   eleventyConfig.ignores.add(".github/**");

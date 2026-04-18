@@ -1,5 +1,14 @@
 # SheshamsBakers Project Guidelines
 
+## ⚠️ MANDATORY INSTRUCTION FOR ALL CHANGES
+**BEFORE MAKING ANY CODE CHANGES:** Ensure that modifications do **NOT** affect the currently working live site at https://bakers.sheshams.in/. 
+- Test all changes locally first (npm run dev)
+- Verify CSS/JS changes don't break existing functionality
+- Review how changes deploy to production branches
+- If uncertain, ask user for explicit permission before modifying live-affecting files
+
+---
+
 ## Code Style
 
 ### CSS Naming & Organization

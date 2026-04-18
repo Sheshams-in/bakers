@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "eleventy --serve",
-    "build": "eleventy",
+    "dev": "ELEVENTY_PATH_PREFIX=/ eleventy --serve",
+    "build": "ELEVENTY_PATH_PREFIX=/ eleventy",
     "start": "npm run dev",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
