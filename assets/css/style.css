@@ -831,28 +831,54 @@ a:focus {
   background-color: #e69c00;
 }
 
-/* Grid Layout - Isotope  */
+/* Grid Layout - Isotope with fitRows layout mode */
 .food_section .grid {
   margin: 0 -15px;
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .food_section .grid > [class*='col-'] {
   padding: 0 15px 40px 15px;
 }
 
-/* Filter Visibility Classes - Override Isotope inline styles */
-.food_section .grid > [class*='col-'].isotope-hidden {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
+/* Items - 3 columns on desktop (override Bootstrap col-sm-6 and col-lg-4) */
+#menuGrid .all {
+  flex-basis: calc(33.333% - 20px) !important;
+  width: calc(33.333% - 20px) !important;
+  margin: 10px;
+  display: flex !important;
 }
 
-.food_section .grid > [class*='col-'].isotope-visible {
-  display: block !important;
-  opacity: 1 !important;
+/* 2 columns on tablet (override Bootstrap col-sm-6) */
+@media (max-width: 768px) {
+  #menuGrid .all {
+    flex-basis: calc(50% - 20px) !important;
+    width: calc(50% - 20px) !important;
+  }
+}
+
+/* 1 column on mobile */
+@media (max-width: 576px) {
+  #menuGrid .all {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    margin: 10px 0;
+  }
+}
+
+/* Filter Visibility - Higher specificity with ID selector */
+#menuGrid .all.isotope-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+#menuGrid .all.isotope-visible {
+  display: flex !important;
   visibility: visible !important;
-  pointer-events: auto !important;
+  opacity: 1 !important;
 }
 
 .about_section {
@@ -1634,25 +1660,25 @@ a:focus {
 }
 
 /* Food section grid layout - force 3 columns by default */
-.food_section .row {
+.food_section .row:not(.grid) {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 2rem !important;
 }
 
 @media (max-width: 991px) {
-  .food_section .row {
+  .food_section .row:not(.grid) {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media (max-width: 575px) {
-  .food_section .row {
+  .food_section .row:not(.grid) {
     grid-template-columns: 1fr !important;
   }
 }
 
-.food_section .row > [class*='col-'] {
+.food_section .row:not(.grid) > [class*='col-'] {
   display: flex !important;
   margin: 0 !important;
   min-width: 0;
