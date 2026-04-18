@@ -12,13 +12,13 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const ACCESS_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN;
+const ACCESS_TOKEN = process.env.INSTAGRAM_TOKEN || process.env.INSTAGRAM_ACCESS_TOKEN;
 const ACCOUNT_ID = process.env.INSTAGRAM_ACCOUNT_ID;
 const OUTPUT_FILE = path.join(__dirname, '../posts/instagram-feed.json');
 const IMAGES_DIR = path.join(__dirname, '../assets/images/instagram');
 
 if (!ACCESS_TOKEN || !ACCOUNT_ID) {
-  console.error('❌ Error: INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_ACCOUNT_ID are required');
+  console.error('❌ Error: INSTAGRAM_TOKEN and INSTAGRAM_ACCOUNT_ID are required');
   console.error('Set them in .env file or as environment variables');
   process.exit(1);
 }
