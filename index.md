@@ -242,7 +242,7 @@ googleVerification: OKFI36CZ1bCnLi6tUC_Q6_EHUAX25xoOuR2xZMf3ois
       <div class="col-md-6">
         <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
           <h4 style="color: #222831; margin-bottom: 15px;">🎂 We take orders from</h4>
-          <ul style="list-style: none; padding: 0; color: #666; line-height: 1.8;">
+          <ul style="list-style: none; padding: 0; color: #666; line-height: 1;">
             <li>✓ Owings Mills, MD</li>
             <li>✓ Baltimore County</li>
             <li>✓ Ellicott City, MD</li>
