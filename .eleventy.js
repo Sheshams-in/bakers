@@ -7,8 +7,9 @@ module.exports = function(eleventyConfig) {
   // - Subdirectory deployment: /subdirectory/
   const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || '/';
   
-  // Ignore directories
+  // Ignore directories and files
   eleventyConfig.ignores.add(".github/**");
+  eleventyConfig.ignores.add("sitemap.njk");  // Use static sitemap.xml instead
   
   // Passthrough copy for static assets
   // (These will be copied to _site and served correctly with pathPrefix)
@@ -18,6 +19,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy(".htaccess");
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("sitemap.xml");  // Static XML sitemap
 
   // Image optimization
   eleventyConfig.addNunjucksAsyncShortcode("image", async function(src, alt) {
