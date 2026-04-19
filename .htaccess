@@ -3,9 +3,16 @@
   RewriteEngine On
   RewriteBase /
   
-  # Remove .html extension from URLs
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # If it's an actual file or directory, don't rewrite
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  
+  # Try to serve with .html extension
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+  
+  # Otherwise, rewrite to index.html for SPA fallback
   RewriteRule ^(.*)$ index.html [L]
 </IfModule>
 
