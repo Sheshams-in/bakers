@@ -120,7 +120,7 @@ googleVerification: OKFI36CZ1bCnLi6tUC_Q6_EHUAX25xoOuR2xZMf3ois
 <!-- ============================================
      OUR SPECIALITIES
      ============================================ -->
-<section style="background: linear-gradient(2deg, #ac5e3b 0%, var(--primary-color-light) 100%)">
+<section style="background: linear-gradient(2deg, #ac5e3b 0%, var(--primary-color-light) 100%); padding: 60px 0;">
   <div class="container">
     <div class="heading_container heading_center">
       <h2 style="font-family: 'Dancing Script', cursive; color: #222831; font-size: 2.5rem; margin-bottom: 10px;">Our Specialities</h2>
