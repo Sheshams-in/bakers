@@ -7,4 +7,4 @@ Disallow: /playwright-report/
 Disallow: /test-results/
 Disallow: /.env
 
-Sitemap: https://bakers.sheshams.in/sitemap.xml
+Sitemap: https://bakers.sheshams.in/sitemaps/sitemap.xml
