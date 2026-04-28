@@ -20,7 +20,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy(".nojekyll");  // Disable Jekyll processing on GitHub Pages
-  eleventyConfig.addPassthroughCopy("sitemap.xml");  // Static XML sitemap
+  eleventyConfig.addPassthroughCopy("sitemaps");  // Static XML sitemaps directory
 
   // Image optimization
   eleventyConfig.addNunjucksAsyncShortcode("image", async function(src, alt) {
