@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <meta name="author" content="Sheshams Bakers">
   <meta name="description" content="{{ description or 'Premium artisan cakes, cupcakes, and specialty desserts. Vegetarian & Eggless. Order custom cakes via WhatsApp.' }}">
   <meta property="og:title" content="{{ title or 'Sheshams Bakers - Premium Artisan Cakes' }}">
   <meta property="og:description" content="{{ description or 'Handcrafted vegetarian cakes & cupcakes. 100% eggless. Custom designs available.' }}">
   <meta property="og:image" content="{{ ogImage or '/assets/images/og-image.jpg' | url }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ url or 'https://sheshams-bakers.com' }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="en_US">
   <meta name="theme-color" content="#0066cc">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,6 +24,9 @@
   {% endif %}
   
   <title>{{ title or 'Sheshams Bakers' }}</title>
+  
+  <!-- Canonical URL for SEO - tells Google which version is primary -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   
   <!-- Base path meta tag (set during build from ELEVENTY_PATH_PREFIX env var) -->
   <meta name="baseline-path" content="{{ basePath or '/' }}">
@@ -57,9 +65,9 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Sheshams Bakers",
-    "image": "https://bakers.sheshams.in/assets/images/og-image.jpg",
+    "image": "{{ site.url }}/assets/images/og-image.jpg",
     "description": "Premium artisan cakes, cupcakes, and specialty desserts. 100% Vegetarian & Eggless. Custom cakes in Baltimore, Maryland.",
-    "url": "https://bakers.sheshams.in",
+    "url": "{{ site.url }}",
     "telephone": "+1-858-264-6374",
     "address": {
       "@type": "PostalAddress",
