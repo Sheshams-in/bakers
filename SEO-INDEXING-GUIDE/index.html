@@ -1,0 +1,218 @@
+<h1 id="seo-indexing-fix---complete-guide" tabindex="-1">SEO Indexing Fix - Complete Guide</h1>
+<h2 id="%E2%9C%85-issues-fixed-(may-4%2C-2026)" tabindex="-1">✅ Issues Fixed (May 4, 2026)</h2>
+<h3 id="1.-missing-canonical-urls-%E2%9C%85-fixed" tabindex="-1">1. <strong>Missing Canonical URLs</strong> ✅ FIXED</h3>
+<ul>
+<li><strong>What was wrong</strong>: No <code>&lt;link rel=&quot;canonical&quot;&gt;</code> tags on any page</li>
+<li><strong>Impact</strong>: Google couldn't determine primary page versions</li>
+<li><strong>Solution</strong>: Added dynamic canonical URL to every page: <code>&lt;link rel=&quot;canonical&quot; href=&quot;https://bakers.sheshams.in/SEO-INDEXING-GUIDE/&quot;&gt;</code></li>
+<li><strong>Result</strong>: Each page now explicitly tells Google it's the authoritative version</li>
+</ul>
+<h3 id="2.-hardcoded-wrong-domain-in-og%3Aurl-%E2%9C%85-fixed" tabindex="-1">2. <strong>Hardcoded Wrong Domain in og:url</strong> ✅ FIXED</h3>
+<ul>
+<li><strong>What was wrong</strong>: <code>og:url</code> pointed to <code>https://sheshams-bakers.com</code> (doesn't exist)</li>
+<li><strong>Actual domain</strong>: <code>https://bakers.sheshams.in</code></li>
+<li><strong>Impact</strong>: Social sharing and Google crawlers saw wrong domain</li>
+<li><strong>Solution</strong>: Fixed to use actual domain: <code>&lt;meta property=&quot;og:url&quot; content=&quot;https://bakers.sheshams.in/SEO-INDEXING-GUIDE/&quot;&gt;</code></li>
+<li><strong>Result</strong>: All pages now have correct og:url matching actual domain</li>
+</ul>
+<h3 id="3.-missing-robots-metadata-%E2%9C%85-fixed" tabindex="-1">3. <strong>Missing Robots Metadata</strong> ✅ FIXED</h3>
+<ul>
+<li><strong>Added</strong>: <code>&lt;meta name=&quot;robots&quot; content=&quot;index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1&quot;&gt;</code></li>
+<li><strong>Benefit</strong>: Explicitly tells Google to index all pages and use full content in search results</li>
+</ul>
+<h3 id="4.-schema-markup-domain-references-%E2%9C%85-fixed" tabindex="-1">4. <strong>Schema Markup Domain References</strong> ✅ FIXED</h3>
+<ul>
+<li><strong>Fixed</strong>: LocalBusiness schema now uses dynamic <code>https://bakers.sheshams.in</code> instead of hardcoded URL</li>
+<li><strong>Benefit</strong>: Google Local Search results now reference correct domain</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%8B-what-was-added" tabindex="-1">📋 What Was Added</h2>
+<h3 id="new-site-configuration-file" tabindex="-1">New Site Configuration File</h3>
+<p><strong>File</strong>: <code>_data/site.json</code></p>
+<pre><code class="language-json">{
+  &quot;url&quot;: &quot;https://bakers.sheshams.in&quot;,
+  &quot;title&quot;: &quot;Sheshams Bakers&quot;,
+  &quot;description&quot;: &quot;Premium artisan cakes, cupcakes, and specialty desserts...&quot;
+}
+</code></pre>
+<h3 id="new-seo-meta-tags-(in-base.njk)" tabindex="-1">New SEO Meta Tags (in base.njk)</h3>
+<ul>
+<li><code>&lt;meta name=&quot;robots&quot; content=&quot;index, follow, ...&quot;&gt;</code></li>
+<li><code>&lt;meta name=&quot;language&quot; content=&quot;English&quot;&gt;</code></li>
+<li><code>&lt;meta name=&quot;revisit-after&quot; content=&quot;7 days&quot;&gt;</code></li>
+<li><code>&lt;meta name=&quot;author&quot; content=&quot;Sheshams Bakers&quot;&gt;</code></li>
+<li><code>&lt;link rel=&quot;canonical&quot; href=&quot;https://bakers.sheshams.in...&quot;&gt;</code></li>
+<li><code>&lt;meta property=&quot;og:locale&quot; content=&quot;en_US&quot;&gt;</code></li>
+</ul>
+<hr>
+<h2 id="%F0%9F%9A%80-next-steps-to-get-indexed" tabindex="-1">🚀 Next Steps to Get Indexed</h2>
+<h3 id="step-1%3A-submit-sitemap-to-google-search-console" tabindex="-1">Step 1: Submit Sitemap to Google Search Console</h3>
+<ol>
+<li>Go to <a href="https://search.google.com/search-console/">Google Search Console</a></li>
+<li>Select your property: <strong><a href="https://bakers.sheshams.in">https://bakers.sheshams.in</a></strong></li>
+<li>Go to <strong>Sitemaps</strong> (left menu)</li>
+<li>Enter sitemap URL: <code>https://bakers.sheshams.in/sitemaps/sitemap.xml</code></li>
+<li>Click <strong>Submit</strong></li>
+</ol>
+<h3 id="step-2%3A-request-indexing-for-key-pages" tabindex="-1">Step 2: Request Indexing for Key Pages</h3>
+<p>After submitting sitemap:</p>
+<ol>
+<li>In Search Console, use <strong>URL inspection</strong> tool</li>
+<li>Inspect your homepage: <code>https://bakers.sheshams.in/</code></li>
+<li>Click <strong>Request Indexing</strong> (blue button)</li>
+<li>Repeat for key pages:
+<ul>
+<li><code>/about/</code></li>
+<li><code>/menu/</code></li>
+<li><code>/gallery/</code></li>
+<li><code>/contact/</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="step-3%3A-monitor-indexing-status" tabindex="-1">Step 3: Monitor Indexing Status</h3>
+<ul>
+<li>Go to <strong>Coverage</strong> report in Search Console</li>
+<li><strong>Indexed pages</strong>: Should increase over 7-14 days</li>
+<li><strong>Errors</strong>: Address any crawl issues listed</li>
+</ul>
+<h3 id="step-4%3A-verify-in-google-search-results-(1-4-weeks)" tabindex="-1">Step 4: Verify in Google Search Results (1-4 weeks)</h3>
+<p>Try searching:</p>
+<ul>
+<li>&quot;Sheshams Bakers&quot;</li>
+<li>&quot;Vegetarian cakes Baltimore&quot;</li>
+<li>&quot;Custom eggless cakes Maryland&quot;</li>
+<li>Site should appear in results</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%94%8D-how-to-check-if-indexing-is-working" tabindex="-1">🔍 How to Check If Indexing is Working</h2>
+<h3 id="check-1%3A-site-search" tabindex="-1">Check 1: Site Search</h3>
+<p>In Google, search: <code>site:bakers.sheshams.in</code></p>
+<ul>
+<li>Should show indexed pages within 2-4 weeks</li>
+<li>Homepage should appear first</li>
+</ul>
+<h3 id="check-2%3A-url-inspection" tabindex="-1">Check 2: URL Inspection</h3>
+<p>Google Search Console → URL Inspection → Enter any URL from your site</p>
+<ul>
+<li>Green checkmark = &quot;URL is on Google&quot;</li>
+<li>If not indexed yet, shows &quot;Discovered but not indexed&quot; (normal for new fixes)</li>
+</ul>
+<h3 id="check-3%3A-canonical-verification" tabindex="-1">Check 3: Canonical Verification</h3>
+<p>Open any page in browser, press F12 (Developer Tools) → Go to Head section:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://bakers.sheshams.in/about/&quot;&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;https://bakers.sheshams.in/about/&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow, ...&quot;&gt;
+</code></pre>
+<p>✅ All should be present and show correct domain</p>
+<hr>
+<h2 id="%F0%9F%93%8A-current-seo-status" tabindex="-1">📊 Current SEO Status</h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Status</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canonical URLs</td>
+<td>✅ Fixed</td>
+<td>All 14 pages now have canonical URLs</td>
+</tr>
+<tr>
+<td>og:url Tags</td>
+<td>✅ Fixed</td>
+<td>Corrected to use actual domain</td>
+</tr>
+<tr>
+<td>Robots Meta</td>
+<td>✅ Fixed</td>
+<td>Allows indexing of all pages</td>
+</tr>
+<tr>
+<td>Sitemap</td>
+<td>✅ Present</td>
+<td><code>/sitemaps/sitemap.xml</code> generated</td>
+</tr>
+<tr>
+<td>robots.txt</td>
+<td>✅ Good</td>
+<td>Points to correct sitemap</td>
+</tr>
+<tr>
+<td>Site Configuration</td>
+<td>✅ Created</td>
+<td><code>_data/site.json</code> with domain</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%E2%9A%A0%EF%B8%8F-important-notes" tabindex="-1">⚠️ Important Notes</h2>
+<h3 id="why-previous-attempts-didn't-work" tabindex="-1">Why Previous Attempts Didn't Work</h3>
+<ul>
+<li>Google was seeing conflicting domains (hardcoded vs actual)</li>
+<li>No canonical to resolve the conflict</li>
+<li>Indexing was blocked while system decided which version was primary</li>
+</ul>
+<h3 id="why-these-fixes-work" tabindex="-1">Why These Fixes Work</h3>
+<ul>
+<li>Canonical URL = &quot;This is definitely the official version&quot;</li>
+<li>Correct og:url = &quot;This is where we actually live&quot;</li>
+<li>Robots meta = &quot;Please index this&quot;</li>
+<li>Combined = Google can now confidently crawl and index all pages</li>
+</ul>
+<h3 id="timeline" tabindex="-1">Timeline</h3>
+<ul>
+<li><strong>Hours 1-24</strong>: Google Search Console sees your fixes</li>
+<li><strong>Days 2-7</strong>: First pages indexed</li>
+<li><strong>Days 7-14</strong>: Most pages indexed</li>
+<li><strong>Weeks 2-4</strong>: Appearance in search results</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-technical-details" tabindex="-1">🛠️ Technical Details</h2>
+<h3 id="files-modified" tabindex="-1">Files Modified</h3>
+<ol>
+<li><code>_includes/layouts/base.njk</code> - Added canonical, og:locale, robots meta</li>
+<li><code>_data/site.json</code> - Created site configuration</li>
+</ol>
+<h3 id="urls-generated-for-each-page" tabindex="-1">URLs Generated for Each Page</h3>
+<ul>
+<li>Home: <code>https://bakers.sheshams.in/</code></li>
+<li>About: <code>https://bakers.sheshams.in/about/</code></li>
+<li>Menu: <code>https://bakers.sheshams.in/menu/</code></li>
+<li>Gallery: <code>https://bakers.sheshams.in/gallery/</code></li>
+<li>Contact: <code>https://bakers.sheshams.in/contact/</code></li>
+</ul>
+<p>All canonical URLs match these exactly.</p>
+<hr>
+<h2 id="%F0%9F%93%9E-troubleshooting" tabindex="-1">📞 Troubleshooting</h2>
+<h3 id="q%3A-pages-still-not-indexed-after-2-weeks%3F" tabindex="-1">Q: Pages still not indexed after 2 weeks?</h3>
+<p><strong>A</strong>:</p>
+<ol>
+<li>Check Search Console Coverage report for errors</li>
+<li>Verify robots.txt isn't blocking Google</li>
+<li>Check page content isn't thin or duplicated</li>
+<li>Request indexing manually for key pages</li>
+</ol>
+<h3 id="q%3A-how-to-force-re-indexing-of-old-pages%3F" tabindex="-1">Q: How to force re-indexing of old pages?</h3>
+<p><strong>A</strong>: Use Search Console → URL Inspection → Request Indexing</p>
+<h3 id="q%3A-should-i-add-more-seo-meta-tags%3F" tabindex="-1">Q: Should I add more SEO meta tags?</h3>
+<p><strong>A</strong>: Current setup is comprehensive. Optional additions:</p>
+<ul>
+<li>Twitter Card meta tags (if sharing on Twitter)</li>
+<li>Breadcrumb schema (if hierarchy needed)</li>
+<li>FAQPage schema (if you add FAQ section)</li>
+</ul>
+<hr>
+<h2 id="%E2%9C%85-deployment-%26-testing" tabindex="-1">✅ Deployment &amp; Testing</h2>
+<p>Built and tested on: <strong>May 4, 2026</strong></p>
+<ul>
+<li>All 14 pages build successfully ✅</li>
+<li>Canonical URLs render correctly ✅</li>
+<li>og:url uses correct domain ✅</li>
+<li>robots meta present ✅</li>
+</ul>
+<p>Ready for production deployment.</p>
+<hr>
+<p><strong>Next Action</strong>: Submit sitemap to Google Search Console and monitor indexing progress in Coverage report.</p>
